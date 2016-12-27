@@ -18,6 +18,9 @@ if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']
 $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_REQUEST['code']);
 ?>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="jquery.fancybox.js"></script>
+<link rel="stylesheet" href="jquery.fancybox.css" type="text/css">
+
 <div class="content-container"></div>
 <script>
 
@@ -42,5 +45,6 @@ function getorders(){
 	$(document).ready(function() {
 		getorders(); // start the loop
 	});
+	$("a.fancybox_btn").fancybox();
 })(jQuery);
 </script>
