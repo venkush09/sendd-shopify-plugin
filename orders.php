@@ -10,6 +10,8 @@ try
 	echo "<pre>";
 	//print_r($orders);
 	echo "</pre>";
+	echo "<a href='#popup_content' class='fancybox_btn'>Submit</a>";
+	
 	echo '<table class="table-hover expanded">';
 	 echo "<thead><tr>";
 	 echo '<th class="is-sortable"><span>Order</span></th>
@@ -78,7 +80,7 @@ catch (shopify\ApiException $e)
 	print_r($e->getResponse());
 }
 
-
+require __DIR__.'/popupcontent.php'; //popup content
 
 
 
