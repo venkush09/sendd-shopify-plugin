@@ -16,7 +16,31 @@ if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']
 	$_SESSION['code']=$_REQUEST['code'];
 }
 $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_REQUEST['code']);
-
-require __DIR__.'/orders.php'; //create smart collection
-
 ?>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<div class="content-container"></div>
+<script>
+
+// Get Collections / Share Page
+function getorders(){
+
+	var access_token='<?php echo $access_token ?>';
+	var shop='<?php echo $_REQUEST['shop'] ?>';
+
+	$.ajax({
+		url: '/orders.php?access_token='+access_token+'&shop='+shop,
+		success: function(data){
+			console.log(data);
+			$('.content-container').html(data);
+			
+		}
+	});
+}
+// Initial Page Load
+(function($) {
+	
+	$(document).ready(function() {
+		getorders(); // start the loop
+	});
+})(jQuery);
+</script>
