@@ -10,6 +10,27 @@ try
 	echo "<pre>";
 	//print_r($orders);
 	echo "</pre>";
+	echo '<table class="table-hover expanded">';
+	 echo "<thead><tr>";
+	 echo '<th class="is-sortable"><span>Order</span></th>
+                          <th class="is-sortable">
+                            <span>Date</span>
+                          </th>
+                          <th class="is-sortable">
+                            <span>Customer</span>
+                          </th>
+                          <th class="is-sortable ">
+                            <span>Payment status</span>
+                          </th>
+                          <th class="is-sortable sorted-desc">
+                            <span>Fulfillment status</span>
+                          </th>
+                          <th class="type--right is-sortable ">
+                            <span>Total</span>
+                          </th>
+                        </tr>
+                      </thead>';
+					  echo '<tbody>';
 	foreach($orders as $singleorder)
 	{
 		echo $id =$singleorder['id'];
@@ -27,9 +48,18 @@ try
 		{
 			$fulfillment_status = $singleorder['fulfillment_status'];
 		}
-		
+		echo "<tr>";
+		echo "<td>".$name."</td>";
+		echo "<td>".$created_at."</td>";
+		echo "<td>".$created_at."</td>";
+		echo "<td>".$customer_name."</td>";
+		echo "<td>".$financial_status."</td>";
+		echo "<td>".$fulfillment_status."</td>";
+		echo "</tr>";
 		
 	}
+	 echo '</tbody>';
+	  echo '</table>';
 }
 catch (shopify\ApiException $e)
 {
