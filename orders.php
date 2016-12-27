@@ -8,14 +8,25 @@ try
 {
 	$orders = $shopify('GET /admin/orders.json');
 	echo "<pre>";
-	print_r($orders);
+	//print_r($orders);
 	echo "</pre>";
 	foreach($orders as $singleorder)
 	{
 		echo $id =$singleorder['id'];
 		echo $name =$singleorder['name'];
 		echo $created_at =$singleorder['created_at'];
-		
+		echo $gateway =$singleorder['gateway'];
+		echo $financial_status=$singleorder['financial_status'];
+		echo $total_price=$singleorder['total_price'];
+		echo $customer_name=$singleorder['shipping_address']['name'];
+		if($singleorder['fulfillment_status'] == ' ')
+		{
+			$fulfillment_status = 'Unfulfilled';
+		}
+		else 
+		{
+			$fulfillment_status = $singleorder['fulfillment_status'];
+		}
 		
 		
 	}
