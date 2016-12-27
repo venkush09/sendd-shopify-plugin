@@ -22,9 +22,10 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <link rel="stylesheet" href="jquery.fancybox.css" type="text/css">
 
 <div class="content-container"></div>
+<a href='#popup_content' class='fancybox_btn1'>Submit</a>
 <script>
 
-// Get Collections / Share Page
+// Get orders
 function getorders(){
 
 	var access_token='<?php echo $access_token ?>';
@@ -45,6 +46,6 @@ function getorders(){
 	$(document).ready(function() {
 		getorders(); // start the loop
 	});
-	$("a.fancybox_btn").fancybox();
+	$("a.fancybox_btn1").fancybox();
 })(jQuery);
 </script>
