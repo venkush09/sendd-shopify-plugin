@@ -33,13 +33,13 @@ try
 					  echo '<tbody>';
 	foreach($orders as $singleorder)
 	{
-		echo $id =$singleorder['id'];
-		echo $name =$singleorder['name'];
-		echo $created_at =$singleorder['created_at'];
-		echo $gateway =$singleorder['gateway'];
-		echo $financial_status=$singleorder['financial_status'];
-		echo $total_price=$singleorder['total_price'];
-		echo $customer_name=$singleorder['shipping_address']['name'];
+		 $id =$singleorder['id'];
+		 $name =$singleorder['name'];
+		 $created_at =$singleorder['created_at'];
+		 $gateway =$singleorder['gateway'];
+		 $financial_status=$singleorder['financial_status'];
+		 $total_price=$singleorder['total_price'];
+		 $customer_name=$singleorder['shipping_address']['name'];
 		if($singleorder['fulfillment_status'] == ' ')
 		{
 			$fulfillment_status = 'Unfulfilled';
@@ -55,6 +55,7 @@ try
 		echo "<td>".$customer_name."</td>";
 		echo "<td>".$financial_status."</td>";
 		echo "<td>".$fulfillment_status."</td>";
+		echo "<td>".$total_price."</td>";
 		echo "</tr>";
 		
 	}
