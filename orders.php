@@ -38,9 +38,16 @@ try
 		 $created_at =$singleorder['created_at'];
 		 $gateway =$singleorder['gateway'];
 		 $financial_status=$singleorder['financial_status'];
-		 $total_price=$singleorder['total_price'];
+		 $total_price=$singleorder['total_price']; 
+		 $email=$singleorder['email'];
+		 $address=$singleorder['shipping_address']['address1'];
+		 $city=$singleorder['shipping_address']['city'];
+		 $zip=$singleorder['shipping_address']['zip'];
+		 $province=$singleorder['shipping_address']['province'];
+		 $country=$singleorder['shipping_address']['country'];
 		 $customer_name=$singleorder['shipping_address']['name'];
-		if($singleorder['fulfillment_status'] == ' ')
+		 $full_address =$customer_name.",".$address .",".$city .",".$province.",".$country."-".$zip;
+		if($singleorder['fulfillment_status'] == '')
 		{
 			$fulfillment_status = 'Unfulfilled';
 		}
@@ -49,6 +56,7 @@ try
 			$fulfillment_status = $singleorder['fulfillment_status'];
 		}
 		echo "<tr>";
+		echo "<td><input type='checkbox' class='select_box' name='order_ids_$id'  value='$id' data-customer_email='$email' data-address='$full_address'></td>";
 		echo "<td>".$name."</td>";
 		echo "<td>".$created_at."</td>";
 		echo "<td>".$created_at."</td>";
