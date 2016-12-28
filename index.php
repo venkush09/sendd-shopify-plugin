@@ -49,7 +49,8 @@ function getorders(){
 	});
 	$('body').on('click', 'a.fancybox_btn', function() {
 	$('.select_box:checkbox:checked').each(function(){
-	var user_email = $(this).atrr('data-customer_email');
+		console.log(this);
+	var user_email = $(this).attr('data-customer_email');
 	$('#popup_content').append('<h3>'+user_email+'</h3>');
 	});
     $(this).fancybox();
