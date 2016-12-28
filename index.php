@@ -79,8 +79,8 @@ function getorders(){
 	 slidesToShow: 1,
 		slidesToScroll:1,
 		dots: true,
-		infinite: false
-		
+		infinite: false,
+		variableWidth: true
 	 
 	 });
 	 
