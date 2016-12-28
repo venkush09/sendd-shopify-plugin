@@ -19,7 +19,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 ?>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="jquery.fancybox.js"></script>
-<link rel="stylesheet" href="styles.css" type="text/css">
+<link rel="stylesheet" href="style.css" type="text/css">
 <link rel="stylesheet" href="jquery.fancybox.css" type="text/css">
 
 <div class="content-container"></div>
