@@ -65,6 +65,9 @@ div#popup_content {
     border: 1px solid #eee;
     border-radius: 2px;
 }
+.slick-slide textarea {
+    height: 80px;
+}
 #popup_content > a {
     position: absolute;
     color: #fff;
