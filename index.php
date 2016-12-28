@@ -80,7 +80,7 @@ function getorders(){
 		
 		dots: true,
 		infinite: false,
-		variableWidth: true
+		
 	 
 	 });
 	 
