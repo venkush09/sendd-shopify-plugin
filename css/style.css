@@ -30,3 +30,9 @@ table.expanded tbody tr td {
     font-size: 14px;
     padding: 5px 0;
 }
+table.expanded th span {
+    padding: 5px;
+}
+table.expanded tbody tr:nth-child(odd) {
+    background: #c3c3c3;
+}
