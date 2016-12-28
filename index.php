@@ -53,7 +53,8 @@ function getorders(){
 	});
 	$('body').on('click', 'a.fancybox_btn', function(e) {
 	e.preventDefault();
-	$('.popupcontent_inner').html('');
+	$('.popupcontent_inner').remove();
+	$('#popup_content').append('<div class="popupcontent_inner"></div>');
 	var content ;
 	 var len = $('.select_box:checkbox:checked').length;
 	 if(len > 0){
