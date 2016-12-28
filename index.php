@@ -70,13 +70,15 @@ function getorders(){
 
 	$('.popupcontent_inner').append(content);
 	});
+	var content_last="<div class="item"><a href='#' class='Create_order'>Create Order</a></div>";
+	$('.popupcontent_inner').append(content);
 	// Define data for the popup
 		function sliderInit(){
 	 $('.popupcontent_inner').slick({
 	 slidesToShow: 1,
 		slidesToScroll:1,
 		dots: true,
-		
+		infinite: false
 		
 	 
 	 });
@@ -85,9 +87,9 @@ function getorders(){
 	jQuery('#popup_content').show();
       jQuery(".background_overlay").fadeIn(800);
 	jQuery('#popup_content').css({
-          left: (jQuery(window).width() - jQuery('#popup_content').width()) / 2,
-          top: (jQuery(window).width() - jQuery('#popup_content').width()) / 2,
-          position:'relative'
+          left: 0,
+          top:0,
+          position:'absolute'
       });
     
 	}
