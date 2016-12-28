@@ -67,6 +67,7 @@ div#popup_content {
 }
 .slick-slide {
     text-align: center;
+    width: 100%;
 }
 .slick-slide .item_inner {
     width: 500px;
