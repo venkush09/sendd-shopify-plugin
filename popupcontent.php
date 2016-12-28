@@ -1,4 +1,5 @@
 <div id="popup_content">
-<div class="popupcontent_inner">
+  <a href="javascript:void(0)" onclick="closepopup();"> Close</a>
+<div class="popupcontent_inner" style="display:none">
 </div>
 </div>
