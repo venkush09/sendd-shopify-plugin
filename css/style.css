@@ -58,7 +58,7 @@ div#popup_content {
     float: left;
     margin: 15px 0 5px;
 }
-.slick-slide select, .slick-slide input {
+.slick-slide select, .slick-slide input, .slick-slide textarea {
     width: 35%;
     float: left;
     height: 35px;
