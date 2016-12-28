@@ -71,6 +71,9 @@ div#popup_content {
     right: 30px;
     text-decoration: none;
 }
+.slick-initialized .slick-slide {
+    text-align: center;
+}
 .slick-slide .item_inner {
     width: 650px;
     margin: 0 auto;
