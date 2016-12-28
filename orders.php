@@ -14,7 +14,7 @@ try
 	
 	echo '<table class="table-hover expanded">';
 	 echo "<thead><tr>";
-	 echo '<th class="is-sortable"><span>Order</span></th>
+	 echo '<th>&nbsp;</th><th><span>Order</span></th>
                           <th class="is-sortable">
                             <span>Date</span>
                           </th>
@@ -61,9 +61,8 @@ try
 		echo "<td><input type='checkbox' class='select_box' name='order_ids_$id'  value='$id'  data-customer_total-price='$total_price' data-customer_email='$email' data-customer_name='$customer_name' data-address='$full_address' data-gateway='$gateway'></td>";
 		echo "<td>".$name."</td>";
 		echo "<td>".$created_at."</td>";
-		echo "<td>".$created_at."</td>";
-		echo "<td>".$customer_name."</td>";
 		echo "<td>".$financial_status."</td>";
+		echo "<td>".$customer_name."</td>";
 		echo "<td>".$fulfillment_status."</td>";
 		echo "<td>".$total_price."</td>";
 		echo "</tr>";
