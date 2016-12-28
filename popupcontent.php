@@ -13,10 +13,7 @@
 <option>Krishna Kanth Jaju:Ganesh boys hostel, room no F3Datta Meghe institute of medical sciences,Wardha,Maharashtra- 442001</option>
 <option>Abhijeet Ranpise:102, Rutu business park, majiwada service roadAbove ccd and Pizza Hut, thane west,Thane,Maharashtra- 400601<option>
 </select>
-<label>Drop address* </label>
-<textarea  class="drop_address"  required=""></textarea>
-<label>Payment Type</label>
-<div id="payment_type"></div>
+
 </div>
 <?php
 
