@@ -82,9 +82,11 @@ function getorders(){
 		
 	 
 	 });
+	 
 	};
 	sliderInit();
 	jQuery('#popup_content').show();
+	$('.popupcontent_inner').get(0).slick.setPosition();
       jQuery(".background_overlay").fadeIn(800);
 	
     
