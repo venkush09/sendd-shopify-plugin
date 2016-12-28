@@ -65,6 +65,17 @@ function getorders(){
 
 	$('.popupcontent_inner').append(content);
 	});
+	
+    $('.popupcontent_inner').owlCarousel({
+      loop:true,
+      autoplay:true,
+      items: 1,
+      nav: true,
+      responsiveClass: true,
+      
+    });
+ 
+
     $(this).fancybox();
 	}
 	else {
