@@ -65,6 +65,22 @@ function getorders(){
 
 	//$('.popupcontent_inner').append(content);
 	});
+	var owlcarousel_obj = {
+                loop: true,
+                nav: true,
+                navContainer: "#cv-navigation",
+                mouseDrag: false,
+                touchDrag: false,
+                pullDrag: false,
+                dots: true,
+				singleItem:true,
+                dotsEach: true, 
+                navText: ['<span id="nav-arrow-left" class="nav-arrow inline-block"><i class="fa fa-chevron-left fa-lg"></i></span>', '<span id="nav-arrow-right" class="nav-arrow inline-block"><i class="fa fa-chevron-right fa-lg"></i></span>'],
+                nestedItemSelector: "owl-item",
+                
+            };
+	    var vartcarousel = $(".popupcontent_inner");
+    vartcarousel.owlCarousel(owlcarousel_obj);
 	 vartcarousel.trigger("add.owl.carousel", content).trigger("refresh.owl.carousel");
         e.stopImmediatePropagation();
      /*$('body .popupcontent_inner').owlCarousel({
