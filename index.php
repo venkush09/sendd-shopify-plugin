@@ -23,8 +23,11 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <script src="js/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
 <link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700" rel="stylesheet">
-
+ <link href="https://cdn.shopify.com/s/files/1/1517/9050/t/4/assets/slick.css?11834161533387882948"  rel="stylesheet" type="text/css"/>  
+	
+     
+<script src="https://rawgit.com/kenwheeler/slick/master/slick/slick.js" type="text/javascript"></script>
+<div class="background_overlay" style="display:none"></div>
 <div class="content-container"></div>
 
 <script>
@@ -67,15 +70,26 @@ function getorders(){
 
 	$('.popupcontent_inner').append(content);
 	});
-	$('.popupcontent_inner').owlCarousel({
-	singleItem:true,
-	navigation : true
-	}).trigger('add.owl.carousel', 
-                  [jQuery('<div class="owl-item">' + content +
-                          '</div>')]).trigger('refresh.owl.carousel');
- 
-
-    $(this).fancybox();
+	// Define data for the popup
+		function sliderInit(){
+	 $('.popupcontent_inner').slick({
+	 slidesToShow: 1,
+		slidesToScroll:1,
+		dots: true,
+		
+		
+	 
+	 });
+	};
+	sliderInit();
+	jQuery('.popupcontent_inner').fadeIn(1000);
+      jQuery(".background_overlay").fadeIn(800);
+	jQuery('.popupcontent_inner').css({
+          left: (jQuery(window).width() - jQuery('.popupcontent_inner').width()) / 2,
+          top: (jQuery(window).width() - jQuery('.popupcontent_inner').width()) / 2,
+          position:'relative'
+      });
+    
 	}
 	else {
 	  alert("First Select the orders");
@@ -84,6 +98,11 @@ function getorders(){
 }); 
 	
 })(jQuery);
-
+function closepopup(){
+    if(jQuery('.popupcontent_inner').is(':visible')){	
+		jQuery('.popupcontent_inner').fadeOut(800);
+		jQuery(".background_overlay").fadeOut(800);
+	}
+  }
 
 </script>
