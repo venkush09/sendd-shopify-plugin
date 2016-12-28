@@ -86,11 +86,7 @@ function getorders(){
 	sliderInit();
 	jQuery('#popup_content').show();
       jQuery(".background_overlay").fadeIn(800);
-	jQuery('#popup_content').css({
-          left: 0,
-          top:0,
-          position:'absolute'
-      });
+	
     
 	}
 	else {
