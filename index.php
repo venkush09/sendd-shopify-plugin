@@ -23,10 +23,8 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <script src="js/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
 <link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css">
- <link href="https://cdn.shopify.com/s/files/1/1517/9050/t/4/assets/slick.css?11834161533387882948"  rel="stylesheet" type="text/css"/>  
-	
-     
-<script src="https://rawgit.com/kenwheeler/slick/master/slick/slick.js" type="text/javascript"></script>
+ <link href="css/slick.css"  rel="stylesheet" type="text/css"/>  
+<script src="js/slick.js" type="text/javascript"></script>
 <div class="background_overlay" style="display:none"></div>
 <div class="content-container"></div>
 
