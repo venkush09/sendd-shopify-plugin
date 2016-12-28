@@ -67,11 +67,10 @@ function getorders(){
 	});
 	
     $('body .popupcontent_inner').owlCarousel({
-      loop:true,
-      autoplay:true,
-      items: 1,
-      nav: true,
-      responsiveClass: true,
+      navigation : true, // Show next and prev buttons
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem:true
       
     });
  
