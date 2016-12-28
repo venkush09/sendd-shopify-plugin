@@ -23,6 +23,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <script src="js/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
 <link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700" rel="stylesheet">
 
 <div class="content-container"></div>
 
