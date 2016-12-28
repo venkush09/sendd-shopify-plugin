@@ -98,8 +98,8 @@ function getorders(){
 	
 })(jQuery);
 function closepopup(){
-    if(jQuery('.popupcontent_inner').is(':visible')){	
-		jQuery('.popupcontent_inner').fadeOut(800);
+    if(jQuery('#popup_content').is(':visible')){	
+		jQuery('#popup_content').fadeOut(800);
 		jQuery(".background_overlay").fadeOut(800);
 	}
   }
