@@ -58,7 +58,7 @@ function getorders(){
 	 content = content + '<label>Payment Type:</label><p>"'+payment_method+'"</p></div>';
 
 
-	$('#popupcontent_inner').append(content);
+	$('.popupcontent_inner').append(content);
 	});
     $(this).fancybox();
 	
