@@ -53,7 +53,8 @@ function getorders(){
 	$(document).ready(function() {
 		getorders(); // start the loop
 	});
-	$('body').on('click', 'a.fancybox_btn', function() {
+	$('body').on('click', 'a.fancybox_btn', function(e) {
+	e.preventDefault();
 	$('.popupcontent_inner').html('');
 	var content ;
 	 var len = $('.select_box:checkbox:checked').length;
@@ -82,11 +83,11 @@ function getorders(){
 	 });
 	};
 	sliderInit();
-	jQuery('.popupcontent_inner').fadeIn(1000);
+	jQuery('#popup_content').show();
       jQuery(".background_overlay").fadeIn(800);
-	jQuery('.popupcontent_inner').css({
-          left: (jQuery(window).width() - jQuery('.popupcontent_inner').width()) / 2,
-          top: (jQuery(window).width() - jQuery('.popupcontent_inner').width()) / 2,
+	jQuery('#popup_content').css({
+          left: (jQuery(window).width() - jQuery('#popup_content').width()) / 2,
+          top: (jQuery(window).width() - jQuery('#popup_content').width()) / 2,
           position:'relative'
       });
     
@@ -104,5 +105,6 @@ function closepopup(){
 		jQuery(".background_overlay").fadeOut(800);
 	}
   }
+
 
 </script>
