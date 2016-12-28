@@ -21,7 +21,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <script src="js/jquery.fancybox.js"></script>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <script src="js/owl.carousel.min.js"></script>
-<link rel="stylesheet" href="css/carousel.css" type="text/css">
+<link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
 <link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css">
 
 <div class="content-container"></div>
