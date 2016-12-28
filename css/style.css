@@ -26,3 +26,7 @@ table.expanded {
     padding: 15px;
     text-align: left;
 }
+table.expanded tbody tr td {
+    font-size: 14px;
+    padding: 5px 0;
+}
