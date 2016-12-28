@@ -107,7 +107,8 @@ function closepopup(){
   }
   $('body').on('click', 'a.Create_order', function(e) {
   $('.popupcontent_inner .item').each(function(){
-   var pickup_address = $('.pickup_address option:selected',this).text();
+  console.log(this);
+   var pickup_address = $('.pickup_address',this).text();
       alert(pickup_address);
   });
   });
