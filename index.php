@@ -64,18 +64,14 @@ function getorders(){
 	 content = content + '<br><label>Payment Type:</label><p>"'+payment_method+'"</p></div>';
 
 
-	//$('.popupcontent_inner').append(content);
+	$('.popupcontent_inner').append(content);
 	});
-	$('.popupcontent_inner').owlCarousel().trigger('add.owl.carousel', 
+	$('.popupcontent_inner').owlCarousel({
+	singleItem:true,
+	navigation : true
+	}).trigger('add.owl.carousel', 
                   [jQuery('<div class="owl-item">' + content +
                           '</div>')]).trigger('refresh.owl.carousel');
-     /*$('body .popupcontent_inner').owlCarousel({
-      navigation : true, // Show next and prev buttons
-      slideSpeed : 300,
-      paginationSpeed : 400,
-      singleItem:true
-      
-    });  */
  
 
     $(this).fancybox();
