@@ -1,3 +1,4 @@
+<div id="popup_content">
 <h3>Shipping information</h3>
 <label>Pickup Address*</label>
 <select name="pickup_address">
@@ -16,6 +17,7 @@
 <textarea  class="drop_address"  required=""></textarea>
 <label>Payment Type</label>
 <div id="payment_type"></div>
+</div>
 <?php
 
 ?>
