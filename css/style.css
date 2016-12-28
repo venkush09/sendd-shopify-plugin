@@ -71,6 +71,7 @@ div#popup_content {
 #popup_content > a {
     position: absolute;
     color: #fff;
+    z-index: 99;
     right: 30px;
     text-decoration: none;
 }
