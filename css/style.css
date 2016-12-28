@@ -74,5 +74,8 @@ div#popup_content {
 .slick-slide .item_inner {
     width: 650px;
     margin: 0 auto;
+    background: rgba(0,0,0,.5);
     float: none;
+    padding: 15px;
 }
+
