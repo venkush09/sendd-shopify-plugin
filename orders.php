@@ -61,8 +61,8 @@ try
 		echo "<td><input type='checkbox' class='select_box' name='order_ids_$id'  value='$id'  data-customer_total-price='$total_price' data-customer_email='$email' data-customer_name='$customer_name' data-address='$full_address' data-gateway='$gateway'></td>";
 		echo "<td>".$name."</td>";
 		echo "<td>".$created_at."</td>";
-		echo "<td>".$financial_status."</td>";
 		echo "<td>".$customer_name."</td>";
+		echo "<td>".$financial_status."</td>";
 		echo "<td>".$fulfillment_status."</td>";
 		echo "<td>".$total_price."</td>";
 		echo "</tr>";
