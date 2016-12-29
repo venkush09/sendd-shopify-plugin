@@ -121,3 +121,15 @@ input.content_type {
     margin: 0;
     float: right;
 }
+.c_type span {
+    float: left;
+    margin-right: 10px;
+}
+.c_type {
+    float: left;
+}
+.c_type span input {
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+}
