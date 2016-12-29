@@ -10,7 +10,7 @@ try
 	echo "<pre>";
 	//print_r($orders);
 	echo "</pre>";
-	echo "<a href='#popup_content' class='fancybox_btn'>Submit</a>";
+	
 	require __DIR__.'/popupcontent.php'; //popup content
 	echo '<table class="table-hover expanded">';
 	 echo "<thead><tr>";
@@ -80,7 +80,7 @@ catch (shopify\ApiException $e)
 }
 
 
-
+echo "<a href='#popup_content' class='fancybox_btn'>Submit</a>";
 
 
 ?>
