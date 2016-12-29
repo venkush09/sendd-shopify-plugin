@@ -87,4 +87,19 @@ div#popup_content {
     display: inline-block;
     text-align: left;
 }
-
+#popup_content .slick-next:before {
+    content: "\f138";
+    font: normal normal normal 40px/1 FontAwesome;
+    color: #fff;
+}
+.slick-next {
+    right: 45px;
+}
+.slick-prev {
+    left: 45px;
+}
+#popup_content .slick-prev:before {
+    content: "\f137";
+    font: normal normal normal 40px/1 FontAwesome;
+    color: #fff;
+}
