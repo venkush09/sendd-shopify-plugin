@@ -178,7 +178,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 					'purpose': 'C',
 					'value': customer_total_price,
 					'qty':total_qty,
-					'weight':total_weight,
+					'weight':0.5,
 					'fragile': false,
 					collectable_value,
 					'description': 'Sample Product'
