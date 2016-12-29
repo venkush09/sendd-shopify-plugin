@@ -93,10 +93,10 @@ div#popup_content {
     color: #fff;
 } 
 .slick-next {
-    right: 45px;
+    right: 45px !important;
 }
 .slick-prev {
-    left: 45px;
+    left: 45px !important;
 }
 #popup_content .slick-prev:before {
     content: "\f137";
