@@ -111,3 +111,4 @@ div#popup_content {
 .slick-prev, .slick-next {
     z-index: 99;
 }
+.fhalf , .shalf {width:50%;float:left;display:inline-block;}
