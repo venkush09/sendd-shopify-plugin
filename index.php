@@ -75,7 +75,7 @@ function getorders(){
 					$('.popupcontent_inner').append(content);
 		
 			});
-				var content_last ="<div class='item'><div class='item_inner'><a href='#' class='Create_order'>Create Order</a></div></div>";
+				var content_last ="<div class='item'><div class='item_inner last'><a href='#' class='Create_order'>Create Order</a></div></div>";
 				$('.popupcontent_inner').append(content_last);
 				// Define data for the popup
 					function sliderInit(){
