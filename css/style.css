@@ -112,3 +112,12 @@ div#popup_content {
     z-index: 99;
 }
 .fhalf , .shalf {width:50%;float:left;display:inline-block;}
+input.content_type {
+    width: 15px;
+    height: auto;
+}
+.slick-slide label p {
+    width: auto;
+    margin: 0;
+    float: right;
+}
