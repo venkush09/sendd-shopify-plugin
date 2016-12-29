@@ -130,6 +130,10 @@ $('body').on('click', 'a.Create_order', function(e) {
 		   var customer_email = $('.customer_email',this).val();
 		   var customer_address = $('.customer_address',this).val();
 		   var total_weight = $('.total_weight',this).val();
+		   if(total_weight == '')
+		   {
+		   total_weight =0.001;
+		   }
 		   var total_qty = $('.total_weight',this).attr('data-quantity_total');
 		   customer_address = customer_address.split(',');
 				
