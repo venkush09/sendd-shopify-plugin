@@ -133,3 +133,16 @@ input.content_type {
     top: 5px;
     margin-right: 5px;
 }
+.slick-slide .item_inner.last a {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 24px;
+    padding: 5px 10px;
+}
+.slick-slide .item_inner.last {
+    text-align: center;
+    height: 300px;
+    right: inherit;
+    vertical-align: middle;
+    display: table;
+}
