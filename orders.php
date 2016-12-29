@@ -48,7 +48,8 @@ try
 		 $province=$singleorder['shipping_address']['province'];
 		 $country=$singleorder['shipping_address']['country'];
 		 $customer_name=$singleorder['shipping_address']['name'];
-		 $full_address =$customer_name.",".$address .",".$city .",".$province.",".$country."-".$zip;
+		$customer_phone=$singleorder['shipping_address']['phone'];
+		 $full_address =$address .",".$city .",".$province.",".$country."-".$zip;
 		if($singleorder['fulfillment_status'] == '')
 		{
 			$fulfillment_status = 'Unfulfilled';
@@ -58,7 +59,7 @@ try
 			$fulfillment_status = $singleorder['fulfillment_status'];
 		}
 		echo "<tr>";
-		echo "<td><input type='checkbox' class='select_box' name='order_ids_$id'  value='$id'  data-customer_total-price='$total_price' data-customer_email='$email' data-customer_name='$customer_name' data-address='$full_address' data-gateway='$gateway'></td>";
+		echo "<td><input type='checkbox' class='select_box' name='order_ids_$id'  value='$id'  data-customer_total-price='$total_price' data-customer_email='$email' data-customer_name='$customer_name' data-address='$full_address' data-gateway='$gateway' data-customer_phone='$customer_phone'></td>";
 		echo "<td>".$name."</td>";
 		echo "<td>".$created_at."</td>";
 		echo "<td>".$customer_name."</td>";
