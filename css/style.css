@@ -108,3 +108,6 @@ div#popup_content {
     color: #fff;
     text-decoration: none;
 }
+.slick-prev, .slick-next {
+    z-index: 99;
+}
