@@ -38,6 +38,7 @@ try
 		 $id =$singleorder['id'];
 		 $name =$singleorder['name'];
 		 $created_at =$singleorder['created_at'];
+		$total_weight =$singleorder['total_weight'];
 		 $gateway =$singleorder['gateway'];
 		 $financial_status=$singleorder['financial_status'];
 		 $total_price=$singleorder['total_price']; 
@@ -59,7 +60,7 @@ try
 			$fulfillment_status = $singleorder['fulfillment_status'];
 		}
 		echo "<tr>";
-		echo "<td><input type='checkbox' class='select_box' name='order_ids_$id'  value='$id'  data-customer_total-price='$total_price' data-customer_email='$email' data-customer_name='$customer_name' data-address='$full_address' data-gateway='$gateway' data-customer_phone='$customer_phone'></td>";
+		echo "<td><input type='checkbox' class='select_box' name='order_ids_$id'  value='$id'  data-total_weight='$total_weight' data-customer_total-price='$total_price' data-customer_email='$email' data-customer_name='$customer_name' data-address='$full_address' data-gateway='$gateway' data-customer_phone='$customer_phone'></td>";
 		echo "<td>".$name."</td>";
 		echo "<td>".$created_at."</td>";
 		echo "<td>".$customer_name."</td>";
