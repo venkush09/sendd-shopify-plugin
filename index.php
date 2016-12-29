@@ -64,10 +64,12 @@ function getorders(){
 	var customer_name = $(this).attr('data-customer_name');
 	var customer_address = $(this).attr('data-address');
 	var payment_method = $(this).attr('data-gateway');
-	 content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><label>Pickup Address*</label><select name="pickup_address" class="pickup_address"><option value="1" selected>AMIT KAUSHAL:h.no.88, top floor, gali no.2neb sarai,South West Delhi,Delhi- 110068</option><option value="2">Mohini Ranjan Meher:HIG 26 BDA Complex, Jaydev ViharOpp Pal Helght,Khorda,Odisha- 751013</option><option value="3">Nidall Abdul Aziz:4A3, Green Terrace ApartmentsSeaport Airport Road, Kochi,Ernakulam,Kerala- 682021</option><option value="4">Harshit Jaswani:567/B sector k aashiyana colonyNear chiranjiv bharti park,Lucknow,Uttar Pradesh- 226012 </option><option value="5">Mohamed Athif:Kottathara Nalakath House ,B.P Angadi POVia ,Malappuram Dist,Malappuram,Kerala- 676102 </option><option value="6">Shashank Nagrale:A-103, KPR Elite Apartment, Kasavanahalli Main Road, Off SarNear Andhra Bank,Bangalore,Karnataka- 560035</option><option value="7">Amit Malik:House number 142, Room number 1Katwaria Sarai, Hauz Khas,South West Delhi,Delhi- 110016</option><option value="8">Naveen Kishore:1/297, Rajaji nagar, 1st cross, Royakotta main RoadNear MGM palace logde,,Krishnagiri,Tamil Nadu- 635001</option><option value="9">Krishna Kanth Jaju:Ganesh boys hostel, room no F3Datta Meghe institute of medical sciences,Wardha,Maharashtra- 442001</option><option value="10">Abhijeet Ranpise:102, Rutu business park, majiwada service roadAbove ccd and Pizza Hut, thane west,Thane,Maharashtra- 400601<option></select>';
-	 content = content + '<br><label>Customer Name:</label><input type="text" class="customer_name" value="'+customer_name+'"><br><label>Customer Email:</label><input type="text" class="customer_email" value="'+customer_email+'"><br><label>Customer Address:</label><textarea class="customer_address" value="'+customer_address+'">'+customer_address+'</textarea>';
-	 content = content + '<br><label>Payment Type:</label><p>"'+payment_method+'"</p></div></div>';
-
+	var customer_phone = $(this).attr('data-customer_phone');
+	var customer_total_price = $(this).attr('data-customer_total-price');
+	 content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><h5>Pickup Address*</h5><br><label>Pickup Company Name:</label><input type="text" class="p_company_name" value=""><br><label>Pickup contact person:</label><input type="text" class="p_contact_person" value=""><br><label>Pickup phone:</label><input type="text" class="p_phone" value=""><br><label>Pickup email id:</label><input type="text" class="p_emailid" value=""><br><label>Pickup address:</label><input type="text" class="p_emailid" value=""><select name="pickup_address" class="pickup_address"><option value="1" selected>AMIT KAUSHAL:h.no.88, top floor, gali no.2neb sarai,South West Delhi</option><option value="2">Mohini Ranjan Meher:HIG 26 BDA Complex, Jaydev ViharOpp Pal Helght,Khorda,Odisha- 751013</option><option value="3">Nidall Abdul Aziz:4A3, Green Terrace ApartmentsSeaport Airport Road, Kochi,Ernakulam,Kerala- 682021</option><option value="4">Harshit Jaswani:567/B sector k aashiyana colonyNear chiranjiv bharti park,Lucknow,Uttar Pradesh- 226012 </option><option value="5">Mohamed Athif:Kottathara Nalakath House ,B.P Angadi POVia ,Malappuram Dist,Malappuram,Kerala- 676102 </option><option value="6">Shashank Nagrale:A-103, KPR Elite Apartment, Kasavanahalli Main Road, Off SarNear Andhra Bank,Bangalore,Karnataka- 560035</option><option value="7">Amit Malik:House number 142, Room number 1Katwaria Sarai, Hauz Khas,South West Delhi,Delhi- 110016</option><option value="8">Naveen Kishore:1/297, Rajaji nagar, 1st cross, Royakotta main RoadNear MGM palace logde,,Krishnagiri,Tamil Nadu- 635001</option><option value="9">Krishna Kanth Jaju:Ganesh boys hostel, room no F3Datta Meghe institute of medical sciences,Wardha,Maharashtra- 442001</option><option value="10">Abhijeet Ranpise:102, Rutu business park, majiwada service roadAbove ccd and Pizza Hut, thane west,Thane,Maharashtra- 400601<option></select><br>';
+	 content = content + '<br><label>Customer Name:</label><input type="text" class="customer_name" value="'+customer_name+'"><br><label>Customer Email:</label><input type="text" class="customer_email" value="'+customer_email+'"><br><label>Customer phone:</label><input type="text" class="customer_phone" value="'+customer_phone+'"><br><label>Customer Address:</label><textarea class="customer_address" value="'+customer_address+'">'+customer_address+'</textarea><label>Total amount pay:</label><input type="text" class="customer_total_price" value="'+customer_total_price+'">';
+	 content = content + '<br><label>Payment Type:</label><p class="payment_method">"'+payment_method+'"</p>';
+     content = content + '<br><label>Content</label><imput type="radio" checked value="P" name="content_type" class="content_type">Product <imput type="radio" value="D" name="content_type" class="content_type">Documents</div></div>';
 
 	$('.popupcontent_inner').append(content);
 	});
@@ -108,8 +110,100 @@ function closepopup(){
   $('body').on('click', 'a.Create_order', function(e) {
   $('.popupcontent_inner .item').each(function(){
   console.log(this);
+  /* pickup address detail*/
    var pickup_address = $('.pickup_address option:selected',this).text();
-      alert(pickup_address);
+   var content_type = $('.content_type:checked',this).val();
+   var customer_total_price = $('.customer_total_price',this).val();
+   var p_company_name = $('.p_company_name',this).val();
+   var p_contact_person = $('.p_contact_person',this).val();
+   var p_phone = $('.p_phone',this).val();
+   var p_emailid = $('.p_emailid',this).val(); 
+    var p_zipcode = pickup_address.split('-')[1];
+	 /* pickup address detail*/
+	  /*customer  detail*/
+	   var customer_name = $('.customer_name',this).val();
+	   var customer_phone = $('.customer_phone',this).val();
+	   var customer_email = $('.customer_email',this).val();
+	   var customer_address = $('.customer_address',this).val();
+	   customer_address = customer_address.split(',');
+		var c_address = customer_address[0];
+		var c_city = customer_address[1];
+		var c_state = customer_address[2];
+		var c_country = customer_address[2].split('-')[0];	
+		var c_zipcode = customer_address[2].split('-')[1];	
+		var payment_method = $('.payment_method').text();
+		if(payment_method == 'Cash on Delivery (COD)')
+		{
+		payment_method = 1;
+		}
+		else{
+		payment_method = 0;
+		}
+		/* customer detail*/
+   console.log('p_zipcode'+p_zipcode);
+      var request = new XMLHttpRequest();
+
+request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
+
+request.setRequestHeader('Content-Type', 'application/json');
+request.setRequestHeader('Authorization', 'Token 5150fd17fe0bbb7d81c122a85b737ed1581c05b7');
+
+request.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    console.log('Status:', this.status);
+    console.log('Headers:', this.getAllResponseHeaders());
+    console.log('Body:', this.responseText);
+  }
+};
+
+var body = {
+  'customer_reference_id': '123',
+  'shipments': [
+    {
+      'item_detail': {
+        'content': content_type,
+        'purpose': 'C',
+        'value': customer_total_price,
+        'qty': 1,
+        'weight': 0.5,
+        'fragile': false,
+        'collectable_value':10,
+        'description': 'Sample Product',
+        'sku': 'fcb9771a-daeb-48d6-a41a-7f66d57b9730'
+      }
+    }
+  ],
+  'pickup_detail': {
+   'address_type': 'O',
+    'company_name': p_company_name,
+    'contact_person': p_contact_person,
+    'phone': p_phone,
+    'email': p_emailid,
+    'address_1': pickup_address,
+    'pincode': p_zipcode,
+     'country': 'IN',
+    
+  },
+  'delivery_detail': {
+    'address_type': 'H',
+    'contact_person': customer_name,
+    'phone': customer_phone,
+    'email': customer_email,
+    'address_1': c_address,
+    'pincode': c_zipcode,
+    'city': c_city,
+    'state': c_state,
+    'country': c_country,
+    
+  },
+  'shipping_type': 'E',
+  'cod': payment_method,
+  'insurance': false,
+  'process': true,
+  
+};
+
+request.send(JSON.stringify(body));
   });
   });
 
