@@ -136,8 +136,9 @@ $('body').on('click', 'a.Create_order', function(e) {
 			var c_zipcode = customer_address[3].split('-')[1];	
 			alert(c_zipcode);
 			var payment_method = $('.payment_method').text();
-			if(payment_method == 'Cash on Delivery (COD)')
+			if(payment_method == '"Cash on Delivery (COD)"')
 			{
+			var collectable_value= customer_total_price;
 			payment_method = 1;
 			}
 			else{
@@ -171,9 +172,9 @@ $('body').on('click', 'a.Create_order', function(e) {
 					'qty': 1,
 					'weight': 0.5,
 					'fragile': false,
-					'collectable_value':10,
-					'description': 'Sample Product',
-					'sku': 'fcb9771a-daeb-48d6-a41a-7f66d57b9730'
+					collectable_value,
+					'description': 'Sample Product'
+					
 				  }
 				}
 			  ],
