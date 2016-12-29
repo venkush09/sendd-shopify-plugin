@@ -141,7 +141,7 @@ input.content_type {
 }
 .slick-slide .item_inner.last {
     text-align: center;
-    height: 300px;
+    height: 600px;
     right: inherit;
     vertical-align: middle;
     display: table;
