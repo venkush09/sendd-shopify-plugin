@@ -33,9 +33,10 @@ try
                         </tr>
                       </thead>';
 					  echo '<tbody>';
-				$quantity_total=0;	  
+					  
 	foreach($orders as $singleorder)
 	{
+		$quantity_total=0;
 		 $id =$singleorder['id'];
 		 $name =$singleorder['name'];
 		 $created_at =$singleorder['created_at'];
