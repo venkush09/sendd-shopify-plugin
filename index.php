@@ -18,10 +18,7 @@ if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']
 $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_REQUEST['code']);
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
-	$arguments	= array( "order" => array(
-									'note' => 'Paid'
-									)
-							);
+	$arguments	= array( "fulfillment" => array("tracking_number" => '123456789'));
 				
  $orders = $shopify('PUT /admin/orders/4488303880.json',$arguments);
 	print_r($orders);
