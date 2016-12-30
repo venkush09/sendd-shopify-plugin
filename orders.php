@@ -6,7 +6,7 @@ $access_token=$_REQUEST['access_token'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {
-	$orders = $shopify('GET /admin/orders.json');
+	$orders = $shopify('GET /admin/orders.json?fulfillment_status!=shipped');
 	echo "<pre>";
 	//print_r($orders);
 	echo "</pre>";
