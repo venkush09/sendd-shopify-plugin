@@ -18,7 +18,7 @@ if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']
 $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_REQUEST['code']);
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
- $orders = $shopify('PUT /admin/orders.json', array('id'=>'4488303880','email'=>'bmdifferent@email.com'));
+ $orders = $shopify('PUT /admin/orders/4488303880.json', array('email'=>'bmdifferent@email.com'));
 	print_r($orders);
 }
 catch (shopify\ApiException $e)
