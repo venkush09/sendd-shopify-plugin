@@ -20,7 +20,8 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 try{
 	$arguments	= array( "fulfillment" => array("tracking_number" => '123456789'));
 				
- $orders = $shopify('POST /admin/orders//fulfillments.json',$arguments);
+ $orders = $shopify('POST /admin/orders/4488303880/fulfillments.json',$arguments);
+ 
 	print_r($orders);
 }
 catch (shopify\ApiException $e)
