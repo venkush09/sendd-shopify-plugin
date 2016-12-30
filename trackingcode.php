@@ -13,7 +13,7 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 try{
 	$arguments	= array( "fulfillment" => array("tracking_number" => $trackingcode,"tracking_company"=> $trackingcompany));
 				
- $orders = $shopify('POST /admin/orders/{$order_id}/fulfillments.json',$arguments);
+ $orders = $shopify('POST /admin/orders/'.$order_id.'/fulfillments.json',$arguments);
  
 	print_r($orders);
 }
