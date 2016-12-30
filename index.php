@@ -16,21 +16,7 @@ if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']
 	$_SESSION['code']=$_REQUEST['code'];
 }
 $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_REQUEST['code']);
-$shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
-try{
-	$arguments	= array( "fulfillment" => array("tracking_number" => '123456789'));
-				
- $orders = $shopify('POST /admin/orders/4488303880/fulfillments.json',$arguments);
- 
-	print_r($orders);
-}
-catch (shopify\ApiException $e)
-{
-	# HTTP status code was >= 400 or response contained the key 'errors'
-	echo $e;
-	print_r($e->getRequest());
-	print_r($e->getResponse());
-}	
+	
 ?>
  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700" rel="stylesheet"> 
  
@@ -189,6 +175,18 @@ $('body').on('click', 'a.Create_order', function(e) {
 				console.log(json);
 			console.log('tracking_number12:', json['tracking_number']);
 			 var tracking_no= json['tracking_number'];
+			 var company= json['company'];
+			 var access_token='<?php echo $access_token ?>';
+			var shop='<?php echo $_REQUEST['shop'] ?>';
+
+				$.ajax({
+					url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company,
+					success: function(data){
+						console.log(data);
+						
+						
+					}
+	});
 			 
 			  }
 			};
