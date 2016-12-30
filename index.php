@@ -180,7 +180,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 			var shop='<?php echo $_REQUEST['shop'] ?>';
 
 				$.ajax({
-					url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company,
+					url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 					success: function(data){
 						console.log(data);
 						
