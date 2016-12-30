@@ -69,7 +69,7 @@ function getorders(){
 					var customer_total_price = $(this).attr('data-customer_total-price');
 					var total_weight = $(this).attr('data-total_weight');
 					var quantity_total = $(this).attr('data-quantity_total');
-					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-quantity_total="'+quantity_total+'" class="total_weight"> <div class="fhalf"><h5>Pickup Address*</h5><label>Pickup Company Name:</label><input type="text" class="p_company_name" value=""><br><label>Pickup contact person:</label><input type="text" class="p_contact_person" value=""><br><label>Pickup phone:</label><input type="text" class="p_phone" value=""><br><label>Pickup email id:</label><input type="text" class="p_emailid" value=""><br><label>Pickup zipcode:</label><input type="text" class="p_zipcode" value=""><br><label>Pickup address:</label><select name="pickup_address" class="pickup_address"><option value="1" selected>AMIT KAUSHAL:h.no.88, top floor, gali no.2neb sarai</option><option value="2">Mohini Ranjan Meher:HIG 26 BDA Complex</option><option value="3">Nidall Abdul Aziz:4A3</option><option value="4">Harshit Jaswani:567/B </option><option value="5">Mohamed Athif:Kottathara Nalakath House </option><option value="6">Shashank Nagrale:A-103, KPR Elite Apartment, Kasavanahalli Main Road</option><option value="7">Amit Malik:House number 142, Room number 1Katwaria Sarai, Hauz Khas</option><option value="8">Naveen Kishore:1/297, Rajaji nagar</option><option value="9">Krishna Kanth Jaju:Ganesh boys hostel</option><option value="10">Abhijeet Ranpise:102<option></select></div>';
+					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-quantity_total="'+quantity_total+'" class="total_weight"> <div class="fhalf"><h5>Pickup Address*</h5><label>Pickup Company Name:</label><input type="text" class="p_company_name" value="Lomdi Outfitters"<br><label>Pickup phone:</label><input type="text" class="p_phone" value=""><br><label>Pickup email id:</label><input type="text" class="p_emailid" value=""><br><label>Pickup address:</label><select name="pickup_address" class="pickup_address"><option value="1" selected>AMIT KAUSHAL:h.no.88, top floor, gali no.2neb sarai-160059</option><option value="2">Mohini Ranjan Meher:HIG 26 BDA Complex-160059</option><option value="3">Nidall Abdul Aziz:4A3-160059</option><option value="4">Harshit Jaswani:567/B -160059</option><option value="5">Mohamed Athif:Kottathara Nalakath House-160059 </option><option value="6">Shashank Nagrale:A-103, KPR Elite Apartment, Kasavanahalli Main Road-160059</option><option value="7">Amit Malik:House number 142, Room number 1Katwaria Sarai, Hauz Khas-160059</option></select></div>';
 					content = content + '<div class="shalf"><label>Customer Name:</label><input type="text" class="customer_name" value="'+customer_name+'"><br><label>Customer Email:</label><input type="text" class="customer_email" value="'+customer_email+'"><br><label>Customer phone:</label><input type="text" class="customer_phone" value="'+customer_phone+'"><br><label>Customer Address:</label><textarea class="customer_address" value="'+customer_address+'">'+customer_address+'</textarea><label>Total amount pay:</label><input type="text" class="customer_total_price" value="'+customer_total_price+'">';
 					content = content + '<br><label>Payment Type: <p class="payment_method">"'+payment_method+'"</p></label>';
 					content = content + '<br><div class="c_type"><label>Content</label><span><input type="radio" checked value="P" name="content_type" class="content_type">Product</span> <span><input type="radio" value="D" name="content_type" class="content_type">Documents</span></div></div></div>';
@@ -118,10 +118,12 @@ $('body').on('click', 'a.Create_order', function(e) {
 		   var content_type = $('.content_type:checked',this).val();
 		   var customer_total_price = $('.customer_total_price',this).val();
 		   var p_company_name = $('.p_company_name',this).val();
-		   var p_contact_person = $('.p_contact_person',this).val();
+		   var p_contact_person = pickup_address.split(':')[0];
+		   //var p_contact_person = $('.p_contact_person',this).val();
 		   var p_phone = $('.p_phone',this).val();
-		   var p_emailid = $('.p_emailid',this).val(); 
-		   var p_zipcode = $('.p_zipcode',this).val();;
+		   var p_emailid = $('.p_emailid',this).val();
+		   var p_zipcode = pickup_address.split('-')[1];		   
+		   //var p_zipcode = $('.p_zipcode',this).val();
 			alert("p_zipcode" +p_zipcode);
 		 /* pickup address detail*/
 		  /*customer  detail*/
