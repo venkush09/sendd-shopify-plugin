@@ -16,6 +16,7 @@ if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']
 	$_SESSION['code']=$_REQUEST['code'];
 }
 $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_REQUEST['code']);
+$shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 ?>
  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700" rel="stylesheet"> 
  
@@ -61,6 +62,7 @@ function getorders(){
 		 var len = $('.select_box:checkbox:checked').length;
 		 if(len > 0){
 			$('.select_box:checkbox:checked').each(function(index){
+				    var order_id = $(this).val(); 
 					var customer_email = $(this).attr('data-customer_email');
 					var customer_name = $(this).attr('data-customer_name');
 					var customer_address = $(this).attr('data-address');
@@ -69,7 +71,7 @@ function getorders(){
 					var customer_total_price = $(this).attr('data-customer_total-price');
 					var total_weight = $(this).attr('data-total_weight');
 					var quantity_total = $(this).attr('data-quantity_total');
-					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-quantity_total="'+quantity_total+'" class="total_weight"> <div class="fhalf"><h5>Pickup Address*</h5><label>Pickup Company Name:</label><input type="text" class="p_company_name" value="Lomdi Outfitters"<br><label>Pickup phone:</label><input type="text" class="p_phone" value=""><br><label>Pickup email id:</label><input type="text" class="p_emailid" value=""><br><label>Pickup address:</label><select name="pickup_address" class="pickup_address"><option value="1" selected>AMIT KAUSHAL:h.no.88, top floor, gali no.2neb sarai-160059</option><option value="2">Mohini Ranjan Meher:HIG 26 BDA Complex-160059</option><option value="3">Nidall Abdul Aziz:4A3-160059</option><option value="4">Harshit Jaswani:567/B -160059</option><option value="5">Mohamed Athif:Kottathara Nalakath House-160059 </option><option value="6">Shashank Nagrale:A-103, KPR Elite Apartment, Kasavanahalli Main Road-160059</option><option value="7">Amit Malik:House number 142, Room number 1Katwaria Sarai, Hauz Khas-160059</option></select></div>';
+					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-quantity_total="'+quantity_total+'" class="total_weight"> <div class="fhalf"><h5>Pickup Address*</h5><label>Pickup Company Name:</label><input type="text" class="p_company_name" value="Lomdi Outfitters"<br><label>Pickup phone:</label><input type="text" class="p_phone" value=""><br><label>Pickup email id:</label><input type="text" class="p_emailid" value=""><br><label>Pickup address:</label><select name="pickup_address" class="pickup_address"><option value="1" selected>AMIT KAUSHAL:h.no.88, top floor, gali no.2neb sarai-160059</option><option value="2">Mohini Ranjan Meher:HIG 26 BDA Complex-160059</option><option value="3">Nidall Abdul Aziz:4A3-160059</option><option value="4">Harshit Jaswani:567/B -160059</option><option value="5">Mohamed Athif:Kottathara Nalakath House-160059 </option><option value="6">Shashank Nagrale:A-103, KPR Elite Apartment, Kasavanahalli Main Road-160059</option><option value="7">Amit Malik:House number 142, Room number 1Katwaria Sarai, Hauz Khas-160059</option></select></div>';
 					content = content + '<div class="shalf"><label>Customer Name:</label><input type="text" class="customer_name" value="'+customer_name+'"><br><label>Customer Email:</label><input type="text" class="customer_email" value="'+customer_email+'"><br><label>Customer phone:</label><input type="text" class="customer_phone" value="'+customer_phone+'"><br><label>Customer Address:</label><textarea class="customer_address" value="'+customer_address+'">'+customer_address+'</textarea><label>Total amount pay:</label><input type="text" class="customer_total_price" value="'+customer_total_price+'">';
 					content = content + '<br><label>Payment Type: <p class="payment_method">"'+payment_method+'"</p></label>';
 					content = content + '<br><div class="c_type"><label>Content</label><span><input type="radio" checked value="P" name="content_type" class="content_type">Product</span> <span><input type="radio" value="D" name="content_type" class="content_type">Documents</span></div></div></div>';
@@ -137,6 +139,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 		   total_weight =0.001;
 		   }
 		   var total_qty = $('.total_weight',this).attr('data-quantity_total');
+		   var order_id = $('.total_weight',this).attr('data-order_id');
 		   customer_address = customer_address.split(',');
 				
 			var c_address = customer_address[0];
@@ -144,7 +147,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 			var c_state = customer_address[2];
 			var c_country = customer_address[3].split('-')[0];	
 			var c_zipcode = customer_address[3].split('-')[1];	
-			alert(c_zipcode);
+			//alert(c_zipcode);
 			var payment_method = $('.payment_method').text();
 			if(payment_method == '"Cash on Delivery (COD)"')
 			{
@@ -168,6 +171,12 @@ $('body').on('click', 'a.Create_order', function(e) {
 				console.log('Status:', this.status);
 				console.log('Headers:', this.getAllResponseHeaders());
 				console.log('Body:', this.responseText);
+				var json = JSON.parse(this.responseText);
+				console.log(json);
+			console.log('tracking_number12:', json['tracking_number']);
+			 var tracking_no= json['tracking_number'];
+			 $orders = $shopify('PUT /admin/orders.json', array('id'=>'4488303880','email'=>'a-different@email.com'));
+			 console.log($orders);
 			  }
 			};
 
