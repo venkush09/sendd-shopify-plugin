@@ -8,8 +8,7 @@ use phpish\shopify;
 // Required File END...........
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-// require __DIR__.'/get_products.php'; //GET PRODUCTS
-//echo $_REQUEST['code'];
+
 if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']!='' && $_REQUEST['code']!='' )
 {
 	$_SESSION['shop']=$_REQUEST['shop'];
@@ -151,6 +150,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 			var payment_method = $('.payment_method').text();
 			if(payment_method == '"Cash on Delivery (COD)"')
 			{
+				alert(1);
 			var collectable_value= customer_total_price;
 			payment_method = 1;
 			}
@@ -173,9 +173,9 @@ $('body').on('click', 'a.Create_order', function(e) {
 				console.log('Body:', this.responseText);
 				var json = JSON.parse(this.responseText);
 				console.log(json);
-			console.log('tracking_number12:', json['tracking_number']);
-			 var tracking_no= json['tracking_number'];
-			 var company= json['company'];
+			console.log('tracking_number12:', json['partner_tracking_detail']['tracking_number']);
+			 var tracking_no= json['partner_tracking_detail']['tracking_number'];
+			 var company= json['partner_tracking_detail']['company'];
 			 var access_token='<?php echo $access_token ?>';
 			var shop='<?php echo $_REQUEST['shop'] ?>';
 
