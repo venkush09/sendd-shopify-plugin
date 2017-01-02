@@ -197,12 +197,12 @@ $('body').on('click', 'a.Create_order', function(e) {
 			 var access_token='<?php echo $access_token ?>';
 			var shop='<?php echo $_REQUEST['shop'] ?>';
 
-				/* $.ajax({
+				 $.ajax({
 					url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 					success: function(data){
 						console.log(data);
 					}
-				}); */
+				}); 
 			 
 			  }
 			};
