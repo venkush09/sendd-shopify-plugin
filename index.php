@@ -28,7 +28,9 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css">
  <link href="css/slick.css"  rel="stylesheet" type="text/css"/>  
 <script src="js/slick.js" type="text/javascript"></script>
+ <script src="js/jquery.twbsPagination.js" type="text/javascript"></script>
 <div class="background_overlay" style="display:none"></div>
+<div class="page"></div>
 <div class="content-container"></div>
 
 <script>
@@ -43,7 +45,30 @@ function getorders(){
 		url: '/orders.php?access_token='+access_token+'&shop='+shop,
 		success: function(data){
 			console.log(data);
-			$('.content-container').html(data);
+			$('#pagination1').remove();
+			
+				var total_order = $($.parseHTML(data)).filter(".total_order");
+				var limit=1; // Number of order per page
+				var noofPages=$total_order/limit;
+				var noofPages=Math.ceil(noofPages);
+				console.log(noofPages);
+				if(parseInt(total_order) == 0){
+					$('.content-container').html('<div class="no-product-clearfix"><span class="cc-text-large no-product-container">No order Found</span></div>');
+			   }
+			    else {
+					if(noofPages > 1) {
+						$('.page').append("<ul id='pagination1'></ul>");
+								
+					}
+					$('.content-container').html(data);	
+				}
+            				
+		});
+					
+				   }
+					
+				}
+			
 			
 		}
 	});
