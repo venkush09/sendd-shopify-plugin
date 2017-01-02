@@ -7,14 +7,8 @@ $order_count=$_REQUEST['order_count'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {
-	     if(isset($order_count) && $order_count !=''){
-			 $order_count = $shopify('GET /admin/orders/count.json?fulfillment_status=unshipped');
-			echo '<div calss="total_order">'.$order_count.'</div>'; 
-		 }
-		 else {
-			$order_count = $shopify('GET /admin/orders/count.json?fulfillment_status=unshipped');
-			echo '<div calss="total_order t2">'.$order_count.'</div>'; 
-			$orders = $shopify('GET /admin/orders.json?fulfillment_status=unshipped');
+	      
+			$orders = $shopify('GET /admin/orders.json?fulfillment_status=unshipped', array('limit'=>$_REQUEST['limit'],'page'=>$_REQUEST['page_id']));
 			echo "<pre>";
 			//print_r($orders);
 			echo "</pre>";
@@ -87,7 +81,7 @@ try
 			}
 			 echo '</tbody>';
 			  echo '</table>';
-		}  
+		 
 }
 catch (shopify\ApiException $e)
 {
