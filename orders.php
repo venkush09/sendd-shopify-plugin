@@ -8,7 +8,7 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 try
 {
 	      
-			$orders = $shopify('GET /admin/orders.json?fulfillment_status=unshipped', array('limit'=>$_REQUEST['limit'],'page'=>$_REQUEST['page_id']));
+			$orders = $shopify('GET /admin/orders.json', array('limit'=>$_REQUEST['limit'],'page'=>$_REQUEST['page_id'],'fulfillment_status'=>'unshipped'));
 			echo "<pre>";
 			//print_r($orders);
 			echo "</pre>";
