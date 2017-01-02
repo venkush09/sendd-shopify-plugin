@@ -19,7 +19,7 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 $order_count = $shopify('GET /admin/orders/count.json?fulfillment_status=unshipped');
 	$limit=20; // Number of order per page
 	$noofPages=$order_count/$limit;
-	echo $noofPages=ceil($noofPages);
+	 $noofPages=ceil($noofPages);
 
 ?>
  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700" rel="stylesheet"> 
@@ -28,8 +28,6 @@ $order_count = $shopify('GET /admin/orders/count.json?fulfillment_status=unshipp
 <script src="https://use.fontawesome.com/988a7dc35f.js"></script>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <link href="css/slick.css"  rel="stylesheet" type="text/css"/>  
-<link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  rel="stylesheet" type="text/css"/>  
-
 <script src="js/slick.js" type="text/javascript"></script>
  <script src="js/jquery.twbsPagination.js" type="text/javascript"></script>
 <div class="background_overlay" style="display:none"></div>
@@ -58,12 +56,12 @@ function getorders(page,limit){
 (function($) {
 	$(document).ready(function() {
 		var noofPages ='<?Php echo $noofPages;?>';
-		alert(noofPages);
+		//alert(noofPages);
 		var obj = $('.page').twbsPagination({
 					    totalPages: noofPages,
 					    visiblePages:3,
 					    onPageClick: function (event, page) {
-							getorders(page,20);
+							getorders(page,1);
 						    }
 						//console.log(page);
 					   
