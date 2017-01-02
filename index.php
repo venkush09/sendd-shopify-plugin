@@ -47,7 +47,7 @@ function getorders(){
 			console.log(data);
 			$('#pagination1').remove();
 			
-				var total_order = $($.parseHTML(data)).filter(".total_order");
+				var total_order = $($.parseHTML(data)).filter(".total_order").html();
 				console.log('total_order='+total_order);
 				var limit=1; // Number of order per page
 				var noofPages=total_order/limit;
