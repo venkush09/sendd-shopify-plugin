@@ -64,9 +64,9 @@ function getorders(page,limit){
 							getorders(page,20);
 						    }
 						//console.log(page);
-					    }
+					   
 					});
-		getorders(); // start the loop
+		//getorders(); // start the loop
 	});
 	$('body').on('click', 'a.fancybox_btn', function(e) {
 		e.preventDefault();
