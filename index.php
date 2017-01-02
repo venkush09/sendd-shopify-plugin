@@ -86,7 +86,7 @@ function getorders(page,limit){
 					var customer_total_price = $(this).attr('data-customer_total-price');
 					var total_weight = $(this).attr('data-total_weight');
 					var quantity_total = $(this).attr('data-quantity_total');
-					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-quantity_total="'+quantity_total+'" class="total_weight"> <div class="fhalf"><h5>Pickup Address*</h5><label>Pickup Company Name:</label><input type="text" class="p_company_name" value="Lomdi Outfitters"<br><label>Pickup phone:</label><input type="text" class="p_phone" value="9874561230"><label>Pickup address:</label><select name="pickup_address" class="pickup_address"><option value="1" selected>Abhishek Enterprises:4-2-913 Ramkote,Hyderabad    ,Telangana-500001</option><option value="2">Tushar Malhotra:D-606, West Vinod Nagar Behind Ras Vihar Appt, IP Extn, Patpargan,East Delhi,Delhi-110092</option></select></div>';
+					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-quantity_total="'+quantity_total+'" class="total_weight"> <div class="fhalf"><h5>Pickup Address*</h5><label>Pickup Company Name:</label><input type="text" class="p_company_name" value="Lomdi Outfitters"<br><label>Pickup phone:</label><input type="text" class="p_phone" value="9874561230"><label>Pickup address:</label><select name="pickup_address" class="pickup_address"><option value="4-2-913 Ramkote,Hyderabad,Telangana" selected>Abhishek Enterprises:4-2-913 Ramkote,Hyderabad,Telangana-500001</option><option value="D-606,West Vinod Nagar Behind Ras Vihar Appt, IP Extn, Patpargan,East Delhi,Delhi">Tushar Malhotra:D-606, West Vinod Nagar Behind Ras Vihar Appt, IP Extn, Patpargan,East Delhi,Delhi-110092</option></select></div>';
 					content = content + '<div class="shalf"><label>Customer Name:</label><input type="text" class="customer_name" value="'+customer_name+'"><br><label>Customer Email:</label><input type="text" class="customer_email" value="'+customer_email+'"><br><label>Customer phone:</label><input type="text" class="customer_phone" value="'+customer_phone+'"><br><label>Customer Address:</label><textarea class="customer_address" value="'+customer_address+'">'+customer_address+'</textarea><label>Total amount pay:</label><input type="text" class="customer_total_price" value="'+customer_total_price+'">';
 					content = content + '<br><label>Payment Type: <p class="payment_method">"'+payment_method+'"</p></label>';
 					content = content + '<br><div class="c_type"><label>Content</label><span><input type="radio" checked value="P" name="content_type" class="content_type">Product</span> <span><input type="radio" value="D" name="content_type" class="content_type">Documents</span></div></div></div>';
@@ -132,6 +132,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 		if(index < leng-1){
 		  /* pickup address detail*/
 		   var pickup_address = $('.pickup_address option:selected',this).text();
+		   var pickup_address1 = $('.pickup_address option:selected',this).val();
 		   var content_type = $('.content_type:checked',this).val();
 		   var customer_total_price = $('.customer_total_price',this).val();
 		   var p_company_name = $('.p_company_name',this).val();
@@ -229,7 +230,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 				'company_name': p_company_name,
 				'contact_person': p_contact_person,
 				'phone': p_phone,
-				'address_1': pickup_address,
+				'address_1': pickup_address1,
 				'pincode': p_zipcode,
 				 'country': 'IN',
 				
