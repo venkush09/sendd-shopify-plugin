@@ -59,10 +59,10 @@ function getorders(page,limit){
 		var noofPages ='<?Php echo $noofPages;?>';
 		//alert(noofPages);
 		var obj = $('.page').twbsPagination({
-					    totalPages: 2,
+					    totalPages: noofPages,
 					    visiblePages:3,
 					    onPageClick: function (event, page) {
-							getorders(page,1);
+							getorders(page,20);
 						    }
 						//console.log(page);
 					   
