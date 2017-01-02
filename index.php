@@ -28,6 +28,8 @@ $order_count = $shopify('GET /admin/orders/count.json?fulfillment_status=unshipp
 <script src="https://use.fontawesome.com/988a7dc35f.js"></script>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <link href="css/slick.css"  rel="stylesheet" type="text/css"/>  
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  rel="stylesheet" type="text/css"/>  
+
 <script src="js/slick.js" type="text/javascript"></script>
  <script src="js/jquery.twbsPagination.js" type="text/javascript"></script>
 <div class="background_overlay" style="display:none"></div>
