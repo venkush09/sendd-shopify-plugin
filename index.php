@@ -140,7 +140,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 		   //var p_contact_person = $('.p_contact_person',this).val();
 		   var p_phone = pickup_address.split('::')[1];
 		   var p_emailid = $('.p_emailid',this).val();
-		   var p_zipcode = pickup_address.split('_')[1];		   
+		   var p_zipcode = pickup_address.split('_')[1].split('::')[0];		   
 		   //var p_zipcode = $('.p_zipcode',this).val();
 			alert("p_zipcode" +p_zipcode);
 		 /* pickup address detail*/
