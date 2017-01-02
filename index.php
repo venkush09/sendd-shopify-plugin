@@ -15,7 +15,12 @@ if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']
 	$_SESSION['code']=$_REQUEST['code'];
 }
 $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_REQUEST['code']);
-	
+$shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
+$order_count = $shopify('GET /admin/orders/count.json?fulfillment_status=unshipped');
+	$limit=20; // Number of order per page
+	$noofPages=$order_count/$limit;
+	$noofPages=ceil($noofPages);
+
 ?>
  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700" rel="stylesheet"> 
  
@@ -36,42 +41,34 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <script>
 
 // Get orders
-function getorders(){
+function getorders(page,limit){
 
 	var access_token='<?php echo $access_token ?>';
 	var shop='<?php echo $_REQUEST['shop'] ?>';
 
 	$.ajax({
-		url: '/orders.php?access_token='+access_token+'&shop='+shop,
+		url: '/orders.php?access_token='+access_token+'&shop='+shop+'&limit='+limit+'&page_id='+page,
 		success: function(data){
-			console.log($.parseHTML(data));
-			$('#pagination1').remove();
-			
-				var total_order = $(".total_order.t2",data).html();
-				var total_order2 =$(".total_order.t2",data);
-				console.log('total_order1='+total_order);
-				console.log('total_order2='+total_order2);
-				var limit=1; // Number of order per page
-				var noofPages=total_order/limit;
-				var noofPages=Math.ceil(noofPages);
-				console.log(noofPages);
-				if(parseInt(total_order) == 0){
-					$('.content-container').html('<div class="no-product-clearfix"><span class="cc-text-large no-product-container">No order Found</span></div>');
-			   }
-			    else {
-					if(noofPages > 1) {
-						$('.page').append("<ul id='pagination1'></ul>");
-								
-					}
-					$('.content-container').html(data);	
-				}
-            				
+			console.log(data);
+			$('.content-container').html(data);	
 		}
+            				
+		
 	});
 }
 // Initial Page Load
 (function($) {
 	$(document).ready(function() {
+		var noofPages ='<?Php echo $noofPages;?>';
+		var obj = $('.page').twbsPagination({
+					    totalPages: noofPages,
+					    visiblePages:3,
+					    onPageClick: function (event, page) {
+							getorders(page,1);
+						    }
+						console.info(page);
+					    }
+					});
 		getorders(); // start the loop
 	});
 	$('body').on('click', 'a.fancybox_btn', function(e) {
