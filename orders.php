@@ -13,7 +13,7 @@ try
 		 }
 		 else {
 			$order_count = $shopify('GET /admin/orders/count.json?fulfillment_status=unshipped');
-			echo '<div calss="total_order">'.$order_count.'</div>'; 
+			echo '<div calss="total_order t2">'.$order_count.'</div>'; 
 			$orders = $shopify('GET /admin/orders.json?fulfillment_status=unshipped');
 			echo "<pre>";
 			//print_r($orders);
