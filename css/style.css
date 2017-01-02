@@ -6,7 +6,8 @@ body{color:#000;}
 *{ 
 margin:0px;
 padding:0px;
-font-family: 'Open Sans', sans-serif;  
+font-family: 'Open Sans', sans-serif;
+
 }
 #popup_content{
 display:none;
@@ -66,7 +67,7 @@ div#popup_content {
     padding: 0 5px;
     border: 1px solid #eee;
     border-radius: 2px;
-    color:#000;
+    color:#000 !important;
 }
 .slick-slide textarea {
     height: 80px;
