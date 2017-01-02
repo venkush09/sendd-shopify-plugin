@@ -14,7 +14,7 @@ try
 		 else {
 			$order_count = $shopify('GET /admin/orders/count.json?fulfillment_status=unshipped');
 			echo '<div calss="total_order">'.$order_count.'</div>'; 
-			$orders = $shopify('GET /admin/orders.json');
+			$orders = $shopify('GET /admin/orders.json?fulfillment_status=unshipped');
 			echo "<pre>";
 			//print_r($orders);
 			echo "</pre>";
@@ -73,7 +73,7 @@ try
 				foreach($line_items as $line_items){
 						$quantity_total=$quantity_total+ $line_items['quantity']; //Image Source
 					}
-				if($fulfillment_status == 'Unfulfilled') {
+				
 				echo "<tr>";
 				echo "<td><input type='checkbox' class='select_box' name='order_ids_$id'  value='$id'  data-total_weight='$total_weight' data-quantity_total='$quantity_total' data-customer_total-price='$total_price' data-customer_email='$email' data-customer_name='$customer_name' data-address='$full_address' data-gateway='$gateway' data-customer_phone='$customer_phone'></td>";
 				echo "<td>".$name."</td>";
@@ -83,7 +83,7 @@ try
 				echo "<td>".$fulfillment_status."</td>";
 				echo "<td>".$total_price."</td>";
 				echo "</tr>";
-				}	
+					
 			}
 			 echo '</tbody>';
 			  echo '</table>';
