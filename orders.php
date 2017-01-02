@@ -9,10 +9,6 @@ try
 {
 	      
 			$orders = $shopify('GET /admin/orders.json', array('limit'=>$_REQUEST['limit'],'page'=>$_REQUEST['page_id'],'fulfillment_status'=>'unshipped'));
-			echo "<pre>";
-			//print_r($orders);
-			echo "</pre>";
-			
 			require __DIR__.'/popupcontent.php'; //popup content
 			echo '<table class="table-hover expanded">';
 			 echo "<thead><tr>";
