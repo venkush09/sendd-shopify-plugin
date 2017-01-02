@@ -26,12 +26,8 @@ $order_count = $shopify('GET /admin/orders/count.json?fulfillment_status=unshipp
  
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="https://use.fontawesome.com/988a7dc35f.js"></script>
-<script src="js/jquery.fancybox.js"></script>
 <link rel="stylesheet" href="css/style.css" type="text/css">
-<script src="js/owl.carousel.min.js"></script>
-<link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
-<link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css">
- <link href="css/slick.css"  rel="stylesheet" type="text/css"/>  
+<link href="css/slick.css"  rel="stylesheet" type="text/css"/>  
 <script src="js/slick.js" type="text/javascript"></script>
  <script src="js/jquery.twbsPagination.js" type="text/javascript"></script>
 <div class="background_overlay" style="display:none"></div>
