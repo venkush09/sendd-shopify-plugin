@@ -63,7 +63,7 @@ function getorders(){
 					$('.content-container').html(data);	
 				}
             				
-		});
+		}
 	});
 }
 // Initial Page Load
