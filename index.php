@@ -44,11 +44,11 @@ function getorders(){
 	$.ajax({
 		url: '/orders.php?access_token='+access_token+'&shop='+shop,
 		success: function(data){
-			console.log(data);
+			console.log($.parseHTML(data));
 			$('#pagination1').remove();
 			
-				var total_order = $($.parseHTML(data)).find(".total_order.t2").html();
-				var total_order2 = $($.parseHTML(data)).find(".total_order.t2");
+				var total_order = $(".total_order.t2",data).html();
+				var total_order2 =$(".total_order.t2",data);
 				console.log('total_order1='+total_order);
 				console.log('total_order2='+total_order2);
 				var limit=1; // Number of order per page
