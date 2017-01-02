@@ -163,7 +163,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 			var c_state = customer_address[2];
 			var c_country = customer_address[3].split('-')[0];	
 			var c_zipcode = customer_address[3].split('-')[1];	
-			//alert(c_zipcode);
+			alert(c_zipcode);
 			var payment_method = $('.payment_method').text();
 			if(payment_method == '"Cash on Delivery (COD)"')
 			{
