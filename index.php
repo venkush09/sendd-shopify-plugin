@@ -19,7 +19,7 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 $order_count = $shopify('GET /admin/orders/count.json?fulfillment_status=unshipped');
 	$limit=20; // Number of order per page
 	$noofPages=$order_count/$limit;
-	$noofPages=ceil($noofPages);
+	echo $noofPages=ceil($noofPages);
 
 ?>
  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700" rel="stylesheet"> 
@@ -63,7 +63,7 @@ function getorders(page,limit){
 					    onPageClick: function (event, page) {
 							getorders(page,20);
 						    }
-						console.log(page);
+						//console.log(page);
 					    }
 					});
 		getorders(); // start the loop
