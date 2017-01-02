@@ -64,13 +64,6 @@ function getorders(){
 				}
             				
 		});
-					
-				   }
-					
-				}
-			
-			
-		}
 	});
 }
 // Initial Page Load
