@@ -129,8 +129,10 @@ function getorders(page,limit){
 $('body').on('click', 'a.Create_order', function(e) {
 	$('.Create_order').append('<img src="images/loading3.gif" class="loadimg">');
   var leng = $('.popupcontent_inner .item').length;
+  var i=0;
 	$('.popupcontent_inner .item').each(function(index){
 		if(index < leng-1){
+			
 		  /* pickup address detail*/
 		   var pickup_address = $('.pickup_address option:selected',this).text();
 		   var address2 = $('.pickup_address option:selected',this).attr('data-address2');
@@ -203,16 +205,16 @@ $('body').on('click', 'a.Create_order', function(e) {
 							console.log(data);
 						}
 					}); */
-					$('.item_inner.last').append("Order id ="+order_id+" Message = Successfully Shipped");
+					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message = Successfully Shipped</div>");
 				}
 				else if(json['detail']){
-					$('.item_inner.last').append("Order id ="+order_id+" Message ="+json['detail']);
+					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message ="+json['detail']+"</div>");
 				}
 				else{
-					$('.item_inner.last').append("Order id ="+order_id+" Message = Invalid Detail");
+					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message = Invalid Detail</div>");
 				}
-				if(index == leng-1){
-					alert('last');
+				
+				if(i == leng-1){
 					$('.loadimg').remove();
 				}
 			}
@@ -267,6 +269,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 
 			request.send(JSON.stringify(body));
 		}
+		i++;
 	});
 });
 
