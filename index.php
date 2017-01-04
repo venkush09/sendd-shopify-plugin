@@ -167,7 +167,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 			var c_state = customer_address[2];
 			var c_country = customer_address[3].split('-')[0];	
 			var c_zipcode = customer_address[3].split('-')[1];	
-			alert(c_zipcode);
+			//alert(c_zipcode);
 			var payment_method = $('.payment_method').text();
 			if(payment_method == '"Cash on Delivery (COD)"')
 			{
@@ -185,8 +185,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8');
-                           alert("token123");
-			request.onreadystatechange = function () {
+             request.onreadystatechange = function () {
 			  if (this.readyState === 4) {
 				console.log('Status:', this.status);
 				console.log('Headers:', this.getAllResponseHeaders());
@@ -268,8 +267,9 @@ $('body').on('click', 'a.Create_order', function(e) {
 			};
 
 			request.send(JSON.stringify(body));
+			i++;
 		}
-		i++;
+		
 	});
 });
 
