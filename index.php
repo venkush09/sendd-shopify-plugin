@@ -182,7 +182,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e');
-                            alert("token12");
+                            alert("token123");
 			request.onreadystatechange = function () {
 			  if (this.readyState === 4) {
 				console.log('Status:', this.status);
