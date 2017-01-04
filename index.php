@@ -205,10 +205,14 @@ $('body').on('click', 'a.Create_order', function(e) {
 					}); */
 					$('.item_inner.last').append("Order id ="+order_id+" Message = Successfully Shipped");
 				}
+				else if(json['detail']){
+					$('.item_inner.last').append("Order id ="+order_id+" Message ="+json['detail']);
+				}
 				else{
-					$('.item_inner.last').append("Order id ="+order_id+" Message ="+json);
+					$('.item_inner.last').append("Order id ="+order_id+" Message = Invalid Detail");
 				}
 				if(index == leng-1){
+					alert('last');
 					$('.loadimg').remove();
 				}
 			}
