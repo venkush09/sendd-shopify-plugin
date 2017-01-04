@@ -127,6 +127,7 @@ function getorders(page,limit){
 		}
 	}
 $('body').on('click', 'a.Create_order', function(e) {
+	$('.Create_order').append('<img src="images/loading3.gif" class="loadimg">');
   var leng = $('.popupcontent_inner .item').length;
 	$('.popupcontent_inner .item').each(function(index){
 		if(index < leng-1){
@@ -178,11 +179,11 @@ $('body').on('click', 'a.Create_order', function(e) {
 	   
 		       	var request = new XMLHttpRequest();
 
-			request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
+			request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
 
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e');
-                           // alert("token123");
+			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8');
+                           alert("token123");
 			request.onreadystatechange = function () {
 			  if (this.readyState === 4) {
 				console.log('Status:', this.status);
@@ -190,20 +191,27 @@ $('body').on('click', 'a.Create_order', function(e) {
 				console.log('Body:', this.responseText);
 				var json = JSON.parse(this.responseText);
 				console.log(json);
-			console.log('tracking_number12:',json['shipments'][0]['partner_tracking_detail']['tracking_number']);
-			 var tracking_no= json['shipments'][0]['partner_tracking_detail']['tracking_number'];
-			 var company= json['shipments'][0]['partner_tracking_detail']['company'];
-			 var access_token='<?php echo $access_token ?>';
-			var shop='<?php echo $_REQUEST['shop'] ?>';
+				if(json['shipments']){
+					var tracking_no= json['shipments'][0]['partner_tracking_detail']['tracking_number'];
+					 var company= json['shipments'][0]['partner_tracking_detail']['company'];
+					 var access_token='<?php echo $access_token ?>';
+					 var shop='<?php echo $_REQUEST['shop'] ?>';
 
-				 $.ajax({
-					url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
-					success: function(data){
-						console.log(data);
-					}
-				}); 
-			 
-			  }
+					/* $.ajax({
+						url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
+						success: function(data){
+							console.log(data);
+						}
+					}); */
+					$('.item_inner.last').append("Order id ="+order_id+" Message = Successfully Shipped");
+				}
+				else{
+					$('.item_inner.last').append("Order id ="+order_id+" Message ="+json);
+				}
+				if(index == leng-1){
+					$('.loadimg').remove();
+				}
+			}
 			};
 
 			var body = {
