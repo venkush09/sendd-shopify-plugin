@@ -143,7 +143,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 		   var p_emailid = $('.p_emailid',this).val();
 		   var p_zipcode = pickup_address.split('_')[1].split('::')[0];		   
 		   //var p_zipcode = $('.p_zipcode',this).val();
-			alert("p_zipcode" +p_zipcode);
+			//alert("p_zipcode" +p_zipcode);
 		 /* pickup address detail*/
 		  /*customer  detail*/
 		   var customer_name = $('.customer_name',this).val();
@@ -182,7 +182,7 @@ $('body').on('click', 'a.Create_order', function(e) {
 
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e');
-                            alert("token123");
+                           // alert("token123");
 			request.onreadystatechange = function () {
 			  if (this.readyState === 4) {
 				console.log('Status:', this.status);
