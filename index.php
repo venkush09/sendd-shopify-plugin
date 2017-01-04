@@ -168,7 +168,6 @@ $('body').on('click', 'a.Create_order', function(e) {
 			var payment_method = $('.payment_method').text();
 			if(payment_method == '"Cash on Delivery (COD)"')
 			{
-				alert(1);
 			var collectable_value= customer_total_price;
 			payment_method = true;
 			}
@@ -177,12 +176,12 @@ $('body').on('click', 'a.Create_order', function(e) {
 			}
 			/* customer detail*/
 	   
-		  var request = new XMLHttpRequest();
+		       	var request = new XMLHttpRequest();
 
 			request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
 
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 5150fd17fe0bbb7d81c122a85b737ed1581c05b7');
+			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8');
 
 			request.onreadystatechange = function () {
 			  if (this.readyState === 4) {
