@@ -62,17 +62,22 @@ function closepopup(){
 			success: function(data){
 				console.log(data);
 				var noofPages = $.trim(data);
-				$('.page_inner').remove();
-				$('.page').append('<div class="page_inner"></div>');
-				var obj = $('.page_inner').twbsPagination({
-					    totalPages: noofPages,
-					    visiblePages:3,
-					    onPageClick: function (event, page) {
-							getorders(page,20);
-						    }
-						//console.log(page);
-					   
-					});
+				if(noofPages>0){
+					$('.page_inner').remove();
+					$('.page').append('<div class="page_inner"></div>');
+					var obj = $('.page_inner').twbsPagination({
+							totalPages: noofPages,
+							visiblePages:3,
+							onPageClick: function (event, page) {
+								getorders(page,20);
+								}
+							//console.log(page);
+						   
+						});
+				}
+				else{
+					$('.content-container').html( "<div class='no-result'>No Order</div>");	
+				}
 			}
 								
 			
