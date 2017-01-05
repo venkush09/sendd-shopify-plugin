@@ -40,14 +40,13 @@ function closepopup(){
 	}
 	// Get orders
 	function getorders(page,limit){
-                 alert('test2');
+         console.log('test122');
 		var access_token='<?php echo $access_token ?>';
 		var shop='<?php echo $_REQUEST['shop'] ?>';
 
 		$.ajax({
 			url: '/orders.php?access_token='+access_token+'&shop='+shop+'&limit='+limit+'&page_id='+page,
 			success: function(data){
-				console.log(data);
 				$('.content-container').html(data);	
 			}
 								
@@ -56,7 +55,6 @@ function closepopup(){
 	}
 	// get order count
 	function order_count()	{
- alert('test1');
 		var access_token='<?php echo $access_token ?>';
 		var shop='<?php echo $_REQUEST['shop'] ?>';
 		 $.ajax({
@@ -238,7 +236,7 @@ function closepopup(){
 					 var access_token='<?php echo $access_token ?>';
 					 var shop='<?php echo $_REQUEST['shop'] ?>';
 
-					 /*$.ajax({
+					$.ajax({
 						url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 						success: function(data){
 							console.log(data);
@@ -247,11 +245,8 @@ function closepopup(){
 							order_count();
 							}
 						}
-					}); */
-					if(i == leng-1){
-							console.log('last');
-							order_count();
-							}
+					}); 
+					
 					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message = Successfully Shipped</div>");
 				}
 				else if(json['detail']){
