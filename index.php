@@ -219,14 +219,14 @@ function closepopup(){
 	   
 		       	var request = new XMLHttpRequest();
                /* live api */
-			/* request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
+			 request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e'); */
+			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e'); 
 			/* live api */
 			/* test api */
-			request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
+			/* request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8');
+			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8'); */
 			/* test api */
              request.onreadystatechange = function () {
 			  if (this.readyState === 4) {
@@ -247,7 +247,7 @@ function closepopup(){
 							console.log(data);
 							if(i == leng-1){
 							console.log('last');
-							order_count();
+							//order_count();
 							}
 						}
 					}); 
