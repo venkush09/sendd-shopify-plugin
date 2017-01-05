@@ -9,6 +9,7 @@ try
 {
 	      
 			$orders = $shopify('GET /admin/orders.json', array('limit'=>$_REQUEST['limit'],'page'=>$_REQUEST['page_id'],'fulfillment_status'=>'unshipped'));
+			if($orders){
 			require __DIR__.'/popupcontent.php'; //popup content
 			echo '<table class="table-hover expanded">';
 			 echo "<thead><tr>";
@@ -78,7 +79,10 @@ try
 			}
 			 echo '</tbody>';
 			  echo '</table>';
-		 
+			}
+	else{
+	echo "<div class='no-result'>No Order</div>";
+	}
 }
 catch (shopify\ApiException $e)
 {
