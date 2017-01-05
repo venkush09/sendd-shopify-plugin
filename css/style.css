@@ -79,9 +79,10 @@ div#popup_content {
 }
 .slick-slide label, .slick-slide p {
     width: 100%;
+    font-weight: 100;
     float: left;
     margin: 15px 0 5px;
-    color: #888;
+    color: #3e3d3d;
 }
 .fhalf h5 {
     color: #888;
@@ -89,11 +90,11 @@ div#popup_content {
 .slick-slide select, .slick-slide input, .slick-slide textarea {
     width: 90%;
     float: left;
-    height: 40px;
-    padding: 4px 5px;
+    height: 44px;
+    padding: 8px 5px;
     border: 1px solid #eee;
     border-radius: 0px;
-    color: #000 !important;
+    color: #828282 !important;
     background: #fafafa;
 }
 .slick-slide textarea {
@@ -102,7 +103,7 @@ div#popup_content {
 #popup_content > a {
     position: absolute;
     color: #fff;
-    z-index: 9999;
+    z-index: 9999999;
     right: 30px;
     text-decoration: none;
 }
