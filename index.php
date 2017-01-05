@@ -35,6 +35,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 
 // Initial Page Load
 (function($) {
+	var noofPages;
 	// Get orders
 	function getorders(page,limit){
 
@@ -60,13 +61,13 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			url: '/order_count.php?access_token='+access_token+'&shop='+shop,
 			success: function(data){
 				console.log(data);
-				return data;
+				noofPages = data;
 			}
 								
 			
 		});
 	}
-		var noofPages = order_count();
+		
 		alert(noofPages);
 		var noofPages ='1';
 		//alert(noofPages);
