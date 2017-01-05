@@ -64,7 +64,9 @@ function closepopup(){
 			success: function(data){
 				console.log(data);
 				var noofPages = $.trim(data);
-				var obj = $('.page').twbsPagination({
+				$('.page_inner').remove();
+				$('.page').append('<div class="page_inner"></div>');
+				var obj = $('.page_inner').twbsPagination({
 					    totalPages: noofPages,
 					    visiblePages:3,
 					    onPageClick: function (event, page) {
