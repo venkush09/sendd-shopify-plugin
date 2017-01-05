@@ -78,6 +78,22 @@ function closepopup(){
 			
 		});
 	}
+	function cutAtfirstpart(text, n) {
+		if(text.length > n){
+			for (; " .,".indexOf(text[n]) !== 0; n--){
+			}
+			return text.substr(0, n);
+		}
+		return text;
+	}
+	function cutAtlast(text, n,totallen) {
+		if(text.length > n){
+			for (; " .,".indexOf(text[n]) !== 0; n--){
+			}
+			return text.substr(n, totallen);
+		}
+		return text;
+	}
 // Initial Page Load
 (function($) {
 	order_count();
@@ -172,6 +188,19 @@ function closepopup(){
 		   customer_address1 = customer_address.split(',city');
 				
 			var c_address = customer_address1[0];
+	          c_address_count =c_address.length;
+			  if(c_address_count > 60){
+				var c_address1=cutAtfirstpart(c_address, 60);
+				var c_address2=cutAtlast(c_address, 60,c_address_count);
+			  }
+			  else{
+				  var c_address1=c_address;
+			  }
+
+
+var address1=cutAtfirstpart("No.6, flat no.1,2nd main road Vengheeshwarar  nagar ,Vadapalani", 60);
+ var address2=cutAtlast("No.6, flat no.1,2nd main road Vengheeshwarar  nagar ,Vadapalani", 60,address.length);
+alert(address2);
 			var c_city = customer_address.split('city:')[1].split(',')[0];
 			var c_state = customer_address.split('province:')[1].split(',')[0];
 			var c_country = customer_address.split('country:')[1].split(',')[0];	
@@ -189,11 +218,16 @@ function closepopup(){
 			/* customer detail*/
 	   
 		       	var request = new XMLHttpRequest();
-
-			request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
-
+               /* live api */
+			/* request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e');
+			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e'); */
+			/* live api */
+			/* test api */
+			request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
+			request.setRequestHeader('Content-Type', 'application/json');
+			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8');
+			/* test api */
              request.onreadystatechange = function () {
 			  if (this.readyState === 4) {
 				console.log('Status:', this.status);
@@ -264,7 +298,8 @@ function closepopup(){
 				'contact_person': customer_name,
 				'phone': customer_phone,
 				'email': customer_email,
-				'address_1': c_address,
+				'address_1': c_address1,
+				'address_2': c_address2,
 				'pincode': c_zipcode,
 				'city': c_city,
 				'state': c_state,
