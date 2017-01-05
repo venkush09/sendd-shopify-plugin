@@ -51,7 +51,7 @@ try
 				 $country=$singleorder['shipping_address']['country'];
 				 $customer_name=$singleorder['shipping_address']['name'];
 				$customer_phone=$singleorder['shipping_address']['phone'];
-				 $full_address =$address .",city:".$city .",province:".$province.",country:".$country."$zip:".$zip;
+				 $full_address =$address .",city:".$city .",province:".$province.",country:".$country."-zip:".$zip;
 				if($singleorder['fulfillment_status'] == '')
 				{
 					$fulfillment_status = 'Unfulfilled';
