@@ -20,10 +20,11 @@ display:none;
 }
 img.loadimg {
     width: 250px;
-    display: inline-block;
+    display: inline-block !important;
     margin-top: 30px;
 }
 .load_outer {
+	text-align:center;
 	float:left;
 	width:100%;
 }
