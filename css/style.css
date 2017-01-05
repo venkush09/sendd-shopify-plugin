@@ -165,10 +165,21 @@ input.content_type {
     margin-right: 5px;
 }
 .slick-slide .item_inner.last a {
-    display: table-cell;
     vertical-align: middle;
-    font-size: 24px;
-    padding: 5px 10px;
+    font-size: 21px;
+    padding: 8px 10px;
+    background: #94be46;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 24px;
+}
+.response_msg {
+    float: left;
+    width: 100%;
+    color: #585858;
+    font-size: 18px;
+    line-height: 28px;
 }
 .slick-slide .item_inner.last {
     text-align: center;
