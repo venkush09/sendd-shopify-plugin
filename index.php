@@ -33,39 +33,39 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 
 <script>
 
-// Get orders
-function getorders(page,limit){
-
-	var access_token='<?php echo $access_token ?>';
-	var shop='<?php echo $_REQUEST['shop'] ?>';
-
-	$.ajax({
-		url: '/orders.php?access_token='+access_token+'&shop='+shop+'&limit='+limit+'&page_id='+page,
-		success: function(data){
-			console.log(data);
-			$('.content-container').html(data);	
-		}
-            				
-		
-	});
-}
-function order_count(){
-
-	var access_token='<?php echo $access_token ?>';
-	var shop='<?php echo $_REQUEST['shop'] ?>';
-     $.ajax({
-		url: '/order_count.php?access_token='+access_token+'&shop='+shop,
-		success: function(data){
-			console.log(data);
-			return data;
-		}
-            				
-		
-	});
-}
 // Initial Page Load
 (function($) {
-	$(document).ready(function() {
+	// Get orders
+	function getorders(page,limit){
+
+		var access_token='<?php echo $access_token ?>';
+		var shop='<?php echo $_REQUEST['shop'] ?>';
+
+		$.ajax({
+			url: '/orders.php?access_token='+access_token+'&shop='+shop+'&limit='+limit+'&page_id='+page,
+			success: function(data){
+				console.log(data);
+				$('.content-container').html(data);	
+			}
+								
+			
+		});
+	}
+	// get order count
+	function order_count(){
+
+		var access_token='<?php echo $access_token ?>';
+		var shop='<?php echo $_REQUEST['shop'] ?>';
+		 $.ajax({
+			url: '/order_count.php?access_token='+access_token+'&shop='+shop,
+			success: function(data){
+				console.log(data);
+				return data;
+			}
+								
+			
+		});
+	}
 		var noofPages = order_count();
 		alert(noofPages);
 		var noofPages ='1';
@@ -80,7 +80,7 @@ function order_count(){
 					   
 					});
 		//getorders(); // start the loop
-	});
+	
 	$('body').on('click', 'a.fancybox_btn', function(e) {
 		e.preventDefault();
 		$('.popupcontent_inner').remove();
