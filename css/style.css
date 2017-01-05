@@ -18,6 +18,15 @@ display:none;
 .slick-slider {
     z-index: 9999;
 }
+img.loadimg {
+    width: 250px;
+    display: inline-block;
+    margin-top: 30px;
+}
+.load_outer {
+	float:left;
+	width:100%;
+}
 .content-container a.fancybox_btn {
     background: #94be46;
     color: #fff;
