@@ -15,6 +15,9 @@ display:none;
 .pagination {
     margin: 20px 11px;
 }
+.slick-slider {
+    z-index: 9999;
+}
 .content-container a.fancybox_btn {
     background: #94be46;
     color: #fff;
@@ -109,7 +112,7 @@ div#popup_content {
 .slick-slide .item_inner {
     width: 650px;
     margin: 0 auto;
-    background: rgba(0,0,0,.5);
+    background: #fff;
     float: none;
     padding: 15px;
     display: inline-block;
@@ -187,4 +190,7 @@ input.content_type {
 }
 .table-hover.expanded tbody td {
     padding: 15px 10px;
+}
+.slick-slide {
+	height:auto !important;
 }
