@@ -76,13 +76,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			
 		});
 	}
-		
-		alert(noofPages);
-		var noofPages ='1';
-		//alert(noofPages);
-		
-		//getorders(); // start the loop
-	
+	order_count();
 	$('body').on('click', 'a.fancybox_btn', function(e) {
 		e.preventDefault();
 		$('.popupcontent_inner').remove();
