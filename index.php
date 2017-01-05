@@ -196,11 +196,6 @@ function closepopup(){
 			  else{
 				  var c_address1=c_address;
 			  }
-
-
-var address1=cutAtfirstpart("No.6, flat no.1,2nd main road Vengheeshwarar  nagar ,Vadapalani", 60);
- var address2=cutAtlast("No.6, flat no.1,2nd main road Vengheeshwarar  nagar ,Vadapalani", 60,address.length);
-alert(address2);
 			var c_city = customer_address.split('city:')[1].split(',')[0];
 			var c_state = customer_address.split('province:')[1].split(',')[0];
 			var c_country = customer_address.split('country:')[1].split(',')[0];	
