@@ -160,14 +160,14 @@ $('body').on('click', 'a.Create_order', function(e) {
 		   }
 		   var total_qty = $('.total_weight',this).attr('data-quantity_total');
 		   var order_id = $('.total_weight',this).attr('data-order_id');
-		   customer_address1 = customer_address.split(',');
+		   customer_address1 = customer_address.split(',city');
 				
 			var c_address = customer_address1[0];
-			var c_city = customer_address.split('city:')[1];
-			var c_state = customer_address.split('province:')[1];
-			var c_country = customer_address.split('country:')[1];	
+			var c_city = customer_address.split('city:')[1].split(',')[0];
+			var c_state = customer_address.split('province:')[1].split(',')[0];
+			var c_country = customer_address.split('country:')[1].split(',')[0];	
 			var c_zipcode = customer_address.split('zip:')[1];	
-			console.log(c_zipcode);
+			console.log("c_city"+c_city+"c_state"+c_state+"c_address"+c_address);
 			var payment_method = $('.payment_method').text();
 			if(payment_method == '"Cash on Delivery (COD)"')
 			{
