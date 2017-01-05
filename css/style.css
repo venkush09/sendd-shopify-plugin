@@ -40,8 +40,11 @@ display:none;
     margin: 0 auto;
     text-align: right;
 }
+.popup_close a:hover {
+    color: #fff;
+}
 .popup_close a {
-    background: red;
+        background: #e14554;
     padding: 6px 15px;
     color: #fff;
     text-transform: uppercase;
