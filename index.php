@@ -32,10 +32,12 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <div class="content-container"></div>
 
 <script>
-
-// Initial Page Load
-(function($) {
-	
+function closepopup(){
+		if(jQuery('#popup_content').is(':visible')){	
+			jQuery('#popup_content').fadeOut(800);
+			jQuery(".background_overlay").fadeOut(800);
+		}
+	}
 	// Get orders
 	function getorders(page,limit){
 
@@ -76,7 +78,10 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			
 		});
 	}
+// Initial Page Load
+(function($) {
 	order_count();
+	
 	$('body').on('click', 'a.fancybox_btn', function(e) {
 		e.preventDefault();
 		$('.popupcontent_inner').remove();
@@ -128,13 +133,8 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 	}); 
 	
 
-	function closepopup(){
-		if(jQuery('#popup_content').is(':visible')){	
-			jQuery('#popup_content').fadeOut(800);
-			jQuery(".background_overlay").fadeOut(800);
-		}
-	}
-$('body').on('click', 'a.Create_order', function(e) {
+	
+	$('body').on('click', 'a.Create_order', function(e) {
 	$('.response_msg').remove();
 	$('.Create_order').append('<img src="images/loading3.gif" class="loadimg">');
 	var leng = $('.popupcontent_inner .item').length;
