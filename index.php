@@ -35,7 +35,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 
 // Initial Page Load
 (function($) {
-	var noofPages;
+	
 	// Get orders
 	function getorders(page,limit){
 
@@ -53,7 +53,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 		});
 	}
 	// get order count
-	function order_count(){
+	function order_count()	{
 
 		var access_token='<?php echo $access_token ?>';
 		var shop='<?php echo $_REQUEST['shop'] ?>';
@@ -61,17 +61,8 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			url: '/order_count.php?access_token='+access_token+'&shop='+shop,
 			success: function(data){
 				console.log(data);
-				noofPages = data;
-			}
-								
-			
-		});
-	}
-		order_count();
-		alert(noofPages);
-		var noofPages ='1';
-		//alert(noofPages);
-		var obj = $('.page').twbsPagination({
+				var noofPages = $.trim(data);
+				var obj = $('.page').twbsPagination({
 					    totalPages: noofPages,
 					    visiblePages:3,
 					    onPageClick: function (event, page) {
@@ -80,6 +71,16 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 						//console.log(page);
 					   
 					});
+			}
+								
+			
+		});
+	}
+		
+		alert(noofPages);
+		var noofPages ='1';
+		//alert(noofPages);
+		
 		//getorders(); // start the loop
 	
 	$('body').on('click', 'a.fancybox_btn', function(e) {
@@ -132,7 +133,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 	
 	}); 
 	
-})(jQuery);
+
 	function closepopup(){
 		if(jQuery('#popup_content').is(':visible')){	
 			jQuery('#popup_content').fadeOut(800);
@@ -212,12 +213,15 @@ $('body').on('click', 'a.Create_order', function(e) {
 					 var access_token='<?php echo $access_token ?>';
 					 var shop='<?php echo $_REQUEST['shop'] ?>';
 
-					/* $.ajax({
+					 $.ajax({
 						url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 						success: function(data){
 							console.log(data);
+							if(i == leng-1){
+							order_count();
+							}
 						}
-					}); */
+					}); 
 					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message = Successfully Shipped</div>");
 				}
 				else if(json['detail']){
@@ -286,5 +290,5 @@ $('body').on('click', 'a.Create_order', function(e) {
 		
 	});
 });
-
+})(jQuery);
 </script>
