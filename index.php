@@ -15,11 +15,7 @@ if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']
 	$_SESSION['code']=$_REQUEST['code'];
 }
 $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_REQUEST['code']);
-$shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
-$order_count = $shopify('GET /admin/orders/count.json?fulfillment_status=unshipped');
-	$limit=20; // Number of order per page
-	$noofPages=$order_count/$limit;
-	 $noofPages=ceil($noofPages);
+
 
 ?>
  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700" rel="stylesheet"> 
@@ -53,10 +49,26 @@ function getorders(page,limit){
 		
 	});
 }
+function order_count(){
+
+	var access_token='<?php echo $access_token ?>';
+	var shop='<?php echo $_REQUEST['shop'] ?>';
+     $.ajax({
+		url: '/order_count.php?access_token='+access_token+'&shop='+shop,
+		success: function(data){
+			console.log(data);
+			return data;
+		}
+            				
+		
+	});
+}
 // Initial Page Load
 (function($) {
 	$(document).ready(function() {
-		var noofPages ='<?Php echo $noofPages;?>';
+		var noofPages = order_count();
+		alert(noofPages);
+		var noofPages ='1';
 		//alert(noofPages);
 		var obj = $('.page').twbsPagination({
 					    totalPages: noofPages,
