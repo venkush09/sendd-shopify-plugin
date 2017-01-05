@@ -136,7 +136,7 @@ function closepopup(){
 	
 	$('body').on('click', 'a.Create_order', function(e) {
 	$('.response_msg').remove();
-	$('.Create_order').append('<img src="images/loading3.gif" class="loadimg">');
+		$( '<img src="images/loading3.gif" class="loadimg">' ).insertAfter('.Create_order');
 	var leng = $('.popupcontent_inner .item').length;
 	var i=0;
 	$('.popupcontent_inner .item').each(function(index){
