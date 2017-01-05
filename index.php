@@ -80,7 +80,7 @@ function getorders(page,limit){
 				    var order_id = $(this).val(); 
 					var customer_email = $(this).attr('data-customer_email');
 					var customer_name = $(this).attr('data-customer_name');
-					var customer_address = $(this).attr('data-address');
+					var customer_address = $(this).attr('data-fulladdress');
 					var payment_method = $(this).attr('data-gateway');
 					var customer_phone = $(this).attr('data-customer_phone');
 					var customer_total_price = $(this).attr('data-customer_total-price');
@@ -160,14 +160,14 @@ $('body').on('click', 'a.Create_order', function(e) {
 		   }
 		   var total_qty = $('.total_weight',this).attr('data-quantity_total');
 		   var order_id = $('.total_weight',this).attr('data-order_id');
-		   customer_address = customer_address.split(',');
+		   customer_address1 = customer_address.split(',');
 				
-			var c_address = customer_address[0];
-			var c_city = customer_address[1];
-			var c_state = customer_address[2];
-			var c_country = customer_address[3].split('-')[0];	
-			var c_zipcode = customer_address[3].split('-')[1];	
-			//alert(c_zipcode);
+			var c_address = customer_address1[0];
+			var c_city = customer_address.split('city:')[1];
+			var c_state = customer_address.split('province:')[1];
+			var c_country = customer_address.split('country:')[1];	
+			var c_zipcode = customer_address.split('zip:')[1];	
+			console.log(c_zipcode);
 			var payment_method = $('.payment_method').text();
 			if(payment_method == '"Cash on Delivery (COD)"')
 			{
