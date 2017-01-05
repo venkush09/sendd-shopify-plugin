@@ -136,7 +136,7 @@ function closepopup(){
 	
 	$('body').on('click', 'a.Create_order', function(e) {
 	$('.response_msg').remove();
-		$( '<img src="images/loading3.gif" class="loadimg">' ).insertAfter('.Create_order');
+		$( '<div class="load_outer"> <img src="images/loading3.gif" class="loadimg"></div>' ).insertAfter('.Create_order');
 	var leng = $('.popupcontent_inner .item').length;
 	var i=0;
 	$('.popupcontent_inner .item').each(function(index){
@@ -226,7 +226,7 @@ function closepopup(){
 				}
 				
 				if(i == leng-1){
-					$('.loadimg').remove();
+					$('.load_outer').remove();
 				}
 			}
 			};
