@@ -271,7 +271,7 @@ function closepopup(){
 				'country': c_country,
 				
 			  },
-			  'shipping_type': 'E',
+			  'shipping_type': 'S',
 			  'cod': payment_method,
 			  'insurance': false,
 			  'process': true,
