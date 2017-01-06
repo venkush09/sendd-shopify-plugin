@@ -212,7 +212,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			var c_zipcode = customer_address.split('zip:')[1];	
 			console.log("c_city"+c_city+"c_state"+c_state+"c_address"+c_address);
 			var payment_method = $('.payment_method').text();
-			if(payment_method == '"Cash on Delivery (COD)"')
+			if(payment_method == '"Cash on Delivery (COD)"' || payment_method =='"manual"')
 			{
 			var collectable_value= customer_total_price;
 			payment_method = true;
@@ -322,7 +322,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 	});
 });
 	$('body').on('click', '.put_track', function() {
-		alert(1);
+		
 		var order_id= $(this).attr('data-id');
 		var tracking_code= $(this).attr('data-tracking_code');
 		if(tracking_code){
