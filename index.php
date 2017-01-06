@@ -102,6 +102,8 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 	}
 // Initial Page Load
 (function($) {
+	var access_token='<?php echo $access_token ?>';
+	var shop='<?php echo $_REQUEST['shop'] ?>';
 	order_count();
 	
 	$('body').on('click', 'a.fancybox_btn', function(e) {
@@ -240,10 +242,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 				if(json['shipments']){
 					var tracking_no= json['shipments'][0]['partner_tracking_detail']['tracking_number'];
 					 var company= json['shipments'][0]['partner_tracking_detail']['company'];
-					 var access_token='<?php echo $access_token ?>';
-					 var shop='<?php echo $_REQUEST['shop'] ?>';
-
-					/* $.ajax({
+					 /* $.ajax({
 						url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 						success: function(data){
 							console.log(data);
