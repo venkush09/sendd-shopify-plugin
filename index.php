@@ -329,24 +329,25 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 		
 	});
 });
-$('.put_track').click(function(){
-	var order_id= $(this).attr('data-id');
-	var tracking_code= $(this).attr('data-tracking_code');
-	if(tracking_code){
-		tracking_no = tracking_code.split(',')[0];
-		tracking_company = tracking_code.split(',')[1];
-		$.ajax({
-				url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+tracking_company+'&order_id='+order_id,
-				success: function(data){
-					console.log(data);
-					alert('Tracking Code Added Successfully!');
-				}
-			}); 
-	}
-	else
-	{
-		alert('No tracking no is available');
-	}
-});
+	$('body').on('click', '.put_track', function() {
+		alert(1);
+		var order_id= $(this).attr('data-id');
+		var tracking_code= $(this).attr('data-tracking_code');
+		if(tracking_code){
+			tracking_no = tracking_code.split(',')[0];
+			tracking_company = tracking_code.split(',')[1];
+			$.ajax({
+					url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+tracking_company+'&order_id='+order_id,
+					success: function(data){
+						console.log(data);
+						alert('Tracking Code Added Successfully!');
+					}
+				}); 
+		}
+		else
+		{
+			alert('No tracking no is available');
+		}
+	});
 })(jQuery);
 </script>
