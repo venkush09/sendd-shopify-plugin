@@ -29,6 +29,9 @@ try
 								  <th class="type--right is-sortable ">
 									<span>Total</span>
 								  </th>
+								   <th class="type--right is-sortable ">
+									<span>Tracking Code </span>
+								  </th>
 								</tr>
 							  </thead>';
 							  echo '<tbody>';
@@ -52,6 +55,9 @@ try
 				 $country=$singleorder['shipping_address']['country'];
 				 $customer_name=$singleorder['shipping_address']['name'];
 				$customer_phone=$singleorder['shipping_address']['phone'];
+				$note_attributes1=$singleorder['note_attributes'];
+				$note_attributes=$singleorder['note_attributes']['tracking number,tracking Company'];
+				
 				 $full_address =$address .",city:".$city .",province:".$province.",country:".$country."-zip:".$zip;
 				if($singleorder['fulfillment_status'] == '')
 				{
@@ -74,6 +80,7 @@ try
 				echo "<td>".$financial_status."</td>";
 				echo "<td>".$fulfillment_status."</td>";
 				echo "<td>".$total_price."</td>";
+				echo "<td>".$note_attributes1."note2".$note_attributes."</td>";
 				echo "</tr>";
 					
 			}
