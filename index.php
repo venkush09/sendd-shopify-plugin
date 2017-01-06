@@ -32,12 +32,6 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <div class="content-container"></div>
 
 <script>
-function closepopup(){
-		if(jQuery('#popup_content').is(':visible')){	
-			jQuery('#popup_content').fadeOut(800);
-			jQuery(".background_overlay").fadeOut(800);
-		}
-	}
 	// Get orders
 	function getorders(page,limit){
          console.log('test122');
@@ -98,6 +92,13 @@ function closepopup(){
 			return text.substr(n, totallen);
 		}
 		return text;
+	}
+	function closepopup(){
+		if(jQuery('#popup_content').is(':visible')){	
+			jQuery('#popup_content').fadeOut(800);
+			jQuery(".background_overlay").fadeOut(800);
+			order_count();
+		}
 	}
 // Initial Page Load
 (function($) {
@@ -181,6 +182,7 @@ function closepopup(){
 		  /*customer  detail*/
 		   var customer_name = $('.customer_name',this).val();
 		   var customer_phone = $('.customer_phone',this).val();
+		   customer_phone=customer_phone.replace(/\s/g, ""); 
 		   var customer_email = $('.customer_email',this).val();
 		   var customer_address = $('.customer_address',this).val();
 		   var total_weight = $('.total_weight',this).val();
@@ -219,14 +221,14 @@ function closepopup(){
 	   
 		       	var request = new XMLHttpRequest();
                /* live api */
-			 request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
+			 /*request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e'); 
+			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e');*/ 
 			/* live api */
 			/* test api */
-			/* request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
+			 request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8'); */
+			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8'); 
 			/* test api */
              request.onreadystatechange = function () {
 			  if (this.readyState === 4) {
@@ -241,7 +243,7 @@ function closepopup(){
 					 var access_token='<?php echo $access_token ?>';
 					 var shop='<?php echo $_REQUEST['shop'] ?>';
 
-					$.ajax({
+					/* $.ajax({
 						url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 						success: function(data){
 							console.log(data);
@@ -250,8 +252,14 @@ function closepopup(){
 							//order_count();
 							}
 						}
-					}); 
-					
+					}); */ 
+					$.ajax({
+						url: '/order_note.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
+						success: function(data){
+							console.log(data);
+							
+						}
+					});
 					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message = Successfully Shipped</div>");
 				}
 				else if(json['detail']){
