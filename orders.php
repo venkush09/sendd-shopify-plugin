@@ -80,8 +80,8 @@ try
 				echo "<td>".$financial_status."</td>";
 				echo "<td>".$fulfillment_status."</td>";
 				echo "<td>".$total_price."</td>";
-				print_r($note_attributes1);
-				print_r($note_attributes);
+				echo "<pre>";print_r($note_attributes1); echo "</pre>";
+				
 				echo "<td>".$note_attributes1."note21".$note_attributes."</td>";
 				echo "</tr>";
 					
