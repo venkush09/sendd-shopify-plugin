@@ -55,9 +55,9 @@ try
 				 $country=$singleorder['shipping_address']['country'];
 				 $customer_name=$singleorder['shipping_address']['name'];
 				$customer_phone=$singleorder['shipping_address']['phone'];
-				$note_attributes1=$singleorder['note_attributes'];
-				$note_attributes=$singleorder['note_attributes']['tracking number,tracking Company'];
-				
+				$note_attributes=$singleorder['note_attributes'];
+				$note_name=$note_attributes[0]['value'];
+				$note_value=$note_attributes[1]['value'];
 				 $full_address =$address .",city:".$city .",province:".$province.",country:".$country."-zip:".$zip;
 				if($singleorder['fulfillment_status'] == '')
 				{
@@ -82,7 +82,7 @@ try
 				echo "<td>".$total_price."</td>";
 				echo "<pre>";print_r($note_attributes1); echo "</pre>";
 				
-				echo "<td>".$note_attributes1."note21".$note_attributes."</td>";
+				echo "<td>".$note_name."=".$note_value."</td>";
 				echo "</tr>";
 					
 			}
