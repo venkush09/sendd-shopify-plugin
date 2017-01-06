@@ -341,6 +341,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 					success: function(data){
 						console.log(data);
 						alert('Tracking Code Added Successfully!');
+						order_count(); // call order function 
 					}
 				}); 
 		}
