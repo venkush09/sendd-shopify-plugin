@@ -67,6 +67,7 @@ try
 				{
 					$fulfillment_status = $singleorder['fulfillment_status'];
 				}
+				$disabled1='';
 				if($note_value!=''){
 					$disabled1="disabled";
 				}
