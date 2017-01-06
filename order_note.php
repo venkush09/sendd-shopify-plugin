@@ -11,7 +11,7 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try{
-$arguments	= array("order" => array("note_attributes" => array("name"=>"tracking_number","value"=> $trackingcode,"name"=>"tracking_company","value"=> $trackingcompany)));			
+$arguments	= array("order" => array("note_attributes" => array("name"=>"tracking number,tracking Company","value"=> $trackingcode.','.$trackingcompany)));			
  $orders = $shopify('PUT /admin/orders/'.$order_id.'.json',$arguments);
  
 	print_r($orders);
