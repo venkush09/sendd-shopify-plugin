@@ -80,7 +80,7 @@ try
 				echo "<td>".$financial_status."</td>";
 				echo "<td>".$fulfillment_status."</td>";
 				echo "<td>".$total_price."</td>";
-				echo "<td>".$note_value."<a href='void:main(0)' data-id='$id' data-tracking_code='$note_value' class='put_track'>Apply Tracking Code</a>"."</td>";
+				echo "<td>".$note_value."<a href=javascript:void(0)' data-id='$id' data-tracking_code='$note_value' class='put_track'>Apply Tracking Code</a>"."</td>";
 				echo "</tr>";
 					
 			}
