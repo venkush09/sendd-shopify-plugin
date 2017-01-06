@@ -56,8 +56,9 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			success: function(data){
 				console.log(data);
 				var noofPages = $.trim(data);
+				$('.page_inner').remove();
 				if(noofPages>0){
-					$('.page_inner').remove();
+					
 					$('.page').append('<div class="page_inner"></div>');
 					var obj = $('.page_inner').twbsPagination({
 							totalPages: noofPages,
@@ -223,14 +224,14 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 	   
 		       	var request = new XMLHttpRequest();
                /* live api */
-			 /*request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
+			 request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e');*/ 
+			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e');
 			/* live api */
 			/* test api */
-			 request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
+			 /*request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8'); 
+			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8');*/ 
 			/* test api */
              request.onreadystatechange = function () {
 			  if (this.readyState === 4) {
@@ -242,23 +243,15 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 				if(json['shipments']){
 					var tracking_no= json['shipments'][0]['partner_tracking_detail']['tracking_number'];
 					 var company= json['shipments'][0]['partner_tracking_detail']['company'];
-					 /* $.ajax({
-						url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
-						success: function(data){
-							console.log(data);
-							if(i == leng-1){
-							console.log('last');
-							//order_count();
-							}
-						}
-					}); */ 
-					$.ajax({
-						url: '/order_note.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
-						success: function(data){
-							console.log(data);
-							
-						}
-					});
+					  /* add the tracking code in order note */
+						$.ajax({
+							url: '/order_note.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
+								success: function(data){
+									console.log(data);
+									
+								}
+						});
+					 /* add the tracking code in order note */
 					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message = Successfully Shipped</div>");
 				}
 				else if(json['detail']){
