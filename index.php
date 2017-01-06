@@ -124,7 +124,8 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 					var customer_total_price = $(this).attr('data-customer_total-price');
 					var total_weight = $(this).attr('data-total_weight');
 					var quantity_total = $(this).attr('data-quantity_total');
-					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-quantity_total="'+quantity_total+'" class="total_weight"> <div class="fhalf"><h5>Pickup Address*</h5><label>Pickup Company Name:</label><input type="text" class="p_company_name" value="Lomdi Outfitters"><label>Pickup address:</label><select name="pickup_address" class="pickup_address"><option value="4-2-913 Ramkote,Hyderabad,Telangana" selected>Abhishek Enterprises:4-2-913 Ramkote,Hyderabad,Telangana_500001::9885907319</option><option value="D-606,West Vinod Nagar Behind Ras Vihar Appt" data-address2="IP Extn, Patpargan,East Delhi,Delhi">Tushar Malhotra:D-606, West Vinod Nagar Behind Ras Vihar Appt, IP Extn, Patpargan,East Delhi,Delhi_110092::9899197845</option></select></div>';
+					var financial_status = $(this).attr('data-financial_status');
+					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-quantity_total="'+quantity_total+'" data-financial_status="'+financial_status+'" class="total_weight"> <div class="fhalf"><h5>Pickup Address*</h5><label>Pickup Company Name:</label><input type="text" class="p_company_name" value="Lomdi Outfitters"><label>Pickup address:</label><select name="pickup_address" class="pickup_address"><option value="4-2-913 Ramkote,Hyderabad,Telangana" selected>Abhishek Enterprises:4-2-913 Ramkote,Hyderabad,Telangana_500001::9885907319</option><option value="D-606,West Vinod Nagar Behind Ras Vihar Appt" data-address2="IP Extn, Patpargan,East Delhi,Delhi">Tushar Malhotra:D-606, West Vinod Nagar Behind Ras Vihar Appt, IP Extn, Patpargan,East Delhi,Delhi_110092::9899197845</option></select></div>';
 					content = content + '<div class="shalf"><label>Customer Name:</label><input type="text" class="customer_name" value="'+customer_name+'"><br><label>Customer Email:</label><input type="text" class="customer_email" value="'+customer_email+'"><br><label>Customer phone:</label><input type="text" class="customer_phone" value="'+customer_phone+'"><br><label>Customer Address:</label><textarea class="customer_address" value="'+customer_address+'">'+customer_address+'</textarea><label>Total amount pay:</label><input type="text" class="customer_total_price" value="'+customer_total_price+'">';
 					content = content + '<br><label>Payment Type: <p class="payment_method">"'+payment_method+'"</p></label>';
 					content = content + '<br><div class="c_type"><label>Content</label><span><input type="radio" checked value="P" name="content_type" class="content_type">Product</span> <span><input type="radio" value="D" name="content_type" class="content_type">Documents</span></div></div></div>';
@@ -195,6 +196,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 		   }
 		   var total_qty = $('.total_weight',this).attr('data-quantity_total');
 		   var order_id = $('.total_weight',this).attr('data-order_id');
+		   var financial_status = $('.total_weight',this).attr('data-financial_status');
 		   customer_address1 = customer_address.split(',city');
 				
 			var c_address = customer_address1[0];
@@ -212,7 +214,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			var c_zipcode = customer_address.split('zip:')[1];	
 			console.log("c_city"+c_city+"c_state"+c_state+"c_address"+c_address);
 			var payment_method = $('.payment_method').text();
-			if(payment_method == '"Cash on Delivery (COD)"' || payment_method =='"manual"' || payment_method == '"cash_on_delivery"')
+			if(payment_method == '"Cash on Delivery (COD)"' || payment_method =='"manual"' || payment_method == '"cash_on_delivery"' || financial_status == 'pending')
 			{
 			var collectable_value= customer_total_price;
 			payment_method = true;
