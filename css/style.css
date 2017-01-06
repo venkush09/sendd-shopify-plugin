@@ -244,3 +244,7 @@ input.content_type {
 .slick-slide {
 	height:auto !important;
 }
+.no-result {
+  font-size: 27px;
+  text-align: center;
+}
