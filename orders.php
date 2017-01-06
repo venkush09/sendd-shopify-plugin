@@ -69,7 +69,7 @@ try
 				}
 				$disabled1='';
 				if($note_value!=''){
-					$disabled1="disabled";
+					$disabled1="";
 				}
 				$line_items=$singleorder['line_items'];
 				foreach($line_items as $line_items){
