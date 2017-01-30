@@ -313,7 +313,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			  'cod': payment_method,
 			  'insurance': false,
 			  'process': true,
-			  
+			  'notifications':true,
 			};
 
 			request.send(JSON.stringify(body));
