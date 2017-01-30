@@ -37,7 +37,6 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
          console.log('test122');
 		var access_token='<?php echo $access_token ?>';
 		var shop='<?php echo $_REQUEST['shop'] ?>';
-		var limit=100;
 		$.ajax({
 			url: '/orders.php?access_token='+access_token+'&shop='+shop+'&limit='+limit+'&page_id='+page,
 			success: function(data){
@@ -64,7 +63,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 							totalPages: noofPages,
 							visiblePages:3,
 							onPageClick: function (event, page) {
-								getorders(page,4);
+								getorders(page,200);
 								}
 							//console.log(page);
 						   
