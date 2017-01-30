@@ -63,7 +63,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 							totalPages: noofPages,
 							visiblePages:3,
 							onPageClick: function (event, page) {
-								getorders(page,200);
+								getorders(page,1000);
 								}
 							//console.log(page);
 						   
