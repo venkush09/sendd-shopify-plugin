@@ -226,8 +226,8 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			console.log("c_address2="+ c_address2);
 			/* customer detail*/
 	   
-		    /*   	var request = new XMLHttpRequest();
-               /* live api 
+		       	var request = new XMLHttpRequest();
+               /* live api */
 			 request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e');
@@ -236,7 +236,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			 /*request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8');*/ 
-			/* test api 
+			/* test api */
              request.onreadystatechange = function () {
 			  if (this.readyState === 4) {
 				console.log('Status:', this.status);
@@ -247,7 +247,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 				if(json['shipments']){
 					var tracking_no= json['shipments'][0]['partner_tracking_detail']['tracking_number'];
 					 var company= json['shipments'][0]['partner_tracking_detail']['company'];
-					  /* add the tracking code in order note 
+					  /* add the tracking code in order note */
 						$.ajax({
 							url: '/order_note.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 								success: function(data){
@@ -255,7 +255,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 									
 								}
 						});
-					 /* add the tracking code in order note 
+					 /* add the tracking code in order note */
 					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message = Successfully Shipped</div>");
 				}
 				else if(json['detail']){
@@ -319,7 +319,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			  'notifications':true,
 			};
 
-			request.send(JSON.stringify(body)); */
+			request.send(JSON.stringify(body)); 
 			i++;
 		}
 		
