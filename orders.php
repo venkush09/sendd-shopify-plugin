@@ -58,7 +58,7 @@ try
 				$note_attributes=$singleorder['note_attributes'];
 				$note_name=$note_attributes[0]['value'];
 				$note_value=$note_attributes[1]['value'];
-				 $full_address =addslashes($address .' '. $address2 .",city:".$city .",province:".$province.",country:".$country."-zip:".$zip);
+				$full_address = $address ." ". $address2 .",city:".$city .",province:".$province.",country:".$country."-zip:".$zip;
 				if($singleorder['fulfillment_status'] == '')
 				{
 					$fulfillment_status = 'Unfulfilled';
@@ -77,7 +77,7 @@ try
 					}
 				
 				echo "<tr>";
-				echo "<td><input  type='checkbox' $disabled1 class='select_box' name='order_ids_$id'  value='$id'  data-financial_status='$financial_status' data-total_weight='$total_weight' data-quantity_total='$quantity_total' data-customer_total-price='$total_price' data-customer_email='$email' data-customer_name='$customer_name' data-fulladdress='$full_address' data-gateway='$gateway' data-customer_phone='$customer_phone'></td>";
+				echo '<td><input  type="checkbox" $disabled1 class="select_box" name="'.order_ids_$id.'"  value="'.$id.'"  data-financial_status="'.$financial_status.'" data-total_weight="'.$total_weight.'" data-quantity_total="'.$quantity_total.'" data-customer_total-price="'.$total_price.'" data-customer_email="'.$email.'" data-customer_name="'.$customer_name.'" data-fulladdress="'.$full_address.'" data-gateway="'.$gateway.'" data-customer_phone="'.$customer_phone.'"></td>';
 				echo "<td>".$name."</td>";
 				echo "<td>".$created_at."</td>";
 				echo "<td>".$customer_name."</td>";
