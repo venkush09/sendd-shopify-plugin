@@ -58,7 +58,7 @@ try
 				$note_attributes=$singleorder['note_attributes'];
 				$note_name=$note_attributes[0]['value'];
 				$note_value=$note_attributes[1]['value'];
-				 $full_address =$address .' '. $address2 .",city:".$city .",province:".$province.",country:".$country."-zip:".$zip;
+				 $full_address =addslashes($address .' '. $address2 .",city:".$city .",province:".$province.",country:".$country."-zip:".$zip);
 				if($singleorder['fulfillment_status'] == '')
 				{
 					$fulfillment_status = 'Unfulfilled';
