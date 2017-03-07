@@ -118,6 +118,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 					var customer_email = $(this).attr('data-customer_email');
 					var customer_name = $(this).attr('data-customer_name');
 					var customer_address = $(this).attr('data-fulladdress').replace(/'/g, "\\'");
+					console.log("customer_address =="+customer_address);
 					var payment_method = $(this).attr('data-gateway');
 					var customer_phone = $(this).attr('data-customer_phone');
 					var customer_total_price = $(this).attr('data-customer_total-price');
