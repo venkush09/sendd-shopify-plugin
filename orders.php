@@ -11,7 +11,7 @@ try
 			$orders = $shopify('GET /admin/orders.json', array('limit'=>$_REQUEST['limit'],'page'=>$_REQUEST['page_id'],'fulfillment_status'=>'unshipped','order'=>'created_at asc'));
 			if($orders){
 			require __DIR__.'/popupcontent.php'; //popup content
-			echo '<table class="table-hover expanded">';
+			echo '<table class="table-hover expanded sennd-order-table">';
 			 echo "<thead><tr>";
 			 echo '<th>&nbsp;</th><th><span>Order</span></th>
 								  <th class="is-sortable">
