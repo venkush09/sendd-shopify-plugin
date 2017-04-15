@@ -22,7 +22,7 @@ print_r($select_store);
 		echo "cool";
 			}
 
-	$sql = "select email, password from user_table where email = '$email' and password = '$password'";
+	/*$sql = "select email, password from user_table where email = '$email' and password = '$password'";
 	$qry = mysql_query($sql);
 
 	$numrows  = mysql_num_rows($qry);
@@ -33,7 +33,7 @@ print_r($select_store);
 		echo $_SESSION['email'] = $email;
 		//print message for jquery
 		echo "cool";
-	}
+	}*/
 	
 
 ?>
