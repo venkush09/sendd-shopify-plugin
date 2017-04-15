@@ -5,5 +5,14 @@ $dbconn4 = pg_connect($conn_string);
 if(!$dbconn4){ 
 	echo "Error : Unable to open database\n"; 
 }
-else{echo "balle balle : able to open database\n"; }
+else{echo "balle balle : able to open database\n";
+   $query = "SELECT * FROM user_table";
+echo $query;
+$a = pg_query($dbconn4, $query);
+if (mysqli_num_rows($a) > 0) {
+$data = mysqli_fetch_assoc($a);
+ echo $email= $data['email'];
+ echo $shop_url = $data['store_url'];
+}
+    }
 ?>
