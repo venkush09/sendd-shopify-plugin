@@ -7,7 +7,8 @@ if(!$dbconn4){
 }
 else{
 	echo "balle balle : able to open database\n";
-	
+	$data ="select count(*) from pg_class where relname='user_table' and relkind='r'";
+	print_r($data);
    $query = "SELECT * FROM user_table";
 echo $query;
 $a = pg_query($dbconn4, $query);
