@@ -13,8 +13,8 @@ require __DIR__.'/connection.php'; //DB connectivity
 $insert_data = "insert into user_table(email,password,store_url) values('boski@gmail.com','jaimatadi','sdkjskdjksdjksd')";
   $ret = mysqli_query($dbconn4, $insert_data);
   $select_store1 = mysqli_query($dbconn4,"SELECT * FROM user_table");
-print_r("$select_store1".$select_store1);
- $select_store = mysqli_query($dbconn4,"SELECT email,password FROM user_table WHERE store_url = '$shop_url'");
+print_r($select_store1);
+ $select_store = mysqli_query($dbconn4,"SELECT email,password FROM user_table WHERE store_url = '$shop_url' and email = '$email' and password = '$password'");
 print_r($select_store);
 	if (mysqli_num_rows($select_store) > 0) {
 		$data = mysqli_fetch_assoc($select_store);
@@ -22,17 +22,18 @@ print_r($select_store);
 		echo "cool";
 			}
 
-	/*$sql = "select email, password from user_table where email = '$email' and password = '$password'";
+	$sql = "select email, password from user_table where email = '$email' and password = '$password'";
 	$qry = mysql_query($sql);
 
 	$numrows  = mysql_num_rows($qry);
 	
 	if($numrows > 0){
+		
 		//set seesion
-		$_SESSION['email'] = $email;
+		echo $_SESSION['email'] = $email;
 		//print message for jquery
 		echo "cool";
-	}*/
+	}
 	
 
 ?>
