@@ -1,5 +1,6 @@
 <?php 
 session_start();
+require __DIR__.'/connection.php'; //DB connectivity
 	echo "hello";
 	$email= $_POST['email'];
 	$password= $_POST['password'];
@@ -8,13 +9,14 @@ session_start();
 	//convert string to md5
 	$password 	= md5($password);
 	echo $shop_url = $_SESSION['shop'];
+
  echo  $select_store = mysqli_query($dbconn4,"SELECT email,password FROM store_info WHERE store_url = '$shop_url'");
 	if (mysqli_num_rows($select_store) > 0) {
 		$data = mysqli_fetch_assoc($select_store);
 		$_SESSION['email'] = $email;
 		echo "cool";
 			}
-	$select_store = mysqli_query($dbconn4,"SELECT * FROM store_info");
+	
 	/*$sql = "select email, password from user_table where email = '$email' and password = '$password'";
 	$qry = mysql_query($sql);
 
