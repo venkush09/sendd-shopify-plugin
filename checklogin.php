@@ -13,7 +13,12 @@ require __DIR__.'/connection.php'; //DB connectivity
 $query = "SELECT * FROM user_table";
 echo $query;
 $a = pg_query($dbconn4, $query);
-print_r($a);
+
+if (mysqli_num_rows($a) > 0) {
+$data = mysqli_fetch_assoc($a);
+ echo $email= $data['email'];
+ echo $shop_url = $data['store_url'];
+}
 /* $select_store = mysqli_query($dbconn4,"SELECT email,password FROM user_table WHERE store_url = '$shop_url' and email = '$email' and password = '$password'");
 print_r($select_store);
 	if (mysqli_num_rows($select_store) > 0) {
