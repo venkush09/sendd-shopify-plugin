@@ -1,6 +1,6 @@
 <?php 
-	
-	$email= mysql_real_escape_string($_POST['email']);
+	echo "hello";
+	/*$email= mysql_real_escape_string($_POST['email']);
 	$password= mysql_real_escape_string($_POST['password']);
         echo "<script>alert(1);</scripr>";
 	echo "$email=".$email;
@@ -18,7 +18,7 @@
 		$_SESSION['email'] = $email;
 		//print message for jquery
 		echo "cool";
-	}
+	}*/
 	
 
 ?>
