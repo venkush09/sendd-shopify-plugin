@@ -7,21 +7,5 @@ if(!$dbconn4){
 }
 else{
 	echo "balle balle : able to open database\n";
-	if (!pg_connection_busy($dbconn4)) {
-      pg_send_query($dbconn4, "select * from user_table1; select count(*) from user_table1;");
-  }
-  
-  $res1 = pg_get_result($dbconn4);
-  echo "First call to pg_get_result(): $res1\n";
-  $rows1 = pg_num_rows($res1);
-  echo "$res1 has $rows1 records\n\n";
-   $query = "SELECT * FROM user_table1";
-echo $query;
-$a = pg_query($dbconn4, $query);
-if (mysqli_num_rows($a) > 0) {
-$data = mysqli_fetch_assoc($a);
- echo $email= $data['email'];
- echo $shop_url = $data['store_url'];
 }
-    }
 ?>
