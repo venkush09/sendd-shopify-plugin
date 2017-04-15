@@ -5,7 +5,15 @@ $dbconn4 = pg_connect($conn_string);
 if(!$dbconn4){ 
 	echo "Error : Unable to open database\n"; 
 }
-else{echo "balle balle : able to open database\n";
+else{
+	echo "balle balle : able to open database\n";
+	PGresult res=PQexec($dbconn4,"SELECT id FROM user_table");
+if(PQresultStatus(res)==PGRES_FATAL_ERROR && 
+strstr(PQresultErrorMessage(res),"Relation \"mytable\" does not exist") 
+// mytable does not exist in mydb
+{
+    res=PQexec($dbconn4,"CREATE TABLE user_table1 (id int, name text)");
+}
    $query = "SELECT * FROM user_table";
 echo $query;
 $a = pg_query($dbconn4, $query);
