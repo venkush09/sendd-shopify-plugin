@@ -10,10 +10,6 @@ require __DIR__.'/connection.php'; //DB connectivity
 	//$password 	= md5($password);
 	echo $shop_url = $_SESSION['shop'];
 		echo "hello14";
-$insert_data = "insert into user_table(email,password,store_url) values('boski@gmail.com','jaimatadi','sdkjskdjksdjksd')";
-  $ret = mysqli_query($dbconn4, $insert_data);
-  $select_store1 = mysqli_query($dbconn4,"SELECT * FROM user_table");
-print_r($select_store1);
  $select_store = mysqli_query($dbconn4,"SELECT email,password FROM user_table WHERE store_url = '$shop_url' and email = '$email' and password = '$password'");
 print_r($select_store);
 	if (mysqli_num_rows($select_store) > 0) {
