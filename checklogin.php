@@ -9,7 +9,11 @@ require __DIR__.'/connection.php'; //DB connectivity
 	//convert string to md5
 	//$password 	= md5($password);
 	echo $shop_url = $_SESSION['shop'];
-		echo "hello1";
+		echo "hello";
+$query = "SELECT * FROM user_table";
+echo $query;
+$a = pg_query($dbconn4, $query);
+print_r($a);
 /* $select_store = mysqli_query($dbconn4,"SELECT email,password FROM user_table WHERE store_url = '$shop_url' and email = '$email' and password = '$password'");
 print_r($select_store);
 	if (mysqli_num_rows($select_store) > 0) {
