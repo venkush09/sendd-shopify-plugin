@@ -9,14 +9,14 @@ require __DIR__.'/connection.php'; //DB connectivity
 	//convert string to md5
 	//$password 	= md5($password);
 	echo $shop_url = $_SESSION['shop'];
-		echo "hello14";
- $select_store = mysqli_query($dbconn4,"SELECT email,password FROM user_table WHERE store_url = '$shop_url' and email = '$email' and password = '$password'");
+		echo "hello1";
+/* $select_store = mysqli_query($dbconn4,"SELECT email,password FROM user_table WHERE store_url = '$shop_url' and email = '$email' and password = '$password'");
 print_r($select_store);
 	if (mysqli_num_rows($select_store) > 0) {
 		$data = mysqli_fetch_assoc($select_store);
 		$_SESSION['email'] = $email;
 		echo "cool";
-			}
+			}*/
  $select_store2 = mysqli_query($dbconn4,"SELECT * FROM user_table");
 print_r( $select_store2);
 	/*$sql = "select email, password from user_table where email = '$email' and password = '$password'";
