@@ -3,11 +3,11 @@ session_start();
 require __DIR__.'/connection.php'; //DB connectivity
 	echo "hello";
 	$email= $_POST['email'];
-	$password= $_POST['password'];
+	echo $password= $_POST['password'];
         echo "<script>alert(1);</scripr>";
 	echo "$email=".$email;
 	//convert string to md5
-	$password 	= md5($password);
+	//$password 	= md5($password);
 	echo $shop_url = $_SESSION['shop'];
  print_r("$dbconn4=".$dbconn4);
  echo  $select_store = mysqli_query($dbconn4,"SELECT email,password FROM store_info WHERE store_url = '$shop_url'");
