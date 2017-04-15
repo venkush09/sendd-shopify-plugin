@@ -1,6 +1,6 @@
 <?php 
 	
-	require('db_con.php');
+	
 	
 	$email 		= mysql_real_escape_string($_POST['email']);
 	
