@@ -349,7 +349,6 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 	$('body').on('click', '.sennd-order-table tr td:not(:last-child)', function(e) {
 	 var chk = $(this).closest("tr").find("input:checkbox").get(0);
 		if(e.target != chk){
-			alert(1);
 			chk.checked = !chk.checked;
 		}
 	});
