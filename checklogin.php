@@ -17,7 +17,8 @@ print_r($select_store);
 		$_SESSION['email'] = $email;
 		echo "cool";
 			}
-
+ $select_store2 = mysqli_query($dbconn4,"SELECT * FROM user_table");
+print_r( $select_store2);
 	/*$sql = "select email, password from user_table where email = '$email' and password = '$password'";
 	$qry = mysql_query($sql);
 
