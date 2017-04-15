@@ -30,7 +30,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <div class="background_overlay" style="display:none"></div>
 <div class="page"></div>
 <div class="content-container"></div>
-
+<?php include 'login-reg-form.php';?>
 <script>
 	// Get orders
 	function getorders(page,limit){
