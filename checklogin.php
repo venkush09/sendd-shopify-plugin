@@ -1,6 +1,4 @@
-<?php session_start();
-
-	require('db_con.php');
+<?php 
 	
 	$email 		= mysql_real_escape_string($_POST['email']);
 	$password 	= mysql_real_escape_string($_POST['password']);
