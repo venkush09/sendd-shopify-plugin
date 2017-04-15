@@ -7,10 +7,15 @@ if(!$dbconn4){
 }
 else{
 	echo "balle balle : able to open database\n";
-	$data ="select count(*) from pg_class where relname='user_table' and relkind='r'";
-	$a = pg_query($dbconn4, $data);
-	print_r($a);
-   $query = "SELECT * FROM user_table";
+	if (!pg_connection_busy($dbconn4)) {
+      pg_send_query($dbconn4, "select * from user_table1; select count(*) from user_table1;");
+  }
+  
+  $res1 = pg_get_result($dbconn4);
+  echo "First call to pg_get_result(): $res1\n";
+  $rows1 = pg_num_rows($res1);
+  echo "$res1 has $rows1 records\n\n";
+   $query = "SELECT * FROM user_table1";
 echo $query;
 $a = pg_query($dbconn4, $query);
 if (mysqli_num_rows($a) > 0) {
