@@ -346,8 +346,9 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			alert('No tracking no is available');
 		}
 	});
-	$('body').on('click', '.sennd-order-table tr td:not(:last-child)', function(event) {
-		if (event.target.type !== 'checkbox') {
+	$('body').on('click', '.sennd-order-table tr td:not(:last-child)', function(e) {
+	 var chk = $(this).closest("tr").find("input:checkbox").get(0);
+		if(e.target != chk)
 		alert(1);
 		$(':checkbox', this).trigger('click');
 			}
