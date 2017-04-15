@@ -1,0 +1,24 @@
+<div id="options">
+	<input type="radio" name="login_option" id="show_login" checked="checked"/> Existing User! 
+	<input type="radio" name="login_option" id="show_signup"/>New User!<br />
+</div>
+
+<div id="login_form">
+	<h3>Login with your email and password</h3>
+	<label>Email</label><input type="text" name="email" id="email"/><br />
+	<label>Password</label><input type="password" name="password" id="password"/><br/>
+		<div class="msg">&nbsp;</div>
+	<button id="login">Login</button> 
+</div>
+
+<div id="signup_form" style="display:none">
+	<h3>Registration Form</h3>
+	<label>Enter Email</label><input type="text" name="email-new" id="email-new" /><span class="email_err"></span><br />
+	<label>Create Password</label><input type="password" name="password-new" id="password-new"/><br/>	
+	<div class="msg">&nbsp;</div>
+	<button id="signup">Signup</button>
+</div>
+
+
+
+</form>
