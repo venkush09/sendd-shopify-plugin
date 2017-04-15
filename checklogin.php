@@ -1,9 +1,10 @@
 <?php 
 	
-	$email 		= mysql_real_escape_string($_POST['email']);
-	$password 	= mysql_real_escape_string($_POST['password']);
+	$email= mysql_real_escape_string($_POST['email']);
+	$password= mysql_real_escape_string($_POST['password']);
         echo "<script>alert(1);</scripr>";
 	echo "$email=".$email;
+		die();
 	//convert string to md5
 	$password 	= md5($password);
 	
