@@ -350,7 +350,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 	 var chk = $(this).closest("tr").find("input:checkbox").get(0);
 		if(e.target != chk){
 			alert(1);
-			$(':checkbox', this).trigger('click');
+			chk.checked = !chk.checked;
 		}
 	});
     
