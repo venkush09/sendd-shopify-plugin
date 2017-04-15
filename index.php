@@ -346,5 +346,12 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			alert('No tracking no is available');
 		}
 	});
+	
+    $('.sennd-order-table tr').click(function(event) {
+        if (event.target.type !== 'checkbox') {
+            $(':checkbox', this).trigger('click');
+        }
+    });
+
 })(jQuery);
 </script>
