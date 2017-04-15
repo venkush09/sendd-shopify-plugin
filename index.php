@@ -346,11 +346,11 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			alert('No tracking no is available');
 		}
 	});
-	$('body').on('click', '.sennd-order-table tr', function() {
+	$('body').on('click', '.sennd-order-table tr', function(event) {
 		alert('1');
 		if (event.target.type !== 'checkbox') {
 		alert('2');
-		 $(':checkbox', this).prop('checked', true);
+		 //$(':checkbox', this).prop('checked', true);
 				$(':checkbox', this).trigger('click');
 			}
 	});
