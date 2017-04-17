@@ -10,7 +10,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 	//$password 	= md5($password);
 	echo $shop_url = $_SESSION['shop'];
 		echo "hello";
-$query = "SELECT * FROM user_table";
+$query = "SELECT * FROM user_table1";
 echo $query;
 $a = pg_query($dbconn4, $query);
 
