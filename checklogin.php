@@ -13,6 +13,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 if(pg_num_rows($user_exist)){
 while($response = pg_fetch_assoc($user_exist)){
 $_SESSION['email'] = $email;
+pg_query($db, "INSERT INTO user_table (status) VALUES (1) where WHERE store_url = '{$shop_url}' and  email = '{$email}' and password = '{$password}'");
 echo "cool";
 }
 }
