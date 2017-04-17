@@ -109,10 +109,6 @@
 	} 
 
  </script>
-<div id="options">
-	<input type="radio" name="login_option" id="show_login" checked="checked"/> Existing User! 
-	<input type="radio" name="login_option" id="show_signup"/>New User!<br />
-</div>
 
 <div id="login_form">
 	<h3>Login with your email and password</h3>
