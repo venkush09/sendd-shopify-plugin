@@ -29,7 +29,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
  <script src="js/jquery.twbsPagination.js" type="text/javascript"></script>
 <div class="background_overlay" style="display:none"></div>
 <div class="page"></div>
-<?php print_r(SESSION); ?>
+<?php print_r($_SESSION); ?>
 <div class="login-form-main">
 	<?php include 'login-reg-form.php';?></div>
 <div class="content-container"></div>
