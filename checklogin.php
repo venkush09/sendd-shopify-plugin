@@ -4,7 +4,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 	
 	 $email= $_POST['email'];
 	 $password= $_POST['password'];
-    	$shop_url = $shop_url;
+    	$shop_url = $_POST['shop_url'];
 	//convert string to md5
 	//$password 	= md5($password);
 	//$shop_url = $_SESSION['shop'];
