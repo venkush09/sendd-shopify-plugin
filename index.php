@@ -33,10 +33,10 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 
 <?php $check_login_status = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$_SESSION['shop']}' and  status = '1'"); ?>
 
-<div class="login-form-main" <?php if(pg_num_rows($check_login_status)) { echo 'style="display:none"'; } else {echo 'style="display:block"';}?>>
+<div class="login-form-main" <?php if((pg_num_rows($check_login_status)) < 0) { echo 'style="display:none"'; } else {echo 'style="display:block"';}?>>
 	<?php include 'login-reg-form.php';?></div>
 
-<div class="content-container" <?php if(!pg_num_rows($check_login_status)) { echo 'style="display:none"'; } else {echo 'style="display:block"';}?>></div>
+<div class="content-container" <?php if(!(pg_num_rows($check_login_status)) < 0) { echo 'style="display:none"'; } else {echo 'style="display:block"';}?>></div>
 
 <script>
 	// Get orders
