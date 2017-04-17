@@ -11,12 +11,11 @@ require __DIR__.'/connection.php'; //DB connectivity
 	$user_exist = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$shop_url}' and  email = '{$email}' and password = '{$password}'");
 	
 if(pg_num_rows($user_exist)){
-		while($response = pg_fetch_assoc($user_exist)){
-			$_SESSION['email'] = $email;
-			$json = $response['value'];
-			echo "cool";
-			}
-	}
+while($response = pg_fetch_assoc($user_exist)){
+$_SESSION['email'] = $email;
+echo "cool";
+}
+}
 		
 
 
