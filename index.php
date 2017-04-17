@@ -7,7 +7,7 @@ require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 // Required File END...........
 error_reporting(E_ALL);
-<?php print_r($_SESSION); ?>
+ print_r($_SESSION); 
 ini_set('display_errors', 1);
 
 if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']!='' && $_REQUEST['code']!='' )
