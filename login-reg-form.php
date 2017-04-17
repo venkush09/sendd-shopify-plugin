@@ -37,6 +37,8 @@
 					console.log("resp="+resp);
 					if(resp == "cool"){
 						//location.href = 'hiddenpage.php';
+						$('.login-form-main').hide();
+						$('.content-container').show();
 						alert("login  sucessfully");
 					}else{
 						$('.msg').html('Invalid Email or Password');			
