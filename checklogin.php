@@ -4,12 +4,12 @@ require __DIR__.'/connection.php'; //DB connectivity
 	
 	$email= $_POST['email'];
 	echo $password= $_POST['password'];
-        echo "<script>alert(1);</script>";
-	echo "$email=".$email;
+      echo "$email=".$email;
 	//convert string to md5
 	//$password 	= md5($password);
 	echo $shop_url = $_SESSION['shop'];
 		echo "hello";
+IF EXISTS (SELECT * FROM user_table1) then print("table exist");
 $query = "SELECT * FROM user_table1";
 echo $query;
 $a = pg_query($dbconn4, $query);
