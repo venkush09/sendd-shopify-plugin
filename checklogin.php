@@ -8,15 +8,21 @@ require __DIR__.'/connection.php'; //DB connectivity
 	//convert string to md5
 	//$password 	= md5($password);
 	echo $shop_url = $_SESSION['shop'];
-		echo "hello12";
+		echo "hello123";
 $shop_exists = pg_query($dbconn4, "SELECT * FROM user_table1");
 
 $lastID = pg_fetch_assoc($shop_exists);
-print_r($lastID);
-if(pg_num_rows($shop_exists) < 1){
-	echo "exist";
-}
 
+if(pg_num_rows($shop_exists)){
+				while($response = pg_fetch_assoc($shop_exists)){
+					$json = $response['value'];
+					if(!empty($json)){
+						echo "{$response['key']}:: <pre>";
+						print_R($json);
+						echo "</pre>";
+					}
+				}
+			}
 /* $select_store = pg_query($dbconn4,"SELECT email,password FROM user_table WHERE store_url = '$shop_url' and email = '$email' and password = '$password'");
 print_r($select_store);
 	if (pg_num_rows($select_store) > 0) {
