@@ -34,6 +34,7 @@
 				$('.msg').html("<img src='loading.gif' border='0' />");			
 				//jQuery ajax post method with 
 				$.post('/checklogin.php', {email:email, password:password}, function(resp){
+					console.log("resp="+resp);
 					if(resp == "cool"){
 						//location.href = 'hiddenpage.php';
 						alert("login  sucessfully");
