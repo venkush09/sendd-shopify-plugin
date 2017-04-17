@@ -33,7 +33,8 @@
 			}else{
 				$('.msg').html("<img src='loading.gif' border='0' />");			
 				//jQuery ajax post method with 
-				$.post('/checklogin.php', {email:email, password:password}, function(resp){
+				var shop_url = "<?php echo $_SESSION['shop'];?>";
+				$.post('/checklogin.php', {email:email, password:password,shop_url:shop_url}, function(resp){
 					console.log("resp="+resp);
 					if(resp == "cool"){
 						//location.href = 'hiddenpage.php';
