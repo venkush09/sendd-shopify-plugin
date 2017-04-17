@@ -9,7 +9,10 @@ require __DIR__.'/connection.php'; //DB connectivity
 	//$password 	= md5($password);
 	echo $shop_url = $_SESSION['shop'];
 		echo "hello";
-IF EXISTS (SELECT * FROM user_table1) then print("table exist");
+$shop_exists = pg_query($dbconn4, "SELECT * FROM user_table1");
+if(pg_num_rows($shop_exists) < 1){
+	echo "exist";
+}
 $query = "SELECT * FROM user_table1";
 echo $query;
 $a = pg_query($dbconn4, $query);
