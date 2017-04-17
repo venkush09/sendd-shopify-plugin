@@ -3,8 +3,8 @@ session_start();
 require __DIR__.'/connection.php'; //DB connectivity
 	
 	$email= $_POST['email'];
-	echo $password= $_POST['password'];
-      echo "$email=".$email;
+	$password= $_POST['password'];
+    
 	//convert string to md5
 	//$password 	= md5($password);
 	$shop_url = $_SESSION['shop'];
