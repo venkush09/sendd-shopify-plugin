@@ -10,21 +10,14 @@ require __DIR__.'/connection.php'; //DB connectivity
 	echo $shop_url = $_SESSION['shop'];
 		echo "hello";
 $shop_exists = pg_query($dbconn4, "SELECT * FROM user_table1");
+print_r($shop_exists);
 if(pg_num_rows($shop_exists) < 1){
 	echo "exist";
 }
-$query = "SELECT * FROM user_table1";
-echo $query;
-$a = pg_query($dbconn4, $query);
 
-if (mysqli_num_rows($a) > 0) {
-$data = mysqli_fetch_assoc($a);
- echo $email= $data['email'];
- echo $shop_url = $data['store_url'];
-}
-/* $select_store = mysqli_query($dbconn4,"SELECT email,password FROM user_table WHERE store_url = '$shop_url' and email = '$email' and password = '$password'");
+/* $select_store = pg_query($dbconn4,"SELECT email,password FROM user_table WHERE store_url = '$shop_url' and email = '$email' and password = '$password'");
 print_r($select_store);
-	if (mysqli_num_rows($select_store) > 0) {
+	if (pg_num_rows($select_store) > 0) {
 		$data = mysqli_fetch_assoc($select_store);
 		$_SESSION['email'] = $email;
 		echo "cool";
