@@ -2,7 +2,7 @@
 session_start();
 // Required File Start.........
 require __DIR__.'/conf.php'; //Configuration
-//require __DIR__.'/connection.php'; //DB connectivity
+require __DIR__.'/connection.php'; //DB connectivity
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 // Required File END...........
@@ -30,10 +30,13 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <div class="background_overlay" style="display:none"></div>
 <div class="page"></div>
 <?php print_r($_SESSION); ?>
+<?php $check_login_status = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$shop_url}' and  status = '1'");
+if(!pg_num_rows($check_login_status)){ ?>
 <div class="login-form-main">
 	<?php include 'login-reg-form.php';?></div>
+<?php else { ?>
 <div class="content-container"></div>
-
+<?php } ?>
 <script>
 	// Get orders
 	function getorders(page,limit){
