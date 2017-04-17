@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require __DIR__.'/connection.php'; //DB connectivity
 	
 	 $email= $_POST['email'];
