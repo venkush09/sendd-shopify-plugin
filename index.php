@@ -1,8 +1,8 @@
 <?php
-session_start();
+//session_start();
 // Required File Start.........
 require __DIR__.'/conf.php'; //Configuration
-require __DIR__.'/connection.php'; //DB connectivity
+//require __DIR__.'/connection.php'; //DB connectivity
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 // Required File END...........
