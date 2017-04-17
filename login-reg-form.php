@@ -36,8 +36,10 @@
 				var shop_url = "<?php echo $_SESSION['shop'];?>";
 				$.post('/checklogin.php', {email:email, password:password,shop_url:shop_url}, function(resp){
 					console.log("resp="+resp);
-					if(resp == "cool"){
+					var resp1= resp.find('.session_email').html();
+					if(resp1 !=''){
 						//location.href = 'hiddenpage.php';
+						alert(resp1);
 						$('.login-form-main').hide();
 						$('.content-container').show();
 						alert("login  sucessfully");
