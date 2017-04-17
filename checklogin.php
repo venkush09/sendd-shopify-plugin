@@ -8,9 +8,11 @@ require __DIR__.'/connection.php'; //DB connectivity
 	//convert string to md5
 	//$password 	= md5($password);
 	echo $shop_url = $_SESSION['shop'];
-		echo "hello";
+		echo "hello12";
 $shop_exists = pg_query($dbconn4, "SELECT * FROM user_table1");
-print_r($shop_exists);
+
+$lastID = pg_fetch_assoc($shop_exists);
+print_r($lastID);
 if(pg_num_rows($shop_exists) < 1){
 	echo "exist";
 }
