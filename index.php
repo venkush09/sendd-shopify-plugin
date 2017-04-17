@@ -30,6 +30,8 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <div class="background_overlay" style="display:none"></div>
 <div class="page"></div>
 
+<?php $check_login_status = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$_SESSION['shop']}' and  status = '1'"); ?>
+<?php if(!pg_num_rows($check_login_status)) { echo style="display:none";?>
 <div class="login-form-main">
 	<?php include 'login-reg-form.php';?></div>
 
