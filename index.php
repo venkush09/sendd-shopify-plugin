@@ -31,7 +31,6 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <div class="page"></div>
 <div class="login-form-main">
 	<?php include 'login-reg-form.php';?></div>
- <?php print_r( $_SESSION); ?>
 <div class="content-container"></div>
 
 <script>
