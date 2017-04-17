@@ -17,9 +17,4 @@ $_SESSION['email'] = $email;
 echo "cool";
 }
 }
-		
-
-
-	
-
 ?>
