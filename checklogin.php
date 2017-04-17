@@ -12,8 +12,8 @@ require __DIR__.'/connection.php'; //DB connectivity
 	
 if(pg_num_rows($user_exist)){
 while($response = pg_fetch_assoc($user_exist)){
-$_SESSION['email'] = 'boskim.3g';
-	echo "<div class='session_email'>".$_SESSION['email']."</div>";
+$_SESSION['email'] =  $email;
+	echo "cool";
 	pg_query($dbconn4, "UPDATE user_table SET status = '1' WHERE store_url = '{$shop_url}' and  email = '{$email}' and password = '{$password}'");
 
 }
