@@ -228,7 +228,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			/* customer detail*/
 	            
 		       	var request = new XMLHttpRequest();
-				if(c_country !='India'){
+				if(c_country == 'India'){
 					alert(1);
 					 /* live api */
 			/* request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
