@@ -213,6 +213,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			var c_country = customer_address.split('country:')[1].split(',')[0];	
 			var c_zipcode = customer_address.split('zip:')[1];	
 			console.log("c_city"+c_city+"c_state"+c_state+"c_address"+c_address);
+			console.log("c_country="+c_country);
 			var payment_method = $('.payment_method').text();
 			if(payment_method == '"Cash on Delivery (COD)"' || payment_method =='"manual"' || payment_method == '"cash_on_delivery"' || financial_status == 'pending')
 			{
@@ -266,13 +267,13 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 					var tracking_no= json['shipments'][0]['partner_tracking_detail']['tracking_number'];
 					 var company= json['shipments'][0]['partner_tracking_detail']['company'];
 					  /* add the tracking code in order note */
-						$.ajax({
+						/*$.ajax({
 							url: '/order_note.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+company+'&order_id='+order_id,
 								success: function(data){
 									console.log(data);
 									
 								}
-						});
+						});*/
 					 /* add the tracking code in order note */
 					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message = Successfully Shipped</div>");
 				}
