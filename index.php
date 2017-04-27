@@ -228,22 +228,22 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			/* customer detail*/
 	            
 		       	var request = new XMLHttpRequest();
-				if(c_country == 'India'){
+				if(c_country != 'India'){
 					alert(1);
 					 /* live api */
-			/* request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
+			 request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e'); */
+			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e'); 
 			/* live api */
 			/* test api */
-			 request.open('POST', 'https://api-staging.sendd.co/core/api/v2/order/international/');
+			/* request.open('POST', 'https://api-staging.sendd.co/core/api/v2/order/international/');
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.setRequestHeader('Access-Control-Allow-Origin','*');
-			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8'); 
+			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8'); */
 			/* test api */
 					var currency= 'USD';
 					 var international = true;
-					 payment_method = false;
+					
 				}
 				else{
                /* live api */
