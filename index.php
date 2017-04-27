@@ -4,7 +4,6 @@ session_start();
 require __DIR__.'/conf.php'; //Configuration
 require __DIR__.'/connection.php'; //DB connectivity
 require __DIR__.'/vendor/autoload.php';
-header("Access-Control-Allow-Origin: *");
 use phpish\shopify;
 // Required File END...........
 error_reporting(E_ALL);
@@ -239,9 +238,9 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			/* test api */
 			 request.open('POST', 'https://api-staging.sendd.co/core/api/v2/order/international/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setHeader('Access-Control-Allow-Origin', '*');
-			request.setHeader('Access-Control-Allow-Methods', '*');
-			request.setHeader('Access-Control-Allow-Credentials', true);
+			request.setRequestHeader('Access-Control-Allow-Origin', '*');
+			request.setRequestHeader('Access-Control-Allow-Methods', '*');
+			request.setRequestHeader('Access-Control-Allow-Credentials', true);
 			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8'); 
 			/* test api */
 					var currency= 'USD';
