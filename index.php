@@ -261,7 +261,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 				console.log('Status:', this.status);
 				console.log('Headers:', this.getAllResponseHeaders());
 				console.log('Body:', this.responseText);
-				var json = JSON.parse(this.responseText);
+				/* var json = JSON.parse(this.responseText);
 				console.log(json);
 				if(json['shipments']){
 					var tracking_no= json['shipments'][0]['partner_tracking_detail']['tracking_number'];
@@ -274,7 +274,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 									
 								}
 						});*/
-					 /* add the tracking code in order note */
+					 /* add the tracking code in order note 
 					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message = Successfully Shipped</div>");
 				}
 				else if(json['detail']){
@@ -286,7 +286,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 				
 				if(i == leng-1){
 					$('.load_outer').remove();
-				}
+				} */
 			}
 			};
 
