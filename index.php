@@ -210,7 +210,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			  }
 			var c_city = customer_address.split('city:')[1].split(',')[0];
 			var c_state = customer_address.split('province:')[1].split(',')[0];
-			var c_country = customer_address.split('country:')[1].split(',')[0];	
+			var c_country = customer_address.split('country:')[1].split(',')[0].split('-zip')[0];	
 			var c_zipcode = customer_address.split('zip:')[1];	
 			console.log("c_city"+c_city+"c_state"+c_state+"c_address"+c_address);
 			console.log("c_country="+c_country);
