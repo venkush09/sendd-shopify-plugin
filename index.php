@@ -225,8 +225,24 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			console.log("c_address1="+ c_address1);
 			console.log("c_address2="+ c_address2);
 			/* customer detail*/
-	   
+	            
 		       	var request = new XMLHttpRequest();
+				if(c_country !='India'){
+					 /* live api */
+			/* request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
+			request.setRequestHeader('Content-Type', 'application/json');
+			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e'); */
+			/* live api */
+			/* test api */
+			 request.open('POST', 'https://api-staging.sendd.co/core/api/v2/order/international/');
+			request.setRequestHeader('Content-Type', 'application/json');
+			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8'); 
+			/* test api */
+					var currency= 'USD';
+					 var international = true;
+					 payment_method = false;
+				}
+				else{
                /* live api */
 			 request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
@@ -237,6 +253,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8');*/ 
 			/* test api */
+				}
              request.onreadystatechange = function () {
 			  if (this.readyState === 4) {
 				console.log('Status:', this.status);
@@ -283,7 +300,8 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 					'weight':0.5,
 					'fragile': false,
 					collectable_value,
-					'description': 'Phone Accessories'
+					'description': 'Phone Accessories',
+					currency
 					
 				  }
 				}
@@ -317,6 +335,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			  'insurance': false,
 			  'process': true,
 			  'notifications':true,
+			  international,
 			};
 
 			request.send(JSON.stringify(body)); 
