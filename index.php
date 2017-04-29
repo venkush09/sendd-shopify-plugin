@@ -9,7 +9,11 @@ use phpish\shopify;
 error_reporting(E_ALL);
  //print_r($_SESSION); 
 ini_set('display_errors', 1);
-
+header('Access-Control-Allow-Origin: *'); 
+    header("Access-Control-Allow-Credentials: true");
+    header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+    header('Access-Control-Max-Age: 1000');
+    header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
 if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']!='' && $_REQUEST['code']!='' )
 {
 	$_SESSION['shop']=$_REQUEST['shop'];
@@ -229,7 +233,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 	            
 		       	var request = new XMLHttpRequest();
 				if(c_country != 'India'){
-					alert(2);
+					alert(3);
 					 /* live api */
 			 request.open('POST', 'https://api.sendd.co/core/api/v2/order/international/');
 			request.setRequestHeader('Content-Type', 'application/json');
