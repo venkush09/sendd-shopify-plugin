@@ -289,7 +289,58 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 				} 
 			}
 			};
-
+              if(c_country != 'India'){
+				 var body = { 
+					 "shipments": [{
+					  "item_detail": {
+					   "content": "P",
+					   "currency": "USD",
+					   "purpose": "C",
+					   "weight": ".5",
+					   "sku": "PROSAR0029",
+					   "description": "Bengal Handwoven Cotton Plain Body Ash Black Saree",
+					   "fragile": false,
+					   "value": 112.32,
+					   "qty": 1
+					  }
+					 }],
+					 "process": true,
+					 "customer_reference_id": "#JHAR1395",
+					 "shipping_type": "P",
+					 "email_on_error": ["venkush.khede@jharonka.com"],
+					 "pickup_detail": {
+					  "phone": "+919172667232",
+					  "company_name": "Jharonka",
+					  "address_2": "Gram Panchayat Road, Goregaon East",
+					  "city": "Mumbai",
+					  "country": "IN",
+					  "contact_person": "Gaurav Lad",
+					  "address_type": "O",
+					  "pincode": "400063",
+					  "email": "help@jharonka.com",
+					  "address_1": "B-109 A, Shreyas Industrial Estate,"
+					 },
+					 "insurance": true,
+					 "callback": {
+					  "url": "http://international.craftsvilla.com/archives/order/283/bunch/1"
+					 },
+					 "delivery_detail": {
+					  "phone": "90261170",
+					  "state": "Singapore",
+					  "address_2": "Singapore",
+					  "city": "Singapore",
+					  "country": "SG",
+					  "contact_person": "Bindiya Naulakha",
+					  "pincode": "429074",
+					  "email": "bindiya.n@gmail.com",
+					  "address_1": "03-10, Ola Residences 841, Mountbatten Road,"
+					 },
+					 "cod": false,
+					 "international": true,
+					 "headers": {}
+					}
+				}
+		else{			  
 			var body = {
 			  'customer_reference_id':order_id,
 			  'shipments': [
@@ -339,7 +390,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			  'notifications':true,
 			  international,
 			};
-
+          }
 			request.send(JSON.stringify(body)); 
 			i++;
 		}
