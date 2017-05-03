@@ -265,6 +265,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 			  if (this.readyState === 4) {
 				console.log('Status:', this.status);
 				console.log('Headers:', this.getAllResponseHeaders());
+				  console.log("helo");
 				console.log('Body:', this.responseText);
 				 var json = JSON.parse(this.responseText);
 				console.log(json);
