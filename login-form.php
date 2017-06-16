@@ -1,4 +1,4 @@
-
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <div id="login_form">
 	<h3>Login with your Sendd shipping login credentials</h3>
 	<form name="login_form" method="POST" action="#" id="login_form">
@@ -41,8 +41,8 @@ $('#login').click(function(e){
 					//var resp1= resp.find('.session_email').html();
 					if(resp =='cool'){
 						//location.href = 'hiddenpage.php';
-						alert(resp1);
 						alert("login  sucessfully");
+						$('.msg').html('login  sucessfully');		
 					}else{
 						$('.msg').html('error while saving data');			
 					}
