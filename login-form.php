@@ -11,6 +11,7 @@
 <script>
 $('#login').click(function(e){
 	e.preventDefault();
+	alert(1);
 			//get the values
 			var email = $('#email').val();
 			var password = $('#password').val();
