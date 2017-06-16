@@ -60,9 +60,11 @@ $('.page_list li a').click(function(){
 				$.post('/checklogin.php', {shop_url:shop_url}, function(resp){
 					console.log("resp="+resp);
 					//var resp1= resp.find('.session_email').html();
-					if(resp.indexOf('cool')){
+					if(resp!=''){
 						//location.href = 'hiddenpage.php';
 						$('.access_token_val').val(resp);
+						var access_key ='Token '+$('body .access_token_val').val();
+						alert(access_key);
 						 $('.content').children().hide();
 						$('.orderform').show();		
 					}else{
@@ -206,6 +208,7 @@ $('.page_list li a').click(function(){
 
 	
 	$('body').on('click', 'a.Create_order', function(e) {
+	 var access_key ='Token '+$('body .access_token_val').val();
 	$('.response_msg').remove();
 		$( '<div class="load_outer"> <img src="images/loading3.gif" class="loadimg"></div>' ).insertAfter('.Create_order');
 	var leng = $('.popupcontent_inner .item').length;
@@ -276,15 +279,15 @@ $('.page_list li a').click(function(){
 				if(c_country != 'India'){
 					alert(3);
 					 /* live api */
-			 request.open('POST', 'https://api.sendd.co/core/api/v2/order/international/');
+			/* request.open('POST', 'https://api.sendd.co/core/api/v2/order/international/');
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e'); 
-			request.setRequestHeader('Access-Control-Allow-Origin', '*'); 		
+			request.setRequestHeader('Access-Control-Allow-Origin', '*'); 	*/	
 			/* live api */
 			/* test api */
-			/* request.open('POST', 'https://api-staging.sendd.co/core/api/v2/order/international/');
+			 request.open('POST', 'https://api-staging.sendd.co/core/api/v2/order/international/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8'); 
+			request.setRequestHeader('Authorization', access_key); 
 			/* test api */
 					var currency= 'USD';
 					 var international = true;
@@ -292,14 +295,14 @@ $('.page_list li a').click(function(){
 				}
 				else{
                /* live api */
-			 request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
+			 /*request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e'); 
+			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e'); */
 			/* live api */
 			/* test api */
-			 /*request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
+			request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 39757c4c7867f048ed452812df9f4d7395842de8');*/
+			request.setRequestHeader('Authorization', access_key);
 			/* test api */
 				}
              request.onreadystatechange = function () {
