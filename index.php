@@ -318,16 +318,17 @@ $('.page_list li a').click(function(){
 					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message ="+json['detail']+"</div>");
 				}
 				else{
-					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message =");
+					var error_msg='';
 					$.each(json, function(key, value,){
-							 $('.item_inner.last').append(key+':');
+							error_msg = error_msg+key+':';
 							$.each(value, function(key, value1){
-							 $('.item_inner.last').append(key+'=');
-								$('.item_inner.last').append(value1);
+							error_msg=error_msg+key+'=';
+							error_msg=error_msg+value1;
 							});
-							$('.item_inner.last').append('<br>');
+							error_msg=error_msg+'<br>';
 						});
-						$('.item_inner.last').append('</div>');
+						$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message ="+error_msg+"</div>");
+						
 					
 				}
 				
