@@ -9,37 +9,59 @@
 	</form>
 </div>
 <script>
+
 $('#login').click(function(e){
 	e.preventDefault();
-	alert(1);
-			//get the values
-			var email = $('#email').val();
-			var password = $('#password').val();
-			
-			
-			
-			//validate the form
-			if(email == '' || password == ''){
-				$('.msg').text('Please fill the form');
-			}else{
-				$('.msg').html("<img src='loading.gif' border='0' />");			
-				//jQuery ajax post method with 
-				var shop_url = "<?php echo $_SESSION['shop'];?>";
-				$.post('/checklogin.php', {email:email, password:password,shop_url:shop_url}, function(resp){
+	//get the values
+		var email = $('#email').val();
+		var password = $('#password').val();
+		//validate the form
+		if(email == '' || password == ''){
+			$('.msg').text('Please fill the form');
+		}else{
+				$('.msg').html("<img src='loading.gif' border='0' />");	
+			var request = new XMLHttpRequest();
+
+			request.open('POST', 'https://api-staging.sendd.co/rest-auth/login/');
+
+			request.setRequestHeader('Content-Type', 'application/json');
+
+			request.onreadystatechange = function () {
+			  if (this.readyState === 4) {
+				console.log('Status:', this.status);
+				console.log('Headers:', this.getAllResponseHeaders());
+				console.log('Body:', this.responseText);
+				
+				if(this.responseText.indexOf('key')){
+			      var access_key=JSON.parse(this.responseText);
+				  access_key =access_key.key;
+				  var shop_url = "<?php echo $_SESSION['shop'];?>";
+				$.post('/checklogin.php', {access_key:access_key,shop_url:shop_url}, function(resp){
 					console.log("resp="+resp);
 					//var resp1= resp.find('.session_email').html();
-					if(resp !=''){
+					if(resp =='cool'){
 						//location.href = 'hiddenpage.php';
 						alert(resp1);
-						
-						
 						alert("login  sucessfully");
 					}else{
-						$('.msg').html('Invalid Email or Password');			
+						$('.msg').html('error while saving data');			
 					}
-				});	
-				
-			}	
-		});
+				});
+				}
+				else{
+					alert(this.responseText);
+				}
+			  }
+			};
+
+			var body = {
+			  'email': email,
+			  'password':password
+			};
+
+			request.send(JSON.stringify(body));
+			console.log(request.send(JSON.stringify(body)));
+		}
+});
 </script>
 
