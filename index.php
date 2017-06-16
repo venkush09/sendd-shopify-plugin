@@ -276,36 +276,20 @@ $('.page_list li a').click(function(){
 			/* customer detail*/
 	            
 		       	var request = new XMLHttpRequest();
-				if(c_country != 'India'){
-					alert(3);
-					 /* live api */
-			/* request.open('POST', 'https://api.sendd.co/core/api/v2/order/international/');
-			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e'); 
-			request.setRequestHeader('Access-Control-Allow-Origin', '*'); 	*/	
-			/* live api */
-			/* test api */
-			 request.open('POST', 'https://api-staging.sendd.co/core/api/v2/order/international/');
-			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', access_key); 
-			/* test api */
-					var currency= 'USD';
-					 var international = true;
-					
-				}
-				else{
+				
                /* live api */
 			 /*request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e'); */
 			/* live api */
+			
 			/* test api */
 			request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
 			request.setRequestHeader('Authorization', access_key);
 			/* test api */
-				}
-             request.onreadystatechange = function () {
+			
+			request.onreadystatechange = function () {
 			  if (this.readyState === 4) {
 				console.log('Status:', this.status);
 				console.log('Headers:', this.getAllResponseHeaders());
@@ -339,58 +323,10 @@ $('.page_list li a').click(function(){
 				} 
 			}
 			};
-              if(c_country != 'India'){
-				 var body = { 
-					 "shipments": [{
-					  "item_detail": {
-					   "content": "P",
-					   "currency": "USD",
-					   "purpose": "C",
-					   "weight": ".5",
-					   "sku": "PROSAR0029",
-					   "description": "Bengal Handwoven Cotton Plain Body Ash Black Saree",
-					   "fragile": false,
-					   "value": 112.32,
-					   "qty": 1
-					  }
-					 }],
-					 "process": true,
-					 "customer_reference_id": "#JHAR1395",
-					 "shipping_type": "P",
-					 "email_on_error": ["venkush.khede@jharonka.com"],
-					 "pickup_detail": {
-					  "phone": "+919172667232",
-					  "company_name": "Jharonka",
-					  "address_2": "Gram Panchayat Road, Goregaon East",
-					  "city": "Mumbai",
-					  "country": "IN",
-					  "contact_person": "Gaurav Lad",
-					  "address_type": "O",
-					  "pincode": "400063",
-					  "email": "help@jharonka.com",
-					  "address_1": "B-109 A, Shreyas Industrial Estate,"
-					 },
-					 "insurance": true,
-					 "callback": {
-					  "url": "http://international.craftsvilla.com/archives/order/283/bunch/1"
-					 },
-					 "delivery_detail": {
-					  "phone": "90261170",
-					  "state": "Singapore",
-					  "address_2": "Singapore",
-					  "city": "Singapore",
-					  "country": "SG",
-					  "contact_person": "Bindiya Naulakha",
-					  "pincode": "429074",
-					  "email": "bindiya.n@gmail.com",
-					  "address_1": "03-10, Ola Residences 841, Mountbatten Road,"
-					 },
-					 "cod": false,
-					 "international": true,
-					 "headers": {}
-					}
-				}
-		else{			  
+              
+				 
+				
+					  
 			var body = {
 			  'customer_reference_id':order_id,
 			  'shipments': [
@@ -438,9 +374,8 @@ $('.page_list li a').click(function(){
 			  'insurance': false,
 			  'process': true,
 			  'notifications':true,
-			  international,
-			};
-          }
+			 };
+          
 			request.send(JSON.stringify(body)); 
 			i++;
 		}
