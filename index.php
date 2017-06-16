@@ -48,6 +48,14 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 	</div>
 </div>
 <script>
+$('.page_list li a').click(function(){
+    var show_div=$(this).attr('data-show');
+	$('.show_div').show();
+	$(this).addClass('selected');
+	 $(this).parent().addClass('selected').siblings().removeClass('selected');
+	 $('.content').children().hide();
+	 $('.show_div').show();
+});
 	// Get orders
 	function getorders(page,limit){
          console.log('test122');
