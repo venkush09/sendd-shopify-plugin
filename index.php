@@ -23,6 +23,8 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 
 
 ?>
+<html>
+<head>
  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700" rel="stylesheet"> 
  
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -32,6 +34,9 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  rel="stylesheet" type="text/css"/>  
 <script src="js/slick.js" type="text/javascript"></script>
  <script src="js/jquery.twbsPagination.js" type="text/javascript"></script>
+ </head>
+ <body>
+<?php include 'dashboard.php';?>
 <div class="background_overlay" style="display:none"></div>
 <div class="page"></div>
 <div class="content-container" ></div>
@@ -434,3 +439,5 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 
 })(jQuery);
 </script>
+</body>
+</html>
