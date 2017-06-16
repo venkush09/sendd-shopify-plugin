@@ -41,6 +41,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 </div>
 <div class="content">
 <?php include 'login-form.php';?>
+<div class="error_msg" style="display:none"><p>Please login to Your Sendd Shipping account First</p></div>
 	<div class="orderform" style="display:none">
 <div class="background_overlay" style="display:none"></div>
 <div class="page"></div>
@@ -52,8 +53,28 @@ $('.page_list li a').click(function(){
     var show_div=$(this).attr('data-show');
 	$(this).addClass('selected');
 	 $(this).parent().addClass('selected').siblings().removeClass('selected');
+	 
+	 if(show_div =='orderform'){
+	  var shop_url = "<?php echo $_SESSION['shop'];?>";
+				$.post('/checklogin.php', {shop_url:shop_url}, function(resp){
+					console.log("resp="+resp);
+					//var resp1= resp.find('.session_email').html();
+					if(resp =='cool'){
+						//location.href = 'hiddenpage.php';
+						alert("login  sucessfully");
+						 $('.content').children().hide();
+						$('.orderform').show();		
+					}else{
+					 $('.content').children().hide();
+						$('.error_msg').show();			
+					}
+				});
+	 }
+	 else{
 	 $('.content').children().hide();
 	 $('.'+show_div).show();
+	 }
+
 });
 	// Get orders
 	function getorders(page,limit){
