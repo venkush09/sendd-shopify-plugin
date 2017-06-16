@@ -61,7 +61,6 @@ $('.page_list li a').click(function(){
 					//var resp1= resp.find('.session_email').html();
 					if(resp =='cool'){
 						//location.href = 'hiddenpage.php';
-						alert("login  sucessfully");
 						 $('.content').children().hide();
 						$('.orderform').show();		
 					}else{
