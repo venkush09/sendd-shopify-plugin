@@ -1,6 +1,6 @@
 <div id="login_form">
 	<h3>Login with your Sendd shipping login credentials</h3>
-	<form name="login_form" method="POST" id="login_form">
+	<form name="login_form" method="POST" action="#" id="login_form">
 	<label>Email</label><input required type="text" name="email" id="email"/><br />
 	<label>Password</label><input requried type="password" name="password" id="password"/><br/>
 		<div class="msg">&nbsp;</div>
