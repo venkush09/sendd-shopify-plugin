@@ -21,12 +21,11 @@ require __DIR__.'/connection.php'; //DB connectivity
 		}
 	}
 	else{
-		$user_exist = pg_query($dbconn4, "SELECT access_key FROM user_table WHERE store_url = '{$shop_url}'");
+		$user_exist = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$shop_url}'");
 		if(pg_num_rows($user_exist)){
 			echo "cool";
-			while($response = pg_fetch_assoc($user_exist)){
-					$json = $response['value'];
-					echo "api_key=".$json;
+			while ($row = pg_fetch_assoc($user_exist)) {
+					 echo $row['access_key'];
 				}
 		}
 	}
