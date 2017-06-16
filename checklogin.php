@@ -43,6 +43,6 @@ $_SESSION['email'] =  $email;
 	echo "cool";
 	pg_query($dbconn4, "UPDATE user_table SET status = '1' WHERE store_url = '{$shop_url}' and  email = '{$email}' and password = '{$password}'");
 
-} */
-}
+} 
+}*/
 ?>
