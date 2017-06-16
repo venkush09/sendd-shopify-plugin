@@ -339,8 +339,8 @@ $('.page_list li a').click(function(){
 					'weight':0.5,
 					'fragile': false,
 					collectable_value,
-					'description': 'Phone Accessories',
-					currency
+					'description': 'Phone Accessories'
+					
 					
 				  }
 				}
