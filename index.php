@@ -33,6 +33,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <script src="js/slick.js" type="text/javascript"></script>
  <script src="js/jquery.twbsPagination.js" type="text/javascript"></script>
 <?php include 'dashboard.php';?>
+<?php include 'login-form.php';?>
 <div class="background_overlay" style="display:none"></div>
 <div class="page"></div>
 <div class="content-container" ></div>
