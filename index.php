@@ -318,7 +318,17 @@ $('.page_list li a').click(function(){
 					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message ="+json['detail']+"</div>");
 				}
 				else{
-					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message = "+ JSON.stringify(this.responseText) +"Invalid Detail</div>");
+					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message =");
+					$.each(json, function(key, value,){
+							 $('.item_inner.last').append(key+':');
+							$.each(value, function(key, value1){
+							 $('.item_inner.last').append(key+'=');
+								$('.item_inner.last').append(value1);
+							});
+							$('.item_inner.last').append('<br>');
+						});
+						$('.item_inner.last').append('</div>');
+					
 				}
 				
 				if(i == leng-1){
