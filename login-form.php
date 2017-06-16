@@ -9,7 +9,8 @@
 	</form>
 </div>
 <script>
-$('#login').click(function(){
+$('#login').click(function(e){
+	e.preventDefault();
 			//get the values
 			var email = $('#email').val();
 			var password = $('#password').val();
