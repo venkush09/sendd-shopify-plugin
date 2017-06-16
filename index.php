@@ -40,10 +40,12 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <?php include 'dashboard.php';?>
 </div>
 <div class="content">
-<?php include 'login-form.php';?>	
+<?php include 'login-form.php';?>
+	<div class="orderform" style="display:none">
 <div class="background_overlay" style="display:none"></div>
 <div class="page"></div>
 <div class="content-container" ></div>
+	</div>
 </div>
 <script>
 	// Get orders
