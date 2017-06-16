@@ -318,7 +318,7 @@ $('.page_list li a').click(function(){
 					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message ="+json['detail']+"</div>");
 				}
 				else{
-					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message = "+ json +"Invalid Detail</div>");
+					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message = "+ JSON.stringify(this.responseText) +"Invalid Detail</div>");
 				}
 				
 				if(i == leng-1){
