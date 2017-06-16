@@ -40,6 +40,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <?php include 'dashboard.php';?>
 </div>
 <div class="content">
+<input type="hidden" class="access_token_val" value="">
 <?php include 'login-form.php';?>
 <div class="error_msg" style="display:none"><p>Please login to Your Sendd Shipping account First</p></div>
 	<div class="orderform" style="display:none">
@@ -59,8 +60,9 @@ $('.page_list li a').click(function(){
 				$.post('/checklogin.php', {shop_url:shop_url}, function(resp){
 					console.log("resp="+resp);
 					//var resp1= resp.find('.session_email').html();
-					if(resp =='cool'){
+					if(resp.indexOf('cool')){
 						//location.href = 'hiddenpage.php';
+						$('.access_token_val').val(resp);
 						 $('.content').children().hide();
 						$('.orderform').show();		
 					}else{
