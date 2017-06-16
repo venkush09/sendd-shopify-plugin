@@ -1,4 +1,4 @@
-<div id="login_form" style="display:none">
+<div id="login_form">
 	<h3>Login with your Sendd shipping login credentials</h3>
 	<form name="login_form" method="POST" action="#" id="login_form">
 	<label>Email</label><input required type="text" name="email" id="email"/><br />
