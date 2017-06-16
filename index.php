@@ -222,7 +222,7 @@ $('.page_list li a').click(function(){
 		   var address2 = $('.pickup_address option:selected',this).attr('data-address2');
 		   var pickup_address1 = $('.pickup_address option:selected',this).val();
 		   var content_type = $('.content_type:checked',this).val();
-		   var providers = $('.providers:selected',this).val();
+		   var providers = $('.providers option:selected',this).val();
 		   alert(providers);
 		   var customer_total_price = $('.customer_total_price',this).val();
 		   var p_company_name = $('.p_company_name',this).val();
