@@ -34,14 +34,15 @@ require __DIR__.'/connection.php'; //DB connectivity
 		if(isset($_REQUEST['saveaddress']) || $_REQUEST['saveaddress']!=''){
 
 			$address_id=$_REQUEST['saveaddress'];
-			 $name=$_REQUEST['name'];
+			 $name=$_REQUEST['username'];
 			 $address_line1=$_REQUEST['address_line1'];
 			 $address_line2=$_REQUEST['address_line2'];
 			 $city=$_REQUEST['city'];
 			 $zipcode=$_REQUEST['zipcode'];
 			 $phoneno=$_REQUEST['phoneno'];
 			 $shop_url=$_REQUEST['shop_url'];
-			echo $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_url = '{$shop_url}' and id={$address_id}");
+			 $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_url = '{$shop_url}' and id={$address_id}");
+			print_r(pg_num_rows($pickup_address));
 			if(pg_num_rows($pickup_address)){
 				 pg_query($dbconn4, "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}' WHERE shop_url = '{$shop_url}' and id='{$address_id}'");
 			echo "Address update  sucessfully";
