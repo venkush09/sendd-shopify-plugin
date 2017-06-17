@@ -8,8 +8,7 @@
         new DG.OnOffSwitch({
             el: '#on-off-switch-custom',
             height: 50,
-		width:50,
-            trackColorOn:'#F57C00',
+            trackColorOn:'#E14554',
             trackColorOff:'#666',
             trackBorderColor:'#555',
             textColorOff:'#fff',
