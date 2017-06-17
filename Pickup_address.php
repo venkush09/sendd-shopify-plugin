@@ -15,7 +15,7 @@ $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_ur
 	<input value="<?php echo $row['city']?>" type="text" name="city" placeholder="City" required>
     <input value="<?php echo $row['zipcode']?>" type="text" name="zipcode" placeholder="Zip Code" required>
     <input value="<?php echo $row['phoneno']?>" type="text" name="phoneno" placeholder="Phone no" required>
-    <input value="Save Address" type="submit" id="<?php echo $i ?>" class="savebtn" name="saveaddress" value="Save Address">
+    <input value="Save Address" type="button" id="<?php echo $i ?>" class="savebtn" name="saveaddress" value="Save Address">
 </form>
 		<?php
 		$i++;
@@ -30,14 +30,14 @@ $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_ur
 </div>
 <script>
 $("#add_new_address").click(function() {
-	alert(1);
-		var address_id = parseInt($('.addnewaddress').length+1);	
-	alert(1);
-		var planDiv = '<h3>Pickup Address '+address_id+'</h3> <form action="" method="POST" id="form_'+address_id+'"><input type="hidden" value="'+address_id+'" placeholder="Name"><input type="text" name="username" required><input type="textarea" name="address_line1" required max="60" placeholder="Address 1"><input type="textarea" name="address_line2"  max="60" placeholder="Adrress 2"><input type="text" name="city" required placeholder="city"><input type="text" name="zipcode" placeholder="Zip Code" required><input type="text" name="phoneno" placeholder="Phone No" required> <input type="submit" name="saveaddress" id="'+address_id+'" class="savebtn" value="Save Address"></form>'; 
+var address_id = parseInt($('.addnewaddress').length+1);	
+	alert(address_id);
+		var planDiv = '<h3>Pickup Address '+address_id+'</h3> <form action="" method="POST" id="form_'+address_id+'"><input type="hidden" value="'+address_id+'" placeholder="Name"><input type="text" name="username" required><input type="textarea" name="address_line1" required max="60" placeholder="Address 1"><input type="textarea" name="address_line2"  max="60" placeholder="Adrress 2"><input type="text" name="city" required placeholder="city"><input type="text" name="zipcode" placeholder="Zip Code" required><input type="text" name="phoneno" placeholder="Phone No" required> <input type="button" name="saveaddress" id="'+address_id+'" class="savebtn" value="Save Address"></form>'; 
 		$("div[class^=addnewaddress]:last").after(planDiv);
 	});
 	$('.savebtn').click(function(e){
 		e.preventDefault();
+		alert(23);
 		var get_id = $(this).attr('id');
 		var formdata = $('#form_'+get_id).serialize();
 		$.ajax({
