@@ -1,4 +1,22 @@
 <div id="login_form" class="loginform">
+	<div class="api-toggle">
+	<div class="checkbox-container">
+
+    <input type="hidden" id="on-off-switch-custom" value="1">
+
+    <script type="text/javascript">
+        new DG.OnOffSwitch({
+            el: '#on-off-switch-custom',
+            height: 150,
+            trackColorOn:'#F57C00',
+            trackColorOff:'#666',
+            trackBorderColor:'#555',
+            textColorOff:'#fff',
+            textOn:'Live Mode',
+            textOff:'Test Mode'
+        });
+    </script>
+</div></div>
 	<h3>Login with your Sendd shipping login credentials</h3>
 	<form name="login_form" method="POST" action="#" id="login_form">
 	<label>Email</label><input required type="text" name="email" id="email"/><br />
