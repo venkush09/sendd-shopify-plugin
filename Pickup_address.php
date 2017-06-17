@@ -44,7 +44,7 @@ var address_id = parseInt($('.addnewaddress').length);
 		$.ajax({
 			type: 'POST',
 			url: '/checklogin.php',
-			data: {saveaddress: get_id, fom_data: formdata},
+			data: {formdata},
 			success: function(){
 				
 			}
