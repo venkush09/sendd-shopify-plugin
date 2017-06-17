@@ -43,7 +43,7 @@ var address_id = parseInt($('.addnewaddress').length);
 		var formdata = $('#form_'+get_id).serialize();
 		$.ajax({
 			type: 'POST',
-			url: '/checklogin.php?saveaddress=get_id',
+			url: '/checklogin.php?saveaddress='+get_id,
 			data: {formdata},
 			success: function(){
 				
