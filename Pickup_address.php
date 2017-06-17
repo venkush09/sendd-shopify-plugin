@@ -30,7 +30,7 @@ $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_ur
 </div>
 <script>
 $("#add_new_address").click(function() {
-var address_id = parseInt($('.addnewaddress').length+1);	
+var address_id = parseInt($('.addnewaddress').length);	
 	alert(address_id);
 		var planDiv = '<h3>Pickup Address '+address_id+'</h3> <form action="" method="POST" id="form_'+address_id+'"><input type="hidden" value="'+address_id+'" placeholder="Name"><input type="text" name="username" required><input type="textarea" name="address_line1" required max="60" placeholder="Address 1"><input type="textarea" name="address_line2"  max="60" placeholder="Adrress 2"><input type="text" name="city" required placeholder="city"><input type="text" name="zipcode" placeholder="Zip Code" required><input type="text" name="phoneno" placeholder="Phone No" required> <input type="button" name="saveaddress" id="'+address_id+'" class="savebtn" value="Save Address"></form>'; 
 		$("div[class^=addnewaddress]:last").after(planDiv);
