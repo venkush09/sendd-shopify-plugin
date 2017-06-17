@@ -43,7 +43,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 			 pg_query($dbconn4, "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}' WHERE shop_url = '{$shop_url}' and id='{$address_id}'");
 		}
 		else{
-		$sql = "insert into pickup_address (name,address_line1,address_line2,city ,zipcode,phoneno,shop_url) values ('$name', '$address_line1','$address_line2','$city', '$zipcode','$phoneno','$shop_url' )";
-			$qry = pg_query($dbconn4,$sql);	
+		echo $sql = "insert into pickup_address (name,address_line1,address_line2,city ,zipcode,phoneno,shop_url) values ('$name', '$address_line1','$address_line2','$city', '$zipcode','$phoneno','$shop_url' )";
+			$qry = pg_query($sql);	
 		}
 ?>
