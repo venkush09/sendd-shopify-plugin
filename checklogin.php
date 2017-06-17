@@ -21,14 +21,12 @@ require __DIR__.'/connection.php'; //DB connectivity
 		}
 	}
 	else{
-		if(!(isset($_REQUEST['saveaddress'])){
-			$user_exist = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$shop_url}'");
-			if(pg_num_rows($user_exist)){
-				
-				while ($row = pg_fetch_assoc($user_exist)) {
-						 echo $row['access_key'];
-					}
-			}
+		$user_exist = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$shop_url}'");
+		if(pg_num_rows($user_exist)){
+			
+			while ($row = pg_fetch_assoc($user_exist)) {
+					 echo $row['access_key'];
+				}
 		}
 	}
 
@@ -45,7 +43,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 			 $shop_url=$_REQUEST['shop_url'];
 			echo $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_url = '{$shop_url}' and id={$address_id}");
 			if(pg_num_rows($pickup_address)){
-				 pg_query($dbconn4, "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}' WHERE shop_url = '{$shop_url}' and id={$address_id}");
+				 pg_query($dbconn4, "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}' WHERE shop_url = '{$shop_url}' and id='{$address_id}'");
 			echo "Address update  sucessfully";
 			}
 			else{
