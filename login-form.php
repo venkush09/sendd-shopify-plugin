@@ -13,7 +13,27 @@
             trackBorderColor:'#555',
             textColorOff:'#fff',
             textOn:'Live Mode',
-            textOff:'Test Mode'
+            textOff:'Test Mode',
+			listener:function(name, checked){
+			var api_mode;
+			if(checked == true){
+				api_mode= "live_mode";
+			}
+			else{
+				api_mode= "test_mode";
+			}
+			$.post('/checklogin.php', {api_mode:api_mode,shop_url:shop_url}, function(resp){
+					console.log("resp="+resp);
+					//var resp1= resp.find('.session_email').html();
+					if(resp =='mode_set'){
+						//location.href = 'hiddenpage.php';
+						alert(api_mode + "set sucessfully");
+								
+					}else{
+					alert('error while setting '+api_mode );
+					}
+				});
+        }
         });
     </script>
 </div></div>
