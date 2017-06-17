@@ -7,7 +7,8 @@
     <script type="text/javascript">
         new DG.OnOffSwitch({
             el: '#on-off-switch-custom',
-            height: 150,
+            height: 50,
+		width:50,
             trackColorOn:'#F57C00',
             trackColorOff:'#666',
             trackBorderColor:'#555',
