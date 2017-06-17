@@ -44,8 +44,8 @@ var address_id = parseInt($('.addnewaddress').length);
 			type: 'POST',
 			url: '/checklogin.php',
 			data: formdata,
-			success: function(){
-				
+			success: function(response){
+	        	alert(response);		
 			}
 		});
 		
