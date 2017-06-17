@@ -33,13 +33,14 @@ require __DIR__.'/connection.php'; //DB connectivity
         	print_r($_REQUEST);
 		if(isset($_REQUEST['saveaddress']) || $_REQUEST['saveaddress']!=''){
 
-			echo $address_id=$_REQUEST['saveaddress'];
-			 echo $name=$_REQUEST['name'];
-			 echo $address_line1=$_REQUEST['address_line1'];
-			 echo $address_line2=$_REQUEST['address_line2'];
-			 echo $city=$_REQUEST['city'];
-			 echo $zipcode=$_REQUEST['zipcode'];
-			 echo $phoneno=$_REQUEST['phoneno'];
+			$address_id=$_REQUEST['saveaddress'];
+			 $name=$_REQUEST['name'];
+			 $address_line1=$_REQUEST['address_line1'];
+			 $address_line2=$_REQUEST['address_line2'];
+			 $city=$_REQUEST['city'];
+			 $zipcode=$_REQUEST['zipcode'];
+			 $phoneno=$_REQUEST['phoneno'];
+			 $shop_url=$_REQUEST['shop_url'];
 			$pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_url = '{$shop_url}' and id={$address_id}");
 			if(pg_num_rows($pickup_address)){
 				 pg_query($dbconn4, "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}' WHERE shop_url = '{$shop_url}' and id='{$address_id}'");
