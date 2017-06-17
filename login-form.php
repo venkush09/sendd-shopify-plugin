@@ -1,42 +1,4 @@
 <div id="login_form" class="loginform">
-	<div class="api-toggle">
-	<div class="checkbox-container">
-
-    <input type="hidden" id="on-off-switch-custom" value="1">
-
-    <script type="text/javascript">
-        new DG.OnOffSwitch({
-            el: '#on-off-switch-custom',
-            height: 50,
-            trackColorOn:'#E14554',
-            trackColorOff:'#666',
-            trackBorderColor:'#555',
-            textColorOff:'#fff',
-            textOn:'Live Mode',
-            textOff:'Test Mode',
-			listener:function(name, checked){
-			var api_mode;
-			if(checked == true){
-				api_mode= "live_mode";
-			}
-			else{
-				api_mode= "test_mode";
-			}
-			$.post('/checklogin.php', {api_mode:api_mode,shop_url:shop_url}, function(resp){
-					console.log("resp="+resp);
-					//var resp1= resp.find('.session_email').html();
-					if(resp =='mode_set'){
-						//location.href = 'hiddenpage.php';
-						alert(api_mode + "set sucessfully");
-								
-					}else{
-					alert('error while setting '+api_mode );
-					}
-				});
-        }
-        });
-    </script>
-</div></div>
 	<h3>Login with your Sendd shipping login credentials</h3>
 	<form name="login_form" method="POST" action="#" id="login_form">
 	<label>Email</label><input required type="text" name="email" id="email"/><br />
