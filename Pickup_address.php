@@ -39,8 +39,9 @@ var address_id = parseInt($('body .formmain').length+1);
 
 	$('body').on('click', '.savebtn', function(e) {
 	   e.preventDefault();
-		if(($("input[name=username]").val()!='') && ($("input[name=address_line1]").val()!='')&& ($("input[name=address_line2]").val()!='')&& ($("input[name=city]").val()!='')&& ($("input[name=zipcode]").val()!='')&& ($("input[name=phoneno1]").val()!='')){
-		var get_id = $(this).attr('id');
+	   var get_id = $(this).attr('id');
+		if(($("#form_"+get_id+"input[name=username]").val()!='') && ($("#form_"+get_id+"input[name=address_line1]").val()!='')&& ($("#form_"+get_id+"input[name=address_line2]").val()!='')&& ($("#form_"+get_id+"input[name=city]").val()!='')&& ($("#form_"+get_id+"input[name=zipcode]").val()!='')&& ($("#form_"+get_id+"input[name=phoneno1]").val()!='')){
+		
 		var formdata = $('#form_'+get_id).serialize();
 		$.ajax({
 			type: 'POST',
