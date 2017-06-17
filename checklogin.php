@@ -29,4 +29,5 @@ require __DIR__.'/connection.php'; //DB connectivity
 				}
 		}
 	}
+	
 ?>
