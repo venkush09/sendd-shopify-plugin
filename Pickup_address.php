@@ -1,5 +1,4 @@
 <?php 
-session_start();
 $shop_url =$_REQUEST['shop'];
 require __DIR__.'/connection.php'; //DB connectivity
 echo '<div class="pickupadreess">';
