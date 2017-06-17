@@ -30,9 +30,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 		}
 	}
 
-        foreach($_REQUEST['formdata'] as $formdata){
-		echo $formdata;
-		echo $formdata->saveaddress;
+        	print_r($_REQUEST);
 		if(isset($_REQUEST['saveaddress']) || $_REQUEST['saveaddress']!=''){
 
 			echo $address_id=$_REQUEST['saveaddress'];
@@ -51,5 +49,4 @@ require __DIR__.'/connection.php'; //DB connectivity
 				$qry = pg_query($sql);	
 			}
 		}
-	}
 ?>
