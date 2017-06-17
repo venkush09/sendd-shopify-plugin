@@ -42,7 +42,7 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <?php include 'dashboard.php';?>
 </div>
 <div class="content">
-<div class="pickupaddress">
+<div class="pickupaddress" style="display:none">
 <?php include 'Pickup_address.php';?>	
 </div>
 <input type="hidden" class="access_token_val" value="">
