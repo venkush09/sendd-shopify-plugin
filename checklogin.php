@@ -29,24 +29,27 @@ require __DIR__.'/connection.php'; //DB connectivity
 				}
 		}
 	}
-        print_r($_REQUEST);
-        print_r($_REQUEST['formdata']['saveaddress']); 
-	if(isset($_REQUEST['saveaddress']) || $_REQUEST['saveaddress']!=''){
-		
-		echo $address_id=$_REQUEST['saveaddress'];
-		 echo $name=$_REQUEST['name'];
-		 echo $address_line1=$_REQUEST['address_line1'];
-		 echo $address_line2=$_REQUEST['address_line2'];
-		 echo $city=$_REQUEST['city'];
-		 echo $zipcode=$_REQUEST['zipcode'];
-		 echo $phoneno=$_REQUEST['phoneno'];
-		$pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_url = '{$shop_url}' and id={$address_id}");
-		if(pg_num_rows($pickup_address)){
-			 pg_query($dbconn4, "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}' WHERE shop_url = '{$shop_url}' and id='{$address_id}'");
-		}
-		else{
-		echo $sql = "insert into pickup_address (name,address_line1,address_line2,city ,zipcode,phoneno,shop_url) values ('$name', '$address_line1','$address_line2','$city', '$zipcode','$phoneno','$shop_url' )";
-			$qry = pg_query($sql);	
+
+        foreach($_REQUEST['formdata'] as $formdata){
+		echo $formdata;
+		echo $formdata->saveaddress;
+		if(isset($_REQUEST['saveaddress']) || $_REQUEST['saveaddress']!=''){
+
+			echo $address_id=$_REQUEST['saveaddress'];
+			 echo $name=$_REQUEST['name'];
+			 echo $address_line1=$_REQUEST['address_line1'];
+			 echo $address_line2=$_REQUEST['address_line2'];
+			 echo $city=$_REQUEST['city'];
+			 echo $zipcode=$_REQUEST['zipcode'];
+			 echo $phoneno=$_REQUEST['phoneno'];
+			$pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_url = '{$shop_url}' and id={$address_id}");
+			if(pg_num_rows($pickup_address)){
+				 pg_query($dbconn4, "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}' WHERE shop_url = '{$shop_url}' and id='{$address_id}'");
+			}
+			else{
+			echo $sql = "insert into pickup_address (name,address_line1,address_line2,city ,zipcode,phoneno,shop_url) values ('$name', '$address_line1','$address_line2','$city', '$zipcode','$phoneno','$shop_url' )";
+				$qry = pg_query($sql);	
+			}
 		}
 	}
 ?>
