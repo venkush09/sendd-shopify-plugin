@@ -30,7 +30,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 		}
 	}
 
-        	print_r($_REQUEST);
+        	
 		if(isset($_REQUEST['saveaddress']) || $_REQUEST['saveaddress']!=''){
 
 			$address_id=$_REQUEST['saveaddress'];
@@ -44,10 +44,12 @@ require __DIR__.'/connection.php'; //DB connectivity
 			$pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_url = '{$shop_url}' and id={$address_id}");
 			if(pg_num_rows($pickup_address)){
 				 pg_query($dbconn4, "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}' WHERE shop_url = '{$shop_url}' and id='{$address_id}'");
+			echo "Address update  sucessfully";
 			}
 			else{
-			echo $sql = "insert into pickup_address (name,address_line1,address_line2,city ,zipcode,phoneno,shop_url) values ('$name', '$address_line1','$address_line2','$city', '$zipcode','$phoneno','$shop_url' )";
+			 $sql = "insert into pickup_address (name,address_line1,address_line2,city ,zipcode,phoneno,shop_url) values ('$name', '$address_line1','$address_line2','$city', '$zipcode','$phoneno','$shop_url' )";
 				$qry = pg_query($sql);	
+				echo "Address save sucessfully";
 			}
 		}
 ?>
