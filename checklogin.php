@@ -41,8 +41,8 @@ require __DIR__.'/connection.php'; //DB connectivity
 			 $zipcode=$_REQUEST['zipcode'];
 			 $phoneno=$_REQUEST['phoneno'];
 			 $shop_url=$_REQUEST['shop_url'];
-			 $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_url = '{$shop_url}' and id={$address_id}");
-			print_r(pg_num_rows($pickup_address));
+			 $pickup_address = pg_query($dbconn4, "SELECT count(id) AS idcount FROM pickup_address WHERE shop_url = '{$shop_url}' and id={$address_id}");
+			print_r(pg_num_rows($pickup_address['idcount']));
 			if(pg_num_rows($pickup_address)){
 				 pg_query($dbconn4, "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}' WHERE shop_url = '{$shop_url}' and id='{$address_id}'");
 			echo "Address update  sucessfully";
