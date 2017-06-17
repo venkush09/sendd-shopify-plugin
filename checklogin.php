@@ -46,4 +46,5 @@ require __DIR__.'/connection.php'; //DB connectivity
 		echo $sql = "insert into pickup_address (name,address_line1,address_line2,city ,zipcode,phoneno,shop_url) values ('$name', '$address_line1','$address_line2','$city', '$zipcode','$phoneno','$shop_url' )";
 			$qry = pg_query($sql);	
 		}
+	}
 ?>
