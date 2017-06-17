@@ -34,6 +34,8 @@ $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHO
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  rel="stylesheet" type="text/css"/>  
 <script src="js/slick.js" type="text/javascript"></script>
  <script src="js/jquery.twbsPagination.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/on-off-switch.js"></script>
+ <link rel="stylesheet" type="text/css" href="css/on-off-switch.css"/>
  </head>
  <body>
  <div class="sidebar">
