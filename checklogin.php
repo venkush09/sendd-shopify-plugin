@@ -30,7 +30,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 		}
 	}
         print_r($_REQUEST);
-        print_r($_REQUEST['formdata']); 
+        print_r($_REQUEST['formdata']->saveaddress); 
 	if(isset($_REQUEST['saveaddress']) || $_REQUEST['saveaddress']!=''){
 		
 		echo $address_id=$_REQUEST['saveaddress'];
