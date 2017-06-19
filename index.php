@@ -175,7 +175,7 @@ $('.page_list li a').click(function(){
 				console.log(resp);
 			}
 		});
-				alert(pickup_address);
+				//alert(pickup_address);
 			$('.select_box:checkbox:checked').each(function(index){
 				    var order_id = $(this).val(); 
 					var customer_email = $(this).attr('data-customer_email');
