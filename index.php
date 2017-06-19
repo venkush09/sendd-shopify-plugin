@@ -195,8 +195,13 @@ $('.page_list li a').click(function(){
 					/*content = content + '<br> <select name="Providers" class="providers"><option value="IP">India Post</option><option value="FE">FedEx</option><option value="BD">BlueDart</option><option value="DH">Delhivery</option><option value="PR">Professional</option><option value="GT">Gati</option><option value="AX">Aramex</option><option value="EE">EcomExpress</option><option value="DT">DotZot</option><option value="FF">First Flight</option><option value="MC">Maruti Courier</option><option value="IP">India Post</option><option value="NE">NuvoEx</option><option value="SF">Shadowfax</option><option value="HL">HL</option></select></div></div>';*/
 
 					$('.popupcontent_inner').append(content);
-		
+		            $('body .p_company_name').val($('body .pickup_address option:selected').attr('data-companyname'));
 			});
+					// set the value of company name
+					$('body .pickup_address').change(function(){
+						 $('body .p_company_name').val($(this).attr('data-companyname'));
+					});
+					// set the value of company name ends
 				var content_last ="<div class='item'><div class='item_inner last'><a href='#' class='Create_order'>Create Order</a></div></div>";
 				$('.popupcontent_inner').append(content_last);
 				// Define data for the popup
@@ -234,19 +239,30 @@ $('.page_list li a').click(function(){
 		if(index < leng-1){
 			
 		  /* pickup address detail*/
-		   var pickup_address = $('.pickup_address option:selected',this).text();
-		   var address2 = $('.pickup_address option:selected',this).attr('data-address2');
-		   var pickup_address1 = $('.pickup_address option:selected',this).val();
+		  var address2 = $('.pickup_address option:selected',this).attr('data-address2');
+		   var pickup_address1 = $('.pickup_address option:selected',this).attr('data-pickupadd1');
+		   var p_company_name = $('.p_company_name',this).val();
+		   var p_contact_person = $('.pickup_address option:selected',this).attr('data-pickupusername');
+		   var p_phone = $('.pickup_address option:selected',this).attr('data-pickupphone');
+		   var p_zipcode = $('.pickup_address option:selected',this).attr('data-zipcode');
+		   var p_city = $('.pickup_address option:selected',this).attr('data-city');
+		  //var pickup_address = $('.pickup_address option:selected',this).attr('data-pickupusername');
+		  //var pickup_address = $('.pickup_address option:selected',this).text();
+		   //var pickup_address1 = $('.pickup_address option:selected',this).val();
+		  
 		   var content_type = $('.content_type:checked',this).val();
 		   var providers = $('.providers option:selected',this).val();
 		   //alert(providers);
 		   var customer_total_price = $('.customer_total_price',this).val();
-		   var p_company_name = $('.p_company_name',this).val();
-		   var p_contact_person = pickup_address.split(':')[0];
+		   
+		   //var p_contact_person = pickup_address.split(':')[0];
+		   
 		   //var p_contact_person = $('.p_contact_person',this).val();
-		   var p_phone = pickup_address.split('::')[1];
+		   //var p_phone = pickup_address.split('::')[1];
+		    
 		   var p_emailid = $('.p_emailid',this).val();
-		   var p_zipcode = pickup_address.split('_')[1].split('::')[0];		   
+		   //var p_zipcode = pickup_address.split('_')[1].split('::')[0];	
+		   
 		   //var p_zipcode = $('.p_zipcode',this).val();
 			//alert("p_zipcode" +p_zipcode);
 		 /* pickup address detail*/
@@ -382,6 +398,7 @@ $('.page_list li a').click(function(){
 				'phone': p_phone,
 				'address_1': pickup_address1,
 				'address_2': address2,
+				'city':p_city,
 				'pincode': p_zipcode,
 				 'country': 'IN',
 				
