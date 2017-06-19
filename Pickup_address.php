@@ -65,10 +65,11 @@ var address_id = parseInt($('body .formmain:last > form > input[name=saveaddress
 	/* delete address function*/
 	$('body').on('click','.delete_address',function(e){
 	  	e.preventDefault();
+		var shop_url=<?php echo $shop_url; ?>
 		var address_id=$(this).attr('href');
 		$.ajax({
 			type: 'POST',
-			url: '/deleteaddress.php?id='+address_id,
+			url: '/deleteaddress.php?id='+address_id+'shop_url='+shop_url,
 			success: function(resp){
 	        	alert(resp);
 				$('body #formamin_'+address_id).remove();
