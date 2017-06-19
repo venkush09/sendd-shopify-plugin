@@ -43,7 +43,8 @@ require __DIR__.'/connection.php'; //DB connectivity
 			 $city=$_REQUEST['city'];
 			 $zipcode=$_REQUEST['zipcode'];
 			 $phoneno=$_REQUEST['phoneno'];
-			 $shop_url=$_REQUEST['shop_url'];
+			echo $shop_url=$_REQUEST['shop_url'];
+			echo "SELECT id FROM pickup_address WHERE shop_url ='{$shop_url}' and id={$address_id}";
 			 $pickup_address2 = pg_query($dbconn4, "SELECT id FROM pickup_address WHERE shop_url ='{$shop_url}' and id={$address_id}");
 			echo pg_num_rows($pickup_address2);
 			if(pg_num_rows($pickup_address2)){
