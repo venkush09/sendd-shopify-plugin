@@ -239,13 +239,13 @@ $('.page_list li a').click(function(){
 		if(index < leng-1){
 			
 		  /* pickup address detail*/
-		  var address2 = $('.pickup_address option:selected',this).attr('data-address2');
+		  var address2 = $('.pickup_address option:selected',this).attr('data-pickupadd2');
 		   var pickup_address1 = $('.pickup_address option:selected',this).attr('data-pickupadd1');
 		   var p_company_name = $('.p_company_name',this).val();
 		   var p_contact_person = $('.pickup_address option:selected',this).attr('data-pickupusername');
 		   var p_phone = $('.pickup_address option:selected',this).attr('data-pickupphone');
-		   var p_zipcode = $('.pickup_address option:selected',this).attr('data-zipcode');
-		   var p_city = $('.pickup_address option:selected',this).attr('data-city');
+		   var p_zipcode = $('.pickup_address option:selected',this).attr('data-pickupzip');
+		   var p_city = $('.pickup_address option:selected',this).attr('data-pickupcity');
 		  //var pickup_address = $('.pickup_address option:selected',this).attr('data-pickupusername');
 		  //var pickup_address = $('.pickup_address option:selected',this).text();
 		   //var pickup_address1 = $('.pickup_address option:selected',this).val();
