@@ -162,18 +162,19 @@ $('.page_list li a').click(function(){
 		e.preventDefault();
 		$('.popupcontent_inner').remove();
 		$('#popup_content').append('<div class="popupcontent_inner"></div>');
-		var content,pickup_address ;
+		var content,pickup_address='';
 		 var len = $('.select_box:checkbox:checked').length;
 		 if(len > 0){
 			 $.ajax({
 			type: 'POST',
 			url: '/get_pickupaddress.php?pickupaddres=1&shop='+shop,
 			success: function(resp){
-	        	alert(resp);
+	        	
 				pickup_address=resp;
 				console.log(resp);
 			}
 		});
+				alert(pickup_address);
 			$('.select_box:checkbox:checked').each(function(index){
 				    var order_id = $(this).val(); 
 					var customer_email = $(this).attr('data-customer_email');
