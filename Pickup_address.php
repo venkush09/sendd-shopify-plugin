@@ -34,9 +34,10 @@ $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_ur
 </div>
 <script>
 $("#add_new_address").click(function() {
-var address_id = parseInt($('body .formmain:last > form > input[name=saveaddress]').val())+1;
-		if(address_id=='NaN'){
-		address_id=1;
+		if($('body .formmain:last > form > input[name=saveaddress]').length > 0){
+		var address_id = parseInt($('body .formmain:last > form > input[name=saveaddress]').val())+1;
+		} else{
+			address_id=1;
 		}
 	var form_number = parseInt($('body .formmain').length+1);
 	//alert(address_id);
