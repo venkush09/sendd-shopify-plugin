@@ -2,7 +2,7 @@
 $shop_url =$_REQUEST['shop'];
 require __DIR__.'/connection.php'; //DB connectivity
 echo '<div class="pickupadreess">';
-$pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_url = '{$shop_url}'");
+$pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_url = '{$shop_url}'  ORDER BY  id asc");
 	if(pg_num_rows($pickup_address)){
 		$i=1;
 		
