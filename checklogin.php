@@ -35,15 +35,15 @@ require __DIR__.'/connection.php'; //DB connectivity
         	
 		if(isset($_REQUEST['saveaddress']) || $_REQUEST['saveaddress']!=''){
 
-			$address_id=$_REQUEST['saveaddress'];
-			 $name=$_REQUEST['username'];
-			 $companyname=$_REQUEST['companyname'];
-			 $address_line1=$_REQUEST['address_line1'];
-			 $address_line2=$_REQUEST['address_line2'];
-			 $city=$_REQUEST['city'];
-			 $zipcode=$_REQUEST['zipcode'];
-			 $phoneno=$_REQUEST['phoneno'];
-			echo $shop_url=$_REQUEST['shop_url'];
+			$address_id=trim($_REQUEST['saveaddress']);
+			 $name=trim($_REQUEST['username']);
+			 $companyname=trim($_REQUEST['companyname']);
+			 $address_line1=trim($_REQUEST['address_line1']);
+			 $address_line2=trim($_REQUEST['address_line2']);
+			 $city=trim($_REQUEST['city']);
+			 $zipcode=trim($_REQUEST['zipcode']);
+			 $phoneno=trim($_REQUEST['phoneno']);
+			echo $shop_url=($_REQUEST['shop_url']);
 			echo "SELECT id FROM pickup_address WHERE shop_url ='{$shop_url}' and id={$address_id}";
 			 $pickup_address2 = pg_query($dbconn4, "SELECT id FROM pickup_address WHERE shop_url ='{$shop_url}' and id={$address_id}");
 			echo pg_num_rows($pickup_address2);
@@ -52,7 +52,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 			echo "Address update  sucessfully";
 			}
 			else{
-			 $sql = "insert into pickup_address (name,address_line1,address_line2,city ,zipcode,phoneno,shop_url,companyname) values ('$name', '$address_line1','$address_line2','$city', '$zipcode','$phoneno','$shop_url','$companyname' )";
+			 $sql = "insert into pickup_address (name,address_line1,address_line2,city ,zipcode,phoneno,shop_url,companyname) values ('$name','$address_line1','$address_line2','$city', '$zipcode','$phoneno','$shop_url','$companyname' )";
 				$qry = pg_query($sql);	
 				echo "Address save sucessfully";
 			}
