@@ -44,6 +44,7 @@ var address_id = parseInt($('body .formmain').length+1);
 	   
 		if(($("body #form_"+get_id+" input[name=username]").val()!='') && ($("body #form_"+get_id+" input[name=address_line1]").val()!='')&& ($("body #form_"+get_id+" input[name=companyname]").val()!='')&& ($("body #form_"+get_id+ "input[name=city]").val()!='')&& ($("body #form_"+get_id+" input[name=zipcode]").val()!='')&& ($("body #form_"+get_id+" input[name=phoneno]").val()!='')){
 		$(this).val('Adding...');
+		var clickedbtn= $(this);
 		var formdata = $('body #form_'+get_id).serialize();
 		$.ajax({
 			type: 'POST',
@@ -51,7 +52,7 @@ var address_id = parseInt($('body .formmain').length+1);
 			data: formdata,
 			success: function(resp){
 	        	alert(resp);
-				$(this).val('Save Address');				
+				clickedbtn.val('Save Address');				
 			}
 		});
 		}
