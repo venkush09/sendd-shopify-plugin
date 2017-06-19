@@ -48,7 +48,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 			 $pickup_address2 = pg_query($dbconn4, "SELECT id FROM pickup_address WHERE shop_url ='{$shop_url}' and id={$address_id}");
 			echo pg_num_rows($pickup_address2);
 			if(pg_num_rows($pickup_address2)){
-				 pg_query($dbconn4, "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}' WHERE shop_url = '{$shop_url}' and id='{$address_id}' and companyname='{$companyname}'");
+				 pg_query($dbconn4, "UPDATE pickup_address SET name ='{$name}' , address_line1='{$address_line1}', address_line2='{$address_line2}', city='{$city}', zipcode='{$zipcode}', phoneno='{$phoneno}',companyname='{$companyname}' WHERE shop_url='{$shop_url}' and id={$address_id}");
 			echo "Address update  sucessfully";
 			}
 			else{
