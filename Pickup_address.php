@@ -42,7 +42,7 @@ var address_id = parseInt($('body .formmain').length+1);
 	   e.preventDefault();
 	   var get_id = $(this).attr('id');
 	   
-		if(($("body #form_"+get_id+" input[name=username]").val()!='') && ($("body #form_"+get_id+" input[name=address_line1]").text()!='')&& ($("body #form_"+get_id+" input[name=companyname]").val()!='')&& ($("body #form_"+get_id+ "input[name=city]").val()!='')&& ($("body #form_"+get_id+" input[name=zipcode]").val()!='')&& ($("body #form_"+get_id+" input[name=phoneno]").val()!='')){
+		if(($("body #form_"+get_id+" input[name=username]").val()!='') && ($("body #form_"+get_id+" input[name=address_line1]").val()!='')&& ($("body #form_"+get_id+" input[name=companyname]").val()!='')&& ($("body #form_"+get_id+ "input[name=city]").val()!='')&& ($("body #form_"+get_id+" input[name=zipcode]").val()!='')&& ($("body #form_"+get_id+" input[name=phoneno]").val()!='')){
 		$(this).val('Adding...');
 		var formdata = $('body #form_'+get_id).serialize();
 		$.ajax({
