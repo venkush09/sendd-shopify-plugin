@@ -167,6 +167,7 @@ $('.page_list li a').click(function(){
 		 if(len > 0){
 			 $.ajax({
 			type: 'POST',
+			async:false,	 
 			url: '/get_pickupaddress.php?pickupaddres=1&shop='+shop,
 			success: function(resp){
 	        	
