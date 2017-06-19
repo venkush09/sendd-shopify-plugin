@@ -12,8 +12,8 @@ $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_ur
   <form action="" method="POST" id="form_<?php echo $i; ?>">
     <input name="saveaddress" type="hidden" value="<?php echo $i; ?>"><input type="hidden" name="shop_url" value="<?php echo $shop_url; ?>">
     <input type="text" name="username" placeholder="Name" value="<?php echo $row['name']?>" required>
-    <input value="<?php echo $row['address_line1']?>" type="textarea" name="address_line1" placeholder="Adrress 1" required max="60">
-    <input  value="<?php echo $row['address_line2']?>" type="textarea" name="address_line2" placeholder="Adrress 2"  max="60">
+    <textarea  name="address_line1" placeholder="Adrress 1" required max="60"><?php echo $row['address_line1']?></textarea>
+    <textarea name="address_line2" placeholder="Adrress 2"  max="60"><?php echo $row['address_line2']?></textarea>
 	<input value="<?php echo $row['city']?>" type="text" name="city" placeholder="City" required>
     <input value="<?php echo $row['zipcode']?>" type="text" name="zipcode" placeholder="Zip Code" required>
     <input value="<?php echo $row['phoneno']?>" type="text" name="phoneno" placeholder="Phone no" required>
