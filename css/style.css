@@ -299,8 +299,10 @@ input[type=checkbox] {
   padding: 10px 5px;
   width: 45%;
 }
-textarea {
+.pickupadreess textarea {
+  display: block;
+  float: none;
   height: 100px;
   margin: 5px;
-  width: 57%;
+  width: 50%;
 }
