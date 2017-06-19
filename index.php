@@ -199,7 +199,7 @@ $('.page_list li a').click(function(){
 			});
 					// set the value of company name
 					$('body .pickup_address').change(function(){
-						 $('body .p_company_name').val($(this).attr('data-companyname'));
+						 $('body .p_company_name').val($(this).find(':selected').attr('data-companyname'));
 					});
 					// set the value of company name ends
 				var content_last ="<div class='item'><div class='item_inner last'><a href='#' class='Create_order'>Create Order</a></div></div>";
