@@ -40,8 +40,8 @@ var address_id = parseInt($('body .formmain').length+1);
 	$('body').on('click', '.savebtn', function(e) {
 	   e.preventDefault();
 	   var get_id = $(this).attr('id');
-	   alert($("body #form_"+get_id+"input[name=username]").val());
-		if(($("body #form_"+get_id+"input[name=username]").val()!='') && ($("body #form_"+get_id+"input[name=address_line1]").val()!='')&& ($("body #form_"+get_id+"input[name=address_line2]").val()!='')&& ($("body #form_"+get_id+"input[name=city]").val()!='')&& ($("body #form_"+get_id+"input[name=zipcode]").val()!='')&& ($("body #form_"+get_id+"input[name=phoneno1]").val()!='')){
+	   alert($("body #form_"+get_id+" input[name=username]").val());
+		if(($("body #form_"+get_id+" input[name=username]").val()!='') && ($("body #form_"+get_id+" input[name=address_line1]").val()!='')&& ($("body #form_"+get_id+" input[name=address_line2]").val()!='')&& ($("body #form_"+get_id+ "input[name=city]").val()!='')&& ($("body #form_"+get_id+" input[name=zipcode]").val()!='')&& ($("body #form_"+get_id+" input[name=phoneno1]").val()!='')){
 		
 		var formdata = $('body #form_'+get_id).serialize();
 		$.ajax({
