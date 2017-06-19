@@ -162,9 +162,18 @@ $('.page_list li a').click(function(){
 		e.preventDefault();
 		$('.popupcontent_inner').remove();
 		$('#popup_content').append('<div class="popupcontent_inner"></div>');
-		var content ;
+		var content,pickup_address ;
 		 var len = $('.select_box:checkbox:checked').length;
 		 if(len > 0){
+			 $.ajax({
+			type: 'POST',
+			url: '/get_pickupaddress.php?pickupaddres=1&shop='+shop,
+			success: function(resp){
+	        	alert(resp);
+				pickup_address=resp;
+				console.log(resp);
+			}
+		});
 			$('.select_box:checkbox:checked').each(function(index){
 				    var order_id = $(this).val(); 
 					var customer_email = $(this).attr('data-customer_email');
@@ -177,7 +186,7 @@ $('.page_list li a').click(function(){
 					var total_weight = $(this).attr('data-total_weight');
 					var quantity_total = $(this).attr('data-quantity_total');
 					var financial_status = $(this).attr('data-financial_status');
-					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-quantity_total="'+quantity_total+'" data-financial_status="'+financial_status+'" class="total_weight"> <div class="fhalf"><h5>Pickup Address*</h5><label>Pickup Company Name:</label><input type="text" class="p_company_name" value="Lomdi Outfitters"><label>Pickup address:</label><select name="pickup_address" class="pickup_address"><option value="4-2-913 Ramkote,Hyderabad,Telangana" selected>Abhishek Enterprises:4-2-913 Ramkote,Hyderabad,Telangana_500001::9885907319</option><option value="D-606, West Vinod Nagar, Behind Ras Vihar Appt" data-address2="IP Extn, Patparganj,East Delhi,Delhi">Lomdi Outfitters:D-606, West Vinod Nagar, Behind Ras Vihar Appt IP Extn, Patparganj, East Delhi,Delhi_110092::9711789367</option></select></div>';
+					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-quantity_total="'+quantity_total+'" data-financial_status="'+financial_status+'" class="total_weight"> <div class="fhalf">'+pickup_address+'</div>';
 					content = content + '<div class="shalf"><label>Customer Name:</label><input type="text" class="customer_name" value="'+customer_name+'"><br><label>Customer Email:</label><input type="text" class="customer_email" value="'+customer_email+'"><br><label>Customer phone:</label><input type="text" class="customer_phone" value="'+customer_phone+'"><br><label>Customer Address:</label><textarea class="customer_address" value="'+customer_address+'">'+customer_address+'</textarea><label>Total amount pay:</label><input type="text" class="customer_total_price" value="'+customer_total_price+'">';
 					content = content + '<br><label>Payment Type: <p class="payment_method">"'+payment_method+'"</p></label>';
 					content = content + '<br><div class="c_type"><label>Content</label><span><input type="radio" checked value="P" name="content_type" class="content_type">Product</span> <span><input type="radio" value="D" name="content_type" class="content_type">Documents</span></div></div></div>';
