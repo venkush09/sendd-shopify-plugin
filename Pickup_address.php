@@ -41,15 +41,16 @@ var address_id = parseInt($('body .formmain').length+1);
 	   e.preventDefault();
 	   var get_id = $(this).attr('id');
 	   
-		if(($("body #form_"+get_id+" input[name=username]").val()!='') && ($("body #form_"+get_id+" input[name=address_line1]").val()!='')&& ($("body #form_"+get_id+" input[name=address_line2]").val()!='')&& ($("body #form_"+get_id+ "input[name=city]").val()!='')&& ($("body #form_"+get_id+" input[name=zipcode]").val()!='')&& ($("body #form_"+get_id+" input[name=phoneno1]").val()!='')){
-		
+		if(($("body #form_"+get_id+" input[name=username]").val()!='') && ($("body #form_"+get_id+" input[name=address_line1]").text()!='')&& ($("body #form_"+get_id+" input[name=address_line2]").text()!='')&& ($("body #form_"+get_id+ "input[name=city]").val()!='')&& ($("body #form_"+get_id+" input[name=zipcode]").val()!='')&& ($("body #form_"+get_id+" input[name=phoneno1]").val()!='')){
+		$(this).val('Adding...');
 		var formdata = $('body #form_'+get_id).serialize();
 		$.ajax({
 			type: 'POST',
 			url: '/checklogin.php',
 			data: formdata,
 			success: function(resp){
-	        	alert(resp);		
+	        	alert(resp);
+				$(this).val('Save Address');				
 			}
 		});
 		}
