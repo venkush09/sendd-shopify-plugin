@@ -11,6 +11,7 @@ $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_ur
 			<h3>Pickup Address <?php echo $i; ?></h3>
   <form action="" method="POST" id="form_<?php echo $i; ?>">
     <input name="saveaddress" type="hidden" value="<?php echo $i; ?>"><input type="hidden" name="shop_url" value="<?php echo $shop_url; ?>">
+	<input type="text" name="companyname" placeholder="Company Name" value="<?php echo trim($row['companyname'])?>" required>
     <input type="text" name="username" placeholder="Name" value="<?php echo trim($row['name'])?>" required>
     <textarea  name="address_line1" placeholder="Adrress 1" required maxlength="60"><?php echo trim($row['address_line1']);?></textarea>
     <textarea name="address_line2" placeholder="Adrress 2"  maxlength="60"><?php echo trim($row['address_line2']);?></textarea>
@@ -33,7 +34,7 @@ $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_ur
 <script>
 $("#add_new_address").click(function() {
 var address_id = parseInt($('body .formmain').length+1);	
-	var planDiv = '<div class="formmain"><h3>Pickup Address '+address_id+'</h3> <form action="" method="POST" id="form_'+address_id+'"><input type="hidden" name="shop_url" value="<?php echo $shop_url; ?>"><input type="hidden" value="'+address_id+'" name="saveaddress" ><input type="text" placeholder="Name" name="username" value="" required><textarea name="address_line1"  required maxlength="60" placeholder="Address 1"></textarea><textarea name="address_line2"  maxlength="60" placeholder="Adrress 2"></textarea><input type="text" name="city" value="" required placeholder="city"><input type="text" name="zipcode" placeholder="Zip Code" value="" required><input type="text" name="phoneno" placeholder="Phone No" value="" required> <input type="button" name="saveaddress"  id="'+address_id+'" class="savebtn" value="Save Address"></form></div>'; 
+	var planDiv = '<div class="formmain"><h3>Pickup Address '+address_id+'</h3> <form action="" method="POST" id="form_'+address_id+'"><input type="hidden" name="shop_url" value="<?php echo $shop_url; ?>"><input type="hidden" value="'+address_id+'" name="saveaddress" ><input type="text" placeholder="Company Name" name="companyname" value="" required><input type="text" placeholder="Name" name="username" value="" required><textarea name="address_line1"  required maxlength="60" placeholder="Address 1"></textarea><textarea name="address_line2"  maxlength="60" placeholder="Adrress 2"></textarea><input type="text" name="city" value="" required placeholder="city"><input type="text" name="zipcode" placeholder="Zip Code" value="" required><input type="text" name="phoneno" placeholder="Phone No" value="" required> <input type="button" name="saveaddress"  id="'+address_id+'" class="savebtn" value="Save Address"></form></div>'; 
 		$("div[class^=addnewaddress]:last").after(planDiv);
 	});
 
