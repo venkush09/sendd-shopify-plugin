@@ -33,16 +33,16 @@ $pickup_address = pg_query($dbconn4, "SELECT * FROM pickup_address WHERE shop_ur
 <script>
 $("#add_new_address").click(function() {
 var address_id = parseInt($('body .formmain').length+1);	
-	var planDiv = '<div class="formmain"><h3>Pickup Address '+address_id+'</h3> <form action="" method="POST" id="form_'+address_id+'"><input type="hidden" name="shop_url" value="<?php echo $shop_url; ?>"><input type="hidden" value="'+address_id+'" name="saveaddress" placeholder="Name"><input type="text" name="username" value="" required><textarea name="address_line1"  required max="60" placeholder="Address 1"></textarea><textarea name="address_line2"  max="60" placeholder="Adrress 2"></textarea><input type="text" name="city" value="" required placeholder="city"><input type="text" name="zipcode" placeholder="Zip Code" value="" required><input type="text" name="phoneno" placeholder="Phone No" value="" required> <input type="button" name="saveaddress"  id="'+address_id+'" class="savebtn" value="Save Address"></form></div>'; 
+	var planDiv = '<div class="formmain"><h3>Pickup Address '+address_id+'</h3> <form action="" method="POST" id="form_'+address_id+'"><input type="hidden" name="shop_url" value="<?php echo $shop_url; ?>"><input type="hidden" value="'+address_id+'" name="saveaddress" ><input type="text" placeholder="Name" name="username" value="" required><textarea name="address_line1"  required max="60" placeholder="Address 1"></textarea><textarea name="address_line2"  max="60" placeholder="Adrress 2"></textarea><input type="text" name="city" value="" required placeholder="city"><input type="text" name="zipcode" placeholder="Zip Code" value="" required><input type="text" name="phoneno" placeholder="Phone No" value="" required> <input type="button" name="saveaddress"  id="'+address_id+'" class="savebtn" value="Save Address"></form></div>'; 
 		$("div[class^=addnewaddress]:last").after(planDiv);
 	});
 
 	$('body').on('click', '.savebtn', function(e) {
 	   e.preventDefault();
 	   var get_id = $(this).attr('id');
-		if(($("#form_"+get_id+"input[name=username]").val()!='') && ($("#form_"+get_id+"input[name=address_line1]").val()!='')&& ($("#form_"+get_id+"input[name=address_line2]").val()!='')&& ($("#form_"+get_id+"input[name=city]").val()!='')&& ($("#form_"+get_id+"input[name=zipcode]").val()!='')&& ($("#form_"+get_id+"input[name=phoneno1]").val()!='')){
+		if(($("body #form_"+get_id+"input[name=username]").val()!='') && ($("body #form_"+get_id+"input[name=address_line1]").val()!='')&& ($("body #form_"+get_id+"input[name=address_line2]").val()!='')&& ($("body #form_"+get_id+"input[name=city]").val()!='')&& ($("body #form_"+get_id+"input[name=zipcode]").val()!='')&& ($("body #form_"+get_id+"input[name=phoneno1]").val()!='')){
 		
-		var formdata = $('#form_'+get_id).serialize();
+		var formdata = $('body #form_'+get_id).serialize();
 		$.ajax({
 			type: 'POST',
 			url: '/checklogin.php',
