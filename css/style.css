@@ -308,6 +308,10 @@ input[type=checkbox] {
     min-height: 500px;
     width: 18%;
 	padding: 20px;
+	margin-right: 20px;
+}
+#login_form h3 {
+    margin-bottom: 20px;
 }
 .sidebar li {
     list-style: none;
@@ -366,4 +370,10 @@ input[type=checkbox] {
     border-radius: 2px;
     font-family: "Open Sans",sans-serif;
     text-transform: uppercase;
+}
+.table-hover.expanded th {
+    font-size: 12px;
+}
+.table-hover.expanded th span {
+    padding: 0px;
 }
