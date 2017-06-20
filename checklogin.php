@@ -3,9 +3,9 @@ session_start();
 require __DIR__.'/connection.php'; //DB connectivity
 	$shop_url = $_POST['shop_url'];
 	if(isset($_REQUEST['access_key']) || $_REQUEST['access_key']!=''){
-			 $access_key= $_POST['access_key'];
-			 $email= $_POST['email'];
-			 $password= $_POST['password'];
+			 $access_key= trim($_POST['access_key']);
+			 $email= trim($_POST['email']);
+			 $password= trim($_POST['password']);
 	 $user_exist = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$shop_url}' and  access_key = '{$access_key}'");
 		if(pg_num_rows($user_exist)){
 			$user_exist = pg_query($dbconn4, "UPDATE user_table SET access_key ='{$access_key}' , email='{$email}' , password='{$password}'  WHERE store_url = '{$shop_url}'");
