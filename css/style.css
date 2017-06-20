@@ -332,16 +332,22 @@ input[type=checkbox] {
   width: 73%;
 }
 .pickupaddress input {
-  margin: 5px;
-  padding: 10px 5px;
-  width: 45%;
+    margin: 0 15px 10px 0;
+    padding: 8px;
+    width: 45%;
+    border: solid 1px #ccc;
+	border-radius: 2px;
 }
 .pickupadreess textarea {
-  display: block;
-  float: none;
-  height: 100px;
-  margin: 5px;
-  width: 50%;
+    display: block;
+    float: none;
+    height: 100px;
+    margin: 0 20px 10px 0;
+    width: 45%;
+    float: left;
+    padding: 5px 10px;
+    border: solid 1px #ccc;
+	border-radius: 2px;
 }
 #login_form {
     max-width: 550px;
@@ -350,6 +356,7 @@ input[type=checkbox] {
 #login_form label {
     width: 100%;
     float: left;
+	font-weight: normal;
 }
 #login_form input[type="text"], #login_form input[type="password"] {
     width: 100%;
@@ -357,6 +364,7 @@ input[type=checkbox] {
     border: solid 1px #ccc;
     padding: 5px;
     margin-bottom: 10px;
+	border-radius: 2px;
 }
 #login_form input[type="submit"] {
     background: #94be46;
@@ -373,6 +381,17 @@ input[type=checkbox] {
 }
 .table-hover.expanded th {
     font-size: 12px;
+}
+.pickupaddress input[type="button"] {
+    background: #94be46;
+    color: #fff;
+    border-top: none;
+    border-radius: 2px;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #5f8d3e;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 .table-hover.expanded th span {
     padding: 0px;
