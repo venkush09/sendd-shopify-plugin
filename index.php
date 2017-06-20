@@ -74,7 +74,8 @@ $('.page_list li a').click(function(){
 						$('.orderform').show();		
 					}else{
 					 $('.content').children().hide();
-						$('.error_msg').show();			
+						$('.error_msg').show();	
+					$('.orderform').hide();						
 					}
 				});
 	 }
