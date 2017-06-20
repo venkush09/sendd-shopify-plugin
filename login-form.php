@@ -50,11 +50,12 @@ $('#login').click(function(e){
 				  var shop_url = "<?php echo $_SESSION['shop'];?>";
 				$.post('/checklogin.php', {access_key:access_key,shop_url:shop_url,email:email,password:password}, function(resp){
 					console.log("resp="+resp);
+					if(resp!=''){
 					alert(resp);
 						$('.msg').html(resp);		
-					/*}else{
+					}else{
 						$('.msg').html('error while saving data');			
-					} */
+					} 
 				});
 				}
 				else{
