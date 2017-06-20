@@ -322,6 +322,10 @@ input[type=checkbox] {
 .sidebar li a {
     color: #fff;
     text-decoration: none;
+    padding: 7px 15px;
+    border-bottom: solid 1px #383d42;
+    width: 100%;
+    float: left;
 }
 .sidebar li a:hover, .sidebar li.selected a {
     color: #94be46;
@@ -334,7 +338,7 @@ input[type=checkbox] {
 .pickupaddress input {
     margin: 0 15px 10px 0;
     padding: 8px;
-    width: 45%;
+    width: 47%;
     border: solid 1px #ccc;
 	border-radius: 2px;
 }
@@ -343,7 +347,7 @@ input[type=checkbox] {
     float: none;
     height: 100px;
     margin: 0 20px 10px 0;
-    width: 45%;
+    width: 47%;
     float: left;
     padding: 5px 10px;
     border: solid 1px #ccc;
@@ -401,4 +405,8 @@ input[type=checkbox] {
     margin-bottom: 10px;
     display: inline-block;
     width: 100%;
+    float: right;
+    text-align: right;
+    margin-right: 32px;
+    text-decoration: none;
 }
