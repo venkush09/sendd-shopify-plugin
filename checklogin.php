@@ -10,14 +10,15 @@ require __DIR__.'/connection.php'; //DB connectivity
 		if(pg_num_rows($user_exist)){
 			$user_exist = pg_query($dbconn4, "UPDATE user_table SET access_key ='{$access_key}' , email='{$email}' , password='{$password}'  WHERE store_url = '{$shop_url}'");
 				if($user_exist){
-					echo "login  sucessfully";
+					echo "login details update  sucessfully";
+					
 				}
 		}
 		else {
 			$sql = "insert into user_table (access_key, store_url ,email,password) values ('$access_key', '$shop_url','$email','$password')";
 			$qry = pg_query($sql);
 			if($qry){
-				echo "login details update  sucessfully";
+				echo "login  sucessfully";
 			}
 		}
 	}
