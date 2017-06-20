@@ -335,7 +335,7 @@ input[type=checkbox] {
   width: 73%;
 }
 .pickupaddress input {
-    margin: 0 15px 10px 0;
+    margin: 0 15px 15px 0;
     padding: 8px;
     width: 47%;
     border: solid 1px #ccc;
@@ -345,7 +345,7 @@ input[type=checkbox] {
     display: block;
     float: none;
     height: 100px;
-    margin: 0 20px 10px 0;
+    margin: 0 20px 15px 0;
     width: 47%;
     float: left;
     padding: 5px 10px;
