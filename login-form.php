@@ -46,6 +46,7 @@ $('#login').click(function(e){
 				if(this.responseText.indexOf('key')){
 			      var access_key=JSON.parse(this.responseText);
 				  access_key =access_key.key;
+				  alert(access_key);
 				  var shop_url = "<?php echo $_SESSION['shop'];?>";
 				$.post('/checklogin.php', {access_key:access_key,shop_url:shop_url,email:email,password:password}, function(resp){
 					console.log("resp="+resp);
