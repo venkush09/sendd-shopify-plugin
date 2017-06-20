@@ -396,3 +396,9 @@ input[type=checkbox] {
 .table-hover.expanded th span {
     padding: 0px;
 }
+.pickupadreess a.delete_address {
+    color: #ff0000;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 100%;
+}
