@@ -307,6 +307,20 @@ input[type=checkbox] {
     float: left;
     min-height: 500px;
     width: 18%;
+	padding: 20px;
+}
+.sidebar li {
+    list-style: none;
+    width: 100%;
+    float: left;
+    padding-bottom: 5px;
+}
+.sidebar li a {
+    color: #fff;
+    text-decoration: none;
+}
+.sidebar li a:hover, .sidebar li.selected a {
+    color: #94be46;
 }
 .content {
   float: left;
@@ -325,5 +339,31 @@ input[type=checkbox] {
   margin: 5px;
   width: 50%;
 }
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
+#login_form {
+    max-width: 550px;
+    width: 100%;
+}
+#login_form label {
+    width: 100%;
+    float: left;
+}
+#login_form input[type="text"], #login_form input[type="password"] {
+    width: 100%;
+    float: left;
+    border: solid 1px #ccc;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+#login_form input[type="submit"] {
+    background: #94be46;
+    border-bottom: 2px solid #5f8d3e;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    padding: 10px 30px;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 2px;
+    font-family: "Open Sans",sans-serif;
+    text-transform: uppercase;
+}
