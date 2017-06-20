@@ -1,3 +1,22 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Marketplace
+Gist
+ @Anish-Jajodia
+ Sign out
+ Watch 0
+  Star 0
+  Fork 0 Anish-Jajodia/sendd-shipping
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Settings Insights 
+Branch: master Find file Copy pathsendd-shipping/css/style.css
+93f642f  23 hours ago
+@Anish-Jajodia Anish-Jajodia Update style.css
+1 contributor
+RawBlameHistory     
+309 lines (302 sloc)  5.67 KB
 /*google fonts*/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700');
 /*google fonts*/
@@ -283,11 +302,11 @@ input[type=checkbox] {
   width: 40%;
 }
 .sidebar {
-  background: #000 none repeat scroll 0 0;
-  color: #fff;
-  float: left;
-  min-height: 500px;
-  width: 25%;
+    background: #31373d none repeat scroll 0 0;
+    color: #fff;
+    float: left;
+    min-height: 500px;
+    width: 18%;
 }
 .content {
   float: left;
@@ -306,3 +325,5 @@ input[type=checkbox] {
   margin: 5px;
   width: 50%;
 }
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help
