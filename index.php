@@ -314,15 +314,15 @@ $('.page_list li a').click(function(){
 		       	var request = new XMLHttpRequest();
 				
                /* live api */
-			 /*request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
+			 request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e'); */
+			request.setRequestHeader('Authorization', 'Token 0eb688db8076a89861b3885a9cccdcc30edc7a0e');
 			/* live api */
 			
 			/* test api */
-			request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
+			/*request.open('POST', 'https://api-staging.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', access_key);
+			request.setRequestHeader('Authorization', access_key);*/
 			/* test api */
 			
 			request.onreadystatechange = function () {
