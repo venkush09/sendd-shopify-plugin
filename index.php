@@ -62,7 +62,7 @@ $('.page_list li a').click(function(){
 	 
 	 if(show_div =='orderform'){
 	  var shop_url = "<?php echo $_SESSION['shop'];?>";
-				$.post('/checklogin.php', {shop_url:shop_url}, function(resp){
+				$.post('/checklogin.php', {shop_url:shop_url,getaccesstoken:1}, function(resp){
 					console.log("resp="+resp);
 					//var resp1= resp.find('.session_email').html();
 					if(resp!=''){
