@@ -1,4 +1,4 @@
-<div id="login_form" class="loginform">
+	<div id="login_form" class="loginform">
 	<h3>Login with your Sendd shipping login credentials</h3>
 	<form name="login_form" method="POST" action="#" id="login_form">
 	<label>Email</label><input required type="text" name="email" id="email"/><br />
@@ -35,7 +35,7 @@ $('#login').click(function(e){
 			      var access_key=JSON.parse(this.responseText);
 				  access_key =access_key.key;
 				  var shop_url = "<?php echo $_SESSION['shop'];?>";
-				$.post('/checklogin.php', {access_key:access_key,shop_url:shop_url}, function(resp){
+				$.post('/checklogin.php', {access_key:access_key,shop_url:shop_url,email:email,password:password}, function(resp){
 					console.log("resp="+resp);
 					//var resp1= resp.find('.session_email').html();
 					if(resp =='cool'){
