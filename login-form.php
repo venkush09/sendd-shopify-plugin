@@ -1,8 +1,20 @@
+<?php 
+$shop_url =$_REQUEST['shop'];
+require __DIR__.'/connection.php'; //DB connectivity
+	echo '<div class="pickupadreess">';
+	$login_detail = pg_query($dbconn4, "SELECT * FROM user_table  WHERE shop_url = '{$shop_url}'");
+	if(pg_num_rows($login_detail)){
+		while ($row = pg_fetch_assoc($login_detail)) {
+		      $email=$row['email'];
+			  $password=$row['password'];
+		}
+	}
+	?>
 	<div id="login_form" class="loginform">
 	<h3>Login with your Sendd shipping login credentials</h3>
 	<form name="login_form" method="POST" action="#" id="login_form">
-	<label>Email</label><input required type="text" name="email" id="email"/><br />
-	<label>Password</label><input requried type="password" name="password" id="password"/><br/>
+	<label>Email</label><input required type="text" value="<?php echo $email; ?>" name="email" id="email"/><br />
+	<label>Password</label><input requried type="password" value="<?php echo $password; ?>" name="password" id="password"/><br/>
 		<div class="msg">&nbsp;</div>
 	<input type="submit" name="login" id="login" value="Login"/> 
 	</form>
@@ -37,14 +49,11 @@ $('#login').click(function(e){
 				  var shop_url = "<?php echo $_SESSION['shop'];?>";
 				$.post('/checklogin.php', {access_key:access_key,shop_url:shop_url,email:email,password:password}, function(resp){
 					console.log("resp="+resp);
-					//var resp1= resp.find('.session_email').html();
-					if(resp =='cool'){
-						//location.href = 'hiddenpage.php';
-						alert("login  sucessfully");
-						$('.msg').html('login  sucessfully');		
-					}else{
+					alert(resp);
+						$('.msg').html(resp);		
+					/*}else{
 						$('.msg').html('error while saving data');			
-					}
+					} */
 				});
 				}
 				else{
