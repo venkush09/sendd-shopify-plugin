@@ -307,7 +307,6 @@ input[type=checkbox] {
     float: left;
     min-height: 500px;
     width: 18%;
-	padding: 20px;
 	margin-right: 20px;
 }
 #login_form h3 {
