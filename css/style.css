@@ -316,7 +316,6 @@ input[type=checkbox] {
     list-style: none;
     width: 100%;
     float: left;
-    padding-bottom: 5px;
 }
 .sidebar li a {
     color: #fff;
