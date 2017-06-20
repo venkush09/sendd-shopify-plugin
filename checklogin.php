@@ -23,7 +23,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 		}
 	}
 	
-		if(isset($_REQUEST['getaccesstoken]) || $_REQUEST['getaccesstoken]!=''){
+		if(isset($_REQUEST['getaccesstoken']) || $_REQUEST['getaccesstoken']!=''){
 			$user_exist = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$shop_url}'");
 			if(pg_num_rows($user_exist)){
 
