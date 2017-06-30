@@ -317,7 +317,7 @@ $('.page_list li a').click(function(){
                /* live api */
 			 request.open('POST', 'https://api.sendd.co/core/api/v1/order/');
 			request.setRequestHeader('Content-Type', 'application/json');
-			request.setRequestHeader('Authorization', 'Token '+access_key);
+			request.setRequestHeader('Authorization', access_key);
 			/* live api */
 			
 			/* test api */
