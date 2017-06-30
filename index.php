@@ -447,7 +447,8 @@ $('.page_list li a').click(function(){
 					url: '/trackingcode.php?access_token='+access_token+'&shop='+shop+'&trackingcode='+tracking_no+'&trackingcompany='+tracking_company+'&order_id='+order_id,
 					success: function(data){
 						console.log(data);
-						alert('Tracking Code Added Successfully!');
+						//alert('Tracking Code Added Successfully!');
+						$('.put_track').after('<p style="color:red">Tracking Code Added Successfully!</p>');
 						order_count(); // call order function 
 					}
 				}); 
