@@ -180,6 +180,8 @@ $('.page_list li a').click(function(){
 				//alert(pickup_address);
 			$('.select_box:checkbox:checked').each(function(index){
 				    var order_id = $(this).val(); 
+					var order_name1 = $(this).parent().next('td').html();
+					alert(order_name1);					
 					var customer_email = $(this).attr('data-customer_email');
 					var customer_name = $(this).attr('data-customer_name');
 					var customer_address = $(this).attr("data-fulladdress");
