@@ -285,6 +285,10 @@ $('.page_list li a').click(function(){
 		   var order_id = $('.total_weight',this).attr('data-order_id');
 		   var order_name1 = $('.total_weight',this).attr('data-order_name');
 		   var products_name = $('.total_weight',this).attr('data-products_name');
+		   // set the description limit to 100
+		     if (products_name.length > 100){
+					products_name=products_name.substring(0,100);
+				}
 		   var financial_status = $('.total_weight',this).attr('data-financial_status');
 		   customer_address1 = customer_address.split(',city');
 				
