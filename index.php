@@ -181,7 +181,6 @@ $('.page_list li a').click(function(){
 			$('.select_box:checkbox:checked').each(function(index){
 				    var order_id = $(this).val(); 
 					var order_name1 = $(this).parent().next('td').html();
-					alert(order_name1);					
 					var customer_email = $(this).attr('data-customer_email');
 					var customer_name = $(this).attr('data-customer_name');
 					var customer_address = $(this).attr("data-fulladdress");
@@ -192,7 +191,7 @@ $('.page_list li a').click(function(){
 					var total_weight = $(this).attr('data-total_weight');
 					var quantity_total = $(this).attr('data-quantity_total');
 					var financial_status = $(this).attr('data-financial_status');
-					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-quantity_total="'+quantity_total+'" data-financial_status="'+financial_status+'" class="total_weight"> <div class="fhalf">'+pickup_address+'</div>';
+					content ='<div class="item"><div class="item_inner"><h3>Shipping information</h3><input type="hidden" value="'+total_weight+'" data-order_id="'+order_id+'" data-order_name="'+order_name1+'"  data-quantity_total="'+quantity_total+'" data-financial_status="'+financial_status+'" class="total_weight"> <div class="fhalf">'+pickup_address+'</div>';
 					content = content + '<div class="shalf"><label>Customer Name:</label><input type="text" class="customer_name" value="'+customer_name+'"><br><label>Customer Email:</label><input type="text" class="customer_email" value="'+customer_email+'"><br><label>Customer phone:</label><input type="text" class="customer_phone" value="'+customer_phone+'"><br><label>Customer Address:</label><textarea class="customer_address" value="'+customer_address+'">'+customer_address+'</textarea><label>Total amount pay:</label><input type="text" class="customer_total_price" value="'+customer_total_price+'">';
 					content = content + '<br><label>Payment Type: <p class="payment_method">"'+payment_method+'"</p></label>';
 					content = content + '<br><div class="c_type"><label>Content</label><span><input type="radio" checked value="P" name="content_type" class="content_type">Product</span> <span><input type="radio" value="D" name="content_type" class="content_type">Documents</span></div></div></div>';
@@ -283,6 +282,7 @@ $('.page_list li a').click(function(){
 		   }
 		   var total_qty = $('.total_weight',this).attr('data-quantity_total');
 		   var order_id = $('.total_weight',this).attr('data-order_id');
+		   var order_name1 = $('.total_weight',this).attr('data-order_name');
 		   var financial_status = $('.total_weight',this).attr('data-financial_status');
 		   customer_address1 = customer_address.split(',city');
 				
@@ -348,10 +348,10 @@ $('.page_list li a').click(function(){
 								}
 						});
 					 /* add the tracking code in order note */
-					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message = Successfully Shipped</div>");
+					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_name1+" Message = Successfully Shipped</div>");
 				}
 				else if(json['detail']){
-					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message ="+json['detail']+"</div>");
+					$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_name1+" Message ="+json['detail']+"</div>");
 				}
 				else{
 					var error_msg='';
@@ -363,7 +363,7 @@ $('.page_list li a').click(function(){
 							});
 							error_msg=error_msg+'<br>';
 						});
-						$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_id+" Message ="+error_msg+"</div>");
+						$('.item_inner.last').append("<div class='response_msg'>Order id ="+order_name1+" Message ="+error_msg+"</div>");
 						
 					
 				}
