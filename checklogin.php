@@ -6,7 +6,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 			 $access_key= trim($_POST['access_key']);
 			 $email= trim($_POST['email']);
 			 $password= trim($_POST['password']);
-	 $user_exist = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$shop_url}' and  access_key = '{$access_key}'");
+	 $user_exist = pg_query($dbconn4, "SELECT * FROM user_table WHERE store_url = '{$shop_url}'");
 		if(pg_num_rows($user_exist)){
 			$user_exist = pg_query($dbconn4, "UPDATE user_table SET access_key ='{$access_key}' , email='{$email}' , password='{$password}'  WHERE store_url = '{$shop_url}'");
 				if($user_exist){
