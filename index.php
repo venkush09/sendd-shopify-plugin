@@ -65,6 +65,7 @@ $('.page_list li a').click(function(){
 				$.post('/checklogin.php', {shop_url:shop_url,getaccesstoken:1}, function(resp){
 					console.log("resp="+resp);
 					//var resp1= resp.find('.session_email').html();
+					resp=$.trim(resp);
 					if(resp!=''){
 						//location.href = 'hiddenpage.php';
 						$('.access_token_val').val(resp);
