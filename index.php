@@ -384,7 +384,7 @@ $('.page_list li a').click(function(){
 				
 					  
 			var body = {
-			  'customer_reference_id':order_id,
+			  'customer_reference_id':order_name1,
 			  'shipments': [
 				{
 				  'item_detail': {
