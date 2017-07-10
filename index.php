@@ -452,7 +452,7 @@ $('.page_list li a').click(function(){
 					success: function(data){
 						console.log(data);
 						//alert('Tracking Code Added Successfully!');
-						$('.put_track').after('<p style="color:red">Tracking Code Added Successfully!</p>');
+						$(this).after('<p style="color:red">Tracking Code Added Successfully!</p>');
 						order_count(); // call order function 
 					}
 				}); 
